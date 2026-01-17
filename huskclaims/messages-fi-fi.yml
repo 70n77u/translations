@@ -58,7 +58,7 @@ locales:
   claim_tool_required: "[Sinulla on oltava tonttilapio kädessä tehdäksesi tuon](#ef4444)"
   selection_resize_not_enclosing_children: "[Tontin kokoa ei voitu muuttaa, sillä osa alitonteista jäisi tontin ulkopuolelle](#ef4444)"
   selection_child_not_enclosing_parent: "[Alitontin kokoa ei voitu muuttaa, sillä se ei olisi enää kokonaan tontin sisällä](#ef4444)"
-  selection_child_no_parent: "Olet [alitonttitilassa](#a78bfa). Alitonttien on oltava kokonaan tontin sisäpuolella. Voit vaihtaa tavalliseen tonttitilaan kirjoittamalla] [/claim](#a78bfa show_text=Paina liittääksesi komento chattiin suggest_command=/claim)"
+  selection_child_no_parent: "Olet [alitonttitilassa](#a78bfa). Alitonttien on oltava kokonaan tontin sisäpuolella. Voit vaihtaa tavalliseen tonttitilaan kirjoittamalla [/claim](#a78bfa show_text=Paina liittääksesi komento chattiin suggest_command=/claim)"
   claim_selection_create: "Asetettiin kulma perustontille. Klikkaa hiiren oikealla painikkeella asettaaksesi toisen kulman"
   claim_selection_create_child: "Asetettiin kulma alitontille. Klikkaa hiiren oikealla painikkeella asettaaksesi toisen kulman"
   claim_selection_resize: "Muutetaan tontin kokoa. Klikkaa hiiren oikealla painikkeella asettaaksesi uuden kulman sijainnin"
