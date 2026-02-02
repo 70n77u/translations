@@ -24,7 +24,7 @@ locales:
   tpaall_request_sent: "Lähetettiin pyyntö kaikille pelaajille"
   tpa_request_received: "[%1%](#a78bfa) pyytää lupaa teleportata luoksesi"
   tpahere_request_received: "[%1%](#a78bfa) pyytää sinua teleporttaamaan hänen luokse"
-  teleport_request_buttons: '[[Hyväksy…]](#4ade80 show_text=Hyväksy teleporttauspyyntö\nPaina hyväksyäksesi pelaajan %1% teleporttauspyyntö run_command=/huskhomes:tpaccept %1%)   [[Hylkää…]](#ef4444 show_text=Hylkää teleporttauspyyntö\nPaina hylkääksesi pelaajan %1% teleporttauspyynnön run_command=/huskhomes:tpdeny %1%)'
+  teleport_request_buttons: '[[Hyväksy]](#4ade80 show_text=Hyväksy teleporttauspyyntö run_command=/huskhomes:tpaccept %1%)   [[Hylkää]](#ef4444 show_text=Hylkää teleporttauspyyntö run_command=/huskhomes:tpdeny %1%)'
   teleport_request_accepted_confirmation: "Teleporttauspyyntö hyväksytty"
   teleport_request_declined_confirmation: "Teleporttauspyyntö hylätty"
   teleport_request_accepted: "[%1%](#a78bfa) hyväksyi teleporttauspyyntösi"
