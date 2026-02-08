@@ -65,7 +65,7 @@ locales:
   edit_warp_menu_use_buttons: "[[Teleporttaa...]](#a78bfa show_text=Paina teleportataksesi warpille run_command=/huskhomes:warp %1%)"
   edit_warp_menu_manage_buttons: '[[Poista...]](#ef4444 show_text=Paina poistaaksesi warpin\nPoistoa ei voi peruuttaa suggest_command=/huskhomes:delwarp %1%)   [[Aseta…]](show_text=Paina asettaaksesi warpin sijaintiisi run_command=/huskhomes:editwarp %1% relocate)'
   edit_warp_menu_meta_edit_buttons: "[[Nimeä uudelleen...]](#a78bfa show_text=Paina ehdottaaksesi suggest_command=/huskhomes:editwarp %1% rename )   [[Kuvaus...]](#a78bfa show_text=Paina ehdottaaksesi suggest_command=/huskhomes:editwarp %1% description )"
-  edit_warp_update_location: "Asetettiin warp [%1%] nykyiseen sijaintiin"
+  edit_warp_update_location: "Asetettiin warp [%1%](#a78bfa) nykyiseen sijaintiin"
   edit_warp_update_description: '[Vaihdettiin warpin kuvausta %1%:](#00fb9a) \n[←](white) [Vanha:](#00fb9a) ["%2%"](gray)\n[→](white) [Uusi:](#00fb9a) ["%3%" ](gray)'
   edit_warp_update_name: "[Uudelleennimettiin warp](#00fb9a)"
   home_list_page_title: '[Pelaajan %1% kodit:](#00fb9a) [(%2%-%3% of](#00fb9a) [%4%](#00fb9a bold)[)](#00fb9a)\n'
