@@ -65,7 +65,8 @@ additions:
       - "<#facc15>Syy:"
       - "<#94a3b8>%REASON%"
       - ""
-      - "Voit hakea rangaistukseesi muutosta avaamalla tiketin FabiCraftin Discordissa komennolla <#a78bfa>/ticket"
+      - "Voit hakea rangaistukseesi muutosta avaamalla"
+      - "tiketin FabiCraftin Discordissa komennolla <#a78bfa>/ticket"
     usage: "<#ef4444>Käyttö: <#facc15>/mute <pelaaja> [aika] <syy>"
     permission:
       duration: "<#ef4444>Et voi tehdä tätä ajaksi <#facc15>%DURATION%"
@@ -87,7 +88,8 @@ additions:
       - "<#facc15>Syy:"
       - "%REASON%"
       - ""
-      - "Voit hakea rangaistukseesi muutosta avaamalla tiketin FabiCraftin Discordissa komennolla <#a78bfa>/ticket"
+      - "Voit hakea rangaistukseesi muutosta avaamalla"
+      - "tiketin FabiCraftin Discordissa komennolla <#a78bfa>/ticket"
     usage: "<#ef4444>Käyttö: <#facc15>/ban <pelaaja> [aika] <syy>"
     permission:
       duration: "<#ef4444>Et voi tehdä tätä ajaksi <#facc15>%DURATION%"
