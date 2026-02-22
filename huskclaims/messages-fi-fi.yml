@@ -194,7 +194,7 @@ locales:
   claim_entered: "Saavuit pelaajan [%1%](#a78bfa) tontille"
   claim_exited: "Poistuit pelaajan [%1%](#a78bfa) tontilta"
   pet_owned_by: "Tämä lemmikki kuuluu pelaajalle [%1%](#a78bfa)"
-  pet_transferred: "Lemmikin omistaja vaihdettu pelaajalta [%1%](#a78bfa) pelaajalle [%2%](#a78bfa)"
+  pet_transferred: "Lemmikin omistajuus siirretty pelaajalle [%2%](#a78bfa)"
   sign_notify_on: "Kylttien moderointi-ilmoitukset ovat nyt käytössä"
   sign_notify_off: "Kylttien moderointi-ilmoitukset ovat nyt pois käytöstä"
   sign_write_notify: "[%1%](#a78bfa) kirjoitti kylttiin sijainnissa %2%: %3%\\n[- ](#94a3b8)%4%"
