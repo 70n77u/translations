@@ -28,12 +28,12 @@
 #
 
 no-perms: '%prefix%&cInsufficient permissions!'
-disabled: '&cThis feature is disabled :('
-too-few-args: '&cNot enough arguments :('
-cooldown: '%prefix%&cPlease wait %cooldown% seconds before using this command again.'
+disabled: '&cTämä ominaisuus on poissa käytöstä'
+too-few-args: '&cEi tarpeeksi argumentteja'
+cooldown: '%prefix%&cOdota %cooldown% sekuntia ennen kuin käytät komentoa uudelleen'
 maintenance: '%prefix%&cOops, it seems there''s a maintenance break: this action is
   unavailable as maintenance is underway. Please wait until the maintenance is over!'
-not-found-player: '&c Player is offline.'
+not-found-player: '&c Pelaaja ei ole paikalla'
 only-players: '&c This command can be used only as player.'
 only-alive: '%prefix%&cThis cannot be accessed by dead players, you need to respawn!'
 only-debug: '&c This experimental feature cannot be accessed, because debug mode of
@@ -42,18 +42,17 @@ only-debug: '&c This experimental feature cannot be accessed, because debug mode
 commands:
   join:
     help: '%prefix%&fTo connect to the world with ID, use: &6/join ID'
-    connecting: '%prefix%Connecting &6%player%&f to world %id%...'
-    failed: '%prefix%&cFailed to connect to this world O_o'
+    connecting: '%prefix%Yhdistetään pelaajaa &6%player%&f maailmaan %id%...'
+    failed: '%prefix%&cYhteyden muodostaminen maailmaan epäonnistui'
   join-to:
-    help: '%prefix%&fTo connect to the world, where player is currently in, use: &6/jointo
-      Username'
+    help: '%prefix%&fYhdistääksesi maailmaan, jossa on pelaaja, käytä: &6/jointo Username'
   give:
     help: |-
       %prefix%To give an item to yourself or a player in your world, use:
        &6/give ID &7- Give an item to yourself
        &6/give Username ID &7- Give an item to a player
        &6/give Username ID Amount &7- Give an item with a specific amount to a player
-    wrong: '%prefix%&cThis item does not exist O_o'
+    wrong: '%prefix%&cTavaraa ei ole olemassa'
     given: '%prefix%You received item &6%material%&f x%amount%.'
     given-player: '%prefix%You gave item &6%material%&f x%amount% to player &6%player%&f.'
     wrong-amount: '%prefix%&cYou specified the amount incorrectly, it should be a
@@ -62,19 +61,17 @@ commands:
     wrong: '%prefix%&cYou specified an incorrect game mode. Allowed modes: creative,
       survival, adventure, spectator.'
     changed:
-      creative: '%prefix%You are now in &6creative&f mode, allowing you to get any
+      creative: '%prefix%Pelitilaksesi on vaihdettu &6luovuustila&f. You can get any
         items, fly over the world, build, and take no damage.'
-      survival: '%prefix%You switched to &6survival&f mode, allowing you to modify
-        the world and take damage.'
-      spectator: '%prefix%You are now &6spectating&f the world! Possess a mob or player
-        by left-clicking.'
+      survival: '%prefix%Pelitilaksesi on vaihdettu &selviytymistila&f. Voit muokata maailmaa ja ottaa vahinkoa.'
+      spectator: '%prefix%Pelitilaksesi on vaihdettu &6katsojatila&f. Possess a mob or player by left-clicking.'
       adventure: '%prefix%You are now in &6adventure&f mode, where you cannot place
         or break blocks. Explore the world!'
     changed-player:
       creative: |-
         %prefix%You set &6creative&f mode for player &6%player%&f. Now they can fly, get any items, and build.
          &cHowever, they can still break blocks in your world. If you don't trust them, set their mode to adventure: /gamemode adventure %player%
-      survival: '%prefix%You set &6survival&f mode for player &6%player%&f. Now they
+      survival: '%prefix%Asetettiin pelaajan &6%player%&f pelitilaksi &6selviytymistila&f. Now they
         can build, break blocks, and take damage.'
       spectator: '%prefix%You set &6spectator&f mode for player &6%player%, now they
         can only observe the world.'
@@ -86,52 +83,51 @@ commands:
        &6/gamemode Username creative &7- Set a player to creative mode
   time:
     help: |-
-      %prefix%Change the time of day in your world — this will affect the sky, block brightness, and world behavior.
-       &6/time set 0 &7- Sets day
-       &6/time set 12500 &7- Sets evening
-       &6/time set 15000 &7- Sets night
+      %prefix%Muuta maailmasi aikaa — this will affect the sky, block brightness, and world behavior.
+       &6/time set 0 &7- Asettaa päivän
+       &6/time set 12500 &7- Asettaa illan
+       &6/time set 15000 &7- Asettaa yön
        &6/time add 1000 &7- Skips 1000 ticks
-    changed: '%prefix%You set the world time to: &6%time%'
+    changed: '%prefix%Maailman ajaksi asetettu &6%time%'
   weather:
     help: |-
       %prefix%Change the weather in your world to sunny, rainy, or even stormy!
-       &6/weather sun &7- Sets sunny weather
-       &6/weather rain &7- Sets rainy weather
-       &6/weather thunder &7- Sets rain with thunder and lightning
+       &6/weather sun &7- Asettaa aurinkoisen sään
+       &6/weather rain &7- Asettaa sateen
+       &6/weather thunder &7- Asettaa ukkosmyrskyn
     changed:
-      sun: '%prefix%The weather is now &6sunny&f and clear.'
-      rain: '%prefix%It is now &6raining&f, monsters will not burn.'
-      thunder: '%prefix%It is now &6thundering&f, beware of lightning!'
+      sun: '%prefix%Sääksi asetettu &6aurinkoinen&f'
+      rain: '%prefix%Sääksi asetettu &6sateinen&f, hirviöt eivät pala'
+      thunder: '%prefix%Sääksi asetettu &6ukkonen&f, varo ukkosta!'
   teleport:
     help: |-
       %prefix%You can teleport in your world to coordinates, or teleport players.
-       &6/teleport X Y Z YAW PITCH &7- Teleport to coordinates
-       &6/teleport Username &7- Teleport to a player
-       &6/teleport FirstPlayer SecondPlayer &7- Teleport the first player to the second player
-    teleported: '%prefix%You teleported to player &6%player%&f.'
-    teleported-player: '%prefix%You teleported player &6%first%&f to &6%second%&f.'
-    teleported-coords: '%prefix%You teleported to coordinates: &6%x% %y% %z% %yaw%
-      %pitch%'
-    out-of-borders: '%prefix%&cCannot teleport beyond the world border.'
+       &6/teleport X Y Z YAW PITCH &7- Teleporttaa koordinaatteihin
+       &6/teleport Username &7- Teleporttaa pelaajaan
+       &6/teleport FirstPlayer SecondPlayer &7- Teleporttaa ensimmäinen pelaaja toiseen pelaajaan
+    teleported: '%prefix%Teleporttasit pelaajan &6%player%&f luokse'
+    teleported-player: '%prefix%Teleporttasit pelaajan &6%first%&f pelaajaan &6%second%&f'
+    teleported-coords: '%prefix%Teleporttasit koordinaatteihin: &6%x% %y% %z% %yaw% %pitch%'
+    out-of-borders: '%prefix%&cEt voi teleportata maailman rajan ulkopuolelle'
   edit:
-    help: "%prefix%Edit the name and description of the item in your hand.\n &6/edit\
-      \ name New Name &7- Rename the item\n &6/edit lore 1 Description Line &7- Edit\
+    help: "%prefix%Muokkaa tavaran nimeä ja kuvausta\n &6/edit\
+      \ name New Name &7- Uudelleennimeä tavara\n &6/edit lore 1 Description Line &7- Edit\
       \ a specific description line by its number \n &6/edit addlore Description Line\
-      \ &7- Add a new description line\n &6/edit clear &7- Clear the item's name and\
-      \ description"
-    renamed: '%prefix%Item renamed: %name%'
-    set-lore: '%prefix%Set line %number%: %lore%'
-    cleared: '%prefix%Item''s name and description cleared.'
-    item: '%prefix%&cHold the item in your main hand.'
+      \ &7- Lisää uusi kuvaus\n &6/edit clear &7- Nollaa tavaran nimi ja\
+      \ kuvaus"
+    renamed: '%prefix%Uudelleennimettiin tavara: %name%'
+    set-lore: '%prefix%Asetettiin rivi %number%: %lore%'
+    cleared: '%prefix%Tavaran nimi ja kuvaus nollattiin'
+    item: '%prefix%&cPidä tavaraa kädessäsi'
     lines-limit: '%prefix%&cDescription limit of %limit% lines reached.'
     text-limit: '%prefix%&cCharacter limit of %limit% reached.'
-    not-number: '%prefix%&cNot a number: %argument%'
+    not-number: '%prefix%&c%argument% ei ole numero'
     glowing: '%prefix%Item &dwill now glow&f like an enchanted item.'
     no-glowing: '%prefix%Item &cwill no longer glow&f like an enchanted item.'
-    not-enchantment: '%prefix%&cEnchantment %enchantment% does not exist... O_o'
+    not-enchantment: '%prefix%&cLumousta %enchantment% ei ole olemassa'
     enchanted: '%prefix%Item has been enchanted with &d%enchantment% &fat level %level%&f.'
-    removed-enchant: '%prefix%Removed enchantment &c%enchantment%&f from the item.'
-    unenchanted: '%prefix%All enchantments have been &cremoved&f from the item.'
+    removed-enchant: '%prefix%Poistettiin lumous &c%enchantment%&f tavarasta'
+    unenchanted: '%prefix%Kaikki lumoukset tavarasta &cpoistettiin'
     too-big-level: '%prefix%&cEnchantment level is too high, maximum: %limit%'
   play-sound:
     help: |-
@@ -140,7 +136,7 @@ commands:
        &6/playsound Username Sound Volume Speed Seed &7- Play a sound for a player
     played: '%prefix%&fPlayed sound &6%sound% &fwith volume &6%volume%&f and speed
       &6%pitch%&f to player &6%player%'
-    bad-sound: '%prefix%&cCan''t find sound called %sound% O_o'
+    bad-sound: '%prefix%&cCan''t find sound called %sound%'
   stop-sound:
     help: |-
       %prefix%You can stop sounds for yourself or another player.
