@@ -202,8 +202,8 @@ environment:
 
         %prefix%List of variables in the world (&6%current% &fout of &6%amount%&f total):
       variable: '&f  &6 %name% &fType: &6%type%&f Value: &6%value%'
-      next-page: '&a                   [Next →]'
-      previous-page: '&c[← Back]'
+      next-page: '&a                   [Seuraava →]'
+      previous-page: '&c[← Edellinen]'
       navigation: "\n&f Navigation: "
     set:
       help: |-
@@ -510,7 +510,7 @@ chat-no-near-players: |-
   &c Seems like there's no players in world.. Maybe you can try to use global chat?
    &cAdd ! in the begin of message, or use /cc command.
 coding-error:
-  message: "\n &c &m                   &c ☹ ERROR &m                   \n&f\n &fOops,\
+  message: "\n &c &m                   &c  ERROR &m                   \n&f\n &fOops,\
     \ it seems there was a problem executing &f%event% &7-> &f%action% &7(%x%,%y%,%z%)\n\
     \ \n&f Information: &6%error%\n \n &c &m                                     \
     \               \n&f"
@@ -522,7 +522,7 @@ coding-error:
   message-event: |-
     &6 Error &8| &fAn error occurred during the execution of the code &f%event% &7(%x%,%y%,%z%).
      &fError information: &6%error%
-  message-compile: "\n &c &m                   &c ☹ ERROR &m                   \n\
+  message-compile: "\n &c &m                   &c  ERROR &m                   \n\
     &f\n &fA problem occurred while saving the block &7(%x%,%y%,%z%)\n \n&f Information:\
     \ &6%error%\n \n &c &m                                                    \n&f"
   unsupportedentityexception: Entity must be %type%, not %old%.
@@ -589,7 +589,7 @@ coding-debug:
   variable:
     set: '&fNew value for %variable%&f: &7%value%'
     created: '&fVariable %variable%&f created: &7%value%'
-  log: '&8 [&6⌘&8] &f%log%'
+  log: '&8 [&6&8] &f%log%'
   event-message: '&7 Event Call &8| &7Event %type%&f occurred, finding the trigger...'
   variable-found: '&7           %name% &a=&7 %value%'
   variable-not-found: '&7           %name% &cdefault&7: %value%'
@@ -641,7 +641,7 @@ lobby:
   title: ''
   subtitle: ''
   message: "\n <white>\n<white>\n <white>\n <white>%branding% <dark_gray>5.8\n<green>\
-    \ Well, it's possible!\n <white>\n<gold> ⭐ <white>Explore all <gold>worlds<white>\
+    \ Well, it's possible!\n <white>\n<gold>  <white>Explore all <gold>worlds<white>\
     \ using the compass!\n<light_purple> ❤ <white>Create your own world and <light_purple>invite\
     \ <white>your friends!\n <yellow>⌚<white> Have fun and <yellow>create <white>whatever\
     \ you want!\n \n<white>\n <white>"
@@ -654,7 +654,7 @@ creating-world:
   default-world-description: '&7My beautiful world!'
   welcome-title: '&aMorjens'
   welcome-subtitle: '&fTervetuloa maailmaasi'
-  welcome: "\n &f\n&a ☻ Welcome to your world!\n&f This is your &a&nprivate space&f,\
+  welcome: "\n &f\n&a  Welcome to your world!\n&f This is your &a&nprivate space&f,\
     \ where you will &a&ncreate&f.\n &fYour goal is to &ecreate an interesting world\
     \ for everyone&f.\n \n&f Check out the &duseful&f commands:\n &6/world &7- &fCustomize\
     \ your world and player permissions.\n &6    /ad &7- &fInvite players to your\
@@ -815,7 +815,7 @@ world:
       world''s mode to &6Build&f.'
   dev-mode:
     connecting:
-      title: '&eConnecting... ⌘'
+      title: '&eConnecting... '
       subtitle: '&fEntering developer mode...'
     title: '&bCoding your world'
     subtitle: '&fCreate a &6game &fusing &6coding blocks'
@@ -1060,8 +1060,8 @@ creative-chat:
 advertisement:
   message: "%prefix%&6Invitation:\n&f &7%player% &f&ninvites&f you to the world: \n\
     &f %world%&r\n &f\n&a &a &n[Click to join]&f\n &f"
-  hover: "&f%planetName%\n&8Created by %planetOwner%\n \n&a ☻ &7Online: &a%planetOnline%\n\
-    &e ⭐&7 Rating: &f%planetReputation%\n&3 ⚐&7 Category: &f%planetCategory%\n \n\
+  hover: "&f%planetName%\n&8Created by %planetOwner%\n \n&a  &7Online: &a%planetOnline%\n\
+    &e &7 Rating: &f%planetReputation%\n&3 ⚐&7 Category: &f%planetCategory%\n \n\
     &aClick to join the world"
   no-money: '%prefix%&cYou need to have %money% more coins to advertise this world.'
   cooldown: '%prefix%Please wait &6%cooldown% seconds&f before advertising again.'
@@ -1078,91 +1078,34 @@ items:
       name: '&aKaikki maailmat'
       lore:
       - ''
-      - '&7 Valitse maailma ja käy piipahtamassa!'
+      - '&7Valitse maailma ja käy piipahtamassa'
       - ''
     own:
       name: '&bOmat maailmat'
       lore:
       - ''
-      - '&7 Here are displayed'
-      - '&b your worlds&7, which you'
-      - '&7 have created.'
+      - '&7Luomasi maailmat löydät täältä'
       - ''
-      - '&e If you don’t have any, it’s time to create one!'
+      - '&eJos ei maailmaa löydy, aika tehdä sellainen!'
       - ''
     changelogs:
       name: '&dPäivitykset'
       lore:
       - ''
-      - '&7 Lue uusimmat juorut pluginin päivityksistä'
+      - '&7Lue uusimmat juorut pluginin päivityksistä'
       - ''
       pages:
-      - "&0Version: &8%version%\n \n \n&4🍂 AI in coding?!\n \n&0Now you can try coding\
-        \ with AI: /env make [wishes]\n \n&aScroll..."
-      - "&2☻ New command\n \n&0Connect to friends instantly with one command: &2/jointo\
-        \ [Nickname]\n \n&0It connects you to the world where the player is located."
-      - "&1⏻ New events\n \n&8- &0Player: &3Filled a bucket&0, &3Emptied a bucket&0,\
-        \ &3Caught a fish in a bucket&0, &3Entered a vehicle&0, &3Left a vehicle&0.\n\
-        \ &8- Entity:&2 Mob spawned, &2Mob removed,"
-      - "&1⏻ New events\n \n&8- &2Mob exploded&0, &2Mob ignited by block&0, &2Mob\
-        \ ignited by another mob&0, &2Mob healed&0, &2Projectile hit a block&0,"
-      - "&1⏻ New events\n \n&8- &2Mob mounted a mob&0, &2Mob dismounted a mob&0, &2Shulker\
-        \ duplicated&0, &2Mob took damage&0, &2Painting or item frame broke&0, &2Entered\
-        \ a vehicle&0, &2Left a vehicle&0."
-      - "&4⛏ New actions\n \n&8- &0World: &cSwitch to build mode&0, &cFill block with\
-        \ water&0.\n&8- &0Variable: &3Trim list&0, &3Remove item lore line&0, &3Collect\
-        \ to JSON&0, &3Parse JSON&0, &3Format time&0."
-      - "&4⛏ New actions\n \n&8- &0Code control: &1Clear local variables&0.\n&8- &0Loops:\
-        \ &3Iterate through dictionary&0, &3While condition true&0, &3While condition\
-        \ false&0.\n&8- &0Player: &3Apply mending to item&0, &3Visual fire&0."
-      - "&4⛏ New actions\n \n&8- &0Entity: &2Make fox sleeping&0, &2Make fox jumping&0,\
-        \ &2Make fox defending&0, &2Aim fox into ground&0, &2Make fox sitting&0, &2Set\
-        \ visual fire&0,"
-      - "&4⛏ New actions\n \n&8- &2Set sliding&0, &2Recolor parrot&0, &2Set pumpkin\
-        \ on snow golem&0, &2Toggle bee nectar&0, &2Toggle bee stinger&0,"
-      - "&4⛏ New actions\n \n&8- &2Make cat lying&0, &2Make mob aggressive&0, &2Set\
-        \ chest presence&0, &2Set despawn state&0, &2Set mob awareness&0, &2Set mob\
-        \ pregnancy&0,"
-      - "&4⛏ New actions\n \n&8- &2Make camel accelerating&0, &2Charge creeper/skull&0,\
-        \ &2Goat/Enderman scream&0, &2Goat horns&0, &2Set mob age&0, &2Make panda\
-        \ lying&0,"
-      - "&4⛏ New actions\n \n&8- &2Set mob arm pose&0, &2Set guardian laser&0, &2Teleport\
-        \ enderman&0, &2Make mob eat&0, &2Make mob interested&0, &2Raise horse on\
-        \ two legs&0,"
-      - "&4⛏ New actions\n \n&8- &2Ignite creeper&0, &2Bat sleep&0, &2Hook lure&0,\
-        \ &2Make axolotl play dead&0, &2Raise bear on two legs&0,"
-      - "&4⛏ New actions\n \n&8- &2Make Allay dance&0, &2Villager nod head&0, &2Turn\
-        \ villager into zombie&0, &2Make mob sitting&0, &2Toggle saddle presence&0,"
-      - "&4⛏ New actions\n \n&8- &2Set block in minecart&0, &2Charge crossbow for\
-        \ piglin&0, &2Mob celebration&0, &2Make wanderer drink milk&0, &2potion&0."
-      - "&5🏹 New conditions\n \n&8- &0World: &4If world cycle is running&0, &4If\
-        \ player is in world&0.\n&8- &0Variable: &3If boolean is true&0.\n&8- &0Entity:\
-        \ &2UUID Equals&0."
-      - "&4⌘ New values\n \n&8- &0World: &4Number of modified blocks&0, &4Block change\
-        \ limit&0."
-      - "&3🔥 New target for selection\n \n&0You can now select &3the last summoned\
-        \ mob&0 after mob summoning actions."
-      - "&3🎣 Other changes\n \n&8- &0Fixed saving dictionary values&0.\n&8- &0Fixed\
-        \ /edit bugs.\n&8- &0Fixed /playsound bugs."
-      - |-
-        &8- &0Some action parameters translated.
-        &8- &0New player management menu in world.
-        &8- &0Fixed selectors in functions and methods.
-      - |-
-        &8- &0Fixed Set Health for mob/player.
-        &8- &0Added message text for Set Resource Pack action.
-      - "&8- &0Added text merge parameter in Show Text Above Hotbar action. \n \n\
-        &0Trailer:&2 https://www.youtube.com/watch?v=epZJQ8Go6bw"
+      - ""
   developer:
     turned-on: '&a ● '
     turned-off: '&7 ○ '
     coding-book:
-      name: '&bWelcome to Coding! &a[Right-click]'
+      name: '&bTervetuloa koodaamaan'
       lore:
       - '&7This book will teach you'
       - '&7the basic concepts of coding.'
       pages:
-      - "&9☻ You are in the coding world!&r\n \nHere you will create code for your\
+      - "&9 You are in the coding world!&r\n \nHere you will create code for your\
         \ world using &3b&7l&6o&9c&c&rks in the inventory.\n \nThis book will help\
         \ you learn the basics of coding, &cturn the page to continue..."
       - "&3⚂ Get to know the blocks!&r\n \nPlace &3event&0 blocks on &9blue glass&0\
@@ -1176,7 +1119,7 @@ items:
       - "&3⚂ Get to know the blocks!&r\n \n&lHow do conditions work?\n \n&rIf a &6condition&r\
         \ is met, the code inside the pistons will also execute! Check the player's\
         \ name, item, block, or status."
-      - "&2✉ Values for actions!&r\n \nSome actions place a chest where you will put\
+      - "&2 Values for actions!&r\n \nSome actions place a chest where you will put\
         \ values.\n \nThey can be &anumbers&r, &6text&7, &7locations&r, or even &citems&r!"
       - "&6🪣 Variables&r\n \n&lA variable&r is a storage unit that holds a value.\n\
         \ \nYou can set any value in it and later use that value in an action!"
@@ -14669,7 +14612,7 @@ items:
       - '&7  Set or unset debug'
 menus:
   player-control:
-    title: '&1☻ Control: %name%'
+    title: '&1 Control: %name%'
     items:
       player:
         name: ' '
@@ -14679,7 +14622,7 @@ menus:
         - '&7 %status%'
         - ''
         online: '&a☺ &nPlaying in this world&r&a!'
-        offline: '&c☹ &nCurrently not in the world&r&c.'
+        offline: '&c &nCurrently not in the world&r&c.'
         banned: '&4✘ &nBanned from the world&r&4.'
       dev:
         name: ' '
@@ -14689,7 +14632,7 @@ menus:
           not-trusted: Can code if the owner is in the world
           trusted: Can always code
         lore:
-        - '&d ⌘ World Development'
+        - '&d  World Development'
         - '&7 Access to developer mode /dev'
         - ' '
         - '&7 Did you hire a cool coder'
@@ -14747,7 +14690,7 @@ menus:
       unban:
         name: ' '
         lore:
-        - '&a ☻ Unban player'
+        - '&a  Unban player'
         - '&7 Let him join the world'
         - ' '
         - '&7 If you forgave a player who was'
@@ -14842,7 +14785,7 @@ menus:
         - '&7  the list of players.'
         - ''
   players-browser:
-    title: '&1☻ Player Management'
+    title: '&1 Player Management'
     items:
       player:
         online:
@@ -14851,7 +14794,7 @@ menus:
           - '&7 Player &f%name%'
           - '&a ☺ Playing in this world!'
           - ''
-          - '&d ⌘&7 %dev%'
+          - '&d &7 %dev%'
           - '&c ⛏&7 %build%'
           - '&b 🛡&7 %white-list%'
           - '&f ⚡&7 %flight%'
@@ -14865,9 +14808,9 @@ menus:
           name: ' '
           lore:
           - '&7 Player &f%name%'
-          - '&c ☹ &nCurrently not in the world&r&c.'
+          - '&c  &nCurrently not in the world&r&c.'
           - ''
-          - '&d ⌘&7 %dev%'
+          - '&d &7 %dev%'
           - '&c ⛏&7 %build%'
           - '&b 🛡&7 %white-list%'
           - ''
@@ -14920,7 +14863,7 @@ menus:
           banned: Banned
           offline: Offline
         lore:
-        - '&3 ☻ Player type'
+        - '&3  Player type'
         - ''
         - '&e  Click to change'
         - '&e  current player type.'
@@ -14964,7 +14907,7 @@ menus:
         - '&7You are alone in this world...'
         - '&7Maybe you should advertise it?'
   entities-browser:
-    title: '&4🍖 Entities control'
+    title: '&4 Entities control'
     removed: '%prefix%&fEntity &6%name%&f (%x%,%y%,%z%) was removed by %player%'
     removed-all: '%prefix%&6%count%&f entities were removed by %player%'
     items:
@@ -14992,7 +14935,7 @@ menus:
           decoration: Decoration
           not-living: Not alive
         lore:
-        - '&3 🍖 Entity type'
+        - '&3  Entity type'
         - ''
         - '&e  Click to change'
         - '&e  current entity type.'
@@ -15112,7 +15055,7 @@ menus:
       load:
         name: ' '
         lore:
-        - '&d ⏻ Lataa maailma'
+        - '&d  Lataa maailma'
         - '&7 World will be loaded'
         - ''
         - '&7  Map, players data, variables'
@@ -15175,7 +15118,7 @@ menus:
       play-mode:
         name: ' '
         lore:
-        - '&b ⏻ Play mode'
+        - '&b  Play mode'
         - '&7 We''re playing now!'
         - ' '
         - '&7  Currently code works fine'
@@ -15602,7 +15545,7 @@ menus:
         lore:
         - '&b Hae maailmoja'
         - ''
-        - '&7 Voit hakea maailmoja joko nimen, tekijän tai ID:n perusteella
+        - '&7 Voit hakea maailmoja joko nimen, tekijän tai ID:n perusteella'
         - ''
         - '&e Vasenklikkaa &7- Nimen perusteella'
         - '&e Vasenklikkaa + SHIFT &7- Tekijän perusteella'
@@ -15668,7 +15611,7 @@ menus:
         create-module:
           name: ' '
           lore:
-          - '&a ⌘ Save as module'
+          - '&a  Save as module'
           - '&7 Creates a new module'
           - ''
           - '&7  Every player will be able'
@@ -15681,7 +15624,7 @@ menus:
         create-module-limit:
           name: ' '
           lore:
-          - '&c ⌘ Save as module'
+          - '&c  Save as module'
           - '&7 Creates a new module'
           - ''
           - '&7  You reached maximum amount of'
@@ -15728,7 +15671,7 @@ menus:
           - '&7set the function name by'
           - '&7right-clicking on the sign.'
     environment:
-      title: '&5⌘ Code Environment'
+      title: '&5 Code Environment'
       turned-on: '&d   ● &n'
       turned-off: '&7   ○ '
       colors:
@@ -15912,9 +15855,9 @@ menus:
       title: Select a Target for Action
       title-values: Select a Target for Game Value
       targets:
-        default: '&3⌘ Default'
+        default: '&3 Default'
         selected: '&d☒ Selected Target'
-        all-players: '&b☻ All Players'
+        all-players: '&b All Players'
         random-player: '&6Random Player'
         killer: '&c🗡 Killer'
         victim: '&4☠ Victim'
@@ -15925,7 +15868,7 @@ menus:
         default:
           name: ' '
           lore:
-          - '&3 ⌘ Default'
+          - '&3  Default'
           - '&7 Player or entity from the event.'
           - ''
           - '&7  In &bplayer events&7, this selects'
@@ -15955,7 +15898,7 @@ menus:
         all-players:
           name: ' '
           lore:
-          - '&b ☻ All Players'
+          - '&b  All Players'
           - '&7 Selects all players in the world.'
           - ''
           - '&7  If there are no players'
@@ -18031,21 +17974,21 @@ menus:
         - ' '
         - '&7 %moduleDescription%'
         - ' '
-        - '&e ⭐ &7Rating: &a%moduleReputation%'
-        - '&6 🍖 &7Downloads: &a%moduleDownloads%'
+        - '&e  &7Rating: &a%moduleReputation%'
+        - '&6  &7Downloads: &a%moduleDownloads%'
         - ' '
         - '&2 ⏵ &nClick to install&2...'
         - '&8  ID: %moduleID%'
         - ' '
   module-settings:
-    title: '&4✎ Module Settings'
+    title: '&4 Module Settings'
     turned-on: '&a ● &n'
     turned-off: '&7 ○ '
     items:
       change-name:
         name: ' '
         lore:
-        - '&c ✎ Module Name'
+        - '&c  Module Name'
         - '&7 The main purpose of module.'
         - ''
         - '&7 It should be easy to remember and'
@@ -18055,7 +17998,7 @@ menus:
         - '&f Examples:'
         - '&7  &6🪓 WorldEditor &7v5.7'
         - '&7  &e⚡ Super Admin Tools &6v3'
-        - '&7  &6✉ Flying Messages'
+        - '&7  &6 Flying Messages'
         - ' '
         - '&e Click to rename the module.'
         - ''
@@ -18099,7 +18042,7 @@ menus:
       install:
         name: ' '
         lore:
-        - '&a ⌘ Install the module'
+        - '&a  Install the module'
         - '&7 Pastes module''s code'
         - ' '
         - '&7  Adds module''s coding lines'
@@ -18127,8 +18070,8 @@ menus:
         - ' '
         - '&7 %moduleDescription%'
         - ' '
-        - '&e ⭐ &7Rating: &a%moduleReputation%'
-        - '&6 🍖 &7Downloads: &a%moduleDownloads%'
+        - '&e  &7Rating: &a%moduleReputation%'
+        - '&6  &7Downloads: &a%moduleDownloads%'
         - ' '
         - '&e ⏵ &nDrag item here to change icon&e...'
         - '&8  ID: %moduleID%'
@@ -18172,7 +18115,7 @@ menus:
       all-modules:
         name: ' '
         lore:
-        - '&c ⭐ All Modules'
+        - '&c  All Modules'
         - ''
         - '&7  Click to view'
         - '&7  all modules from'
@@ -18185,10 +18128,10 @@ menus:
         - ' '
         - '&7 %moduleDescription%'
         - ' '
-        - '&e ⭐ &7Rating: &a%moduleReputation%'
-        - '&6 🍖 &7Downloads: &a%moduleDownloads%'
+        - '&e  &7Rating: &a%moduleReputation%'
+        - '&6  &7Downloads: &a%moduleDownloads%'
         - ' '
-        - '&5 ⌛ &7Created: &d%moduleCreationTime%'
+        - '&5 &7Created: &d%moduleCreationTime%'
         - ' '
         - '&e ⏵ &nClick to open settings&e...'
         - '&8  ID: %moduleID%'
@@ -18226,7 +18169,7 @@ menus:
         lore:
         - '&lLuo maailma'
         - ''
-        - '&7  Henkilökohtainen tilasi kokeilla luovuuden ja unelmien rajoja palikoiden ja koodin avulla yksin tai yhdessä
+        - '&7  Henkilökohtainen tilasi kokeilla luovuuden ja unelmien rajoja palikoiden ja koodin avulla yksin tai yhdessä'
         - ''
         - '&e  Paina luodaksesi maailma'
         - ''
@@ -18276,7 +18219,7 @@ menus:
       change-name:
         name: ' '
         lore:
-        - '&e ✎ World Name'
+        - '&e  World Name'
         - '&7 A brief essence of your world.'
         - ''
         - '&7 The world name reflects the character of the game,'
@@ -18286,7 +18229,7 @@ menus:
         - '&f Examples:'
         - '&7  &a⛏&f Survival on a &aFloating &fIsland'
         - '&7  &5⌚ &lMEGA-PARKOUR &8| &fAdded &eNew &fMap!'
-        - '&7  &6⭐ Deadly Run v5 &8- &fCan you make it?'
+        - '&7  &6 Deadly Run v5 &8- &fCan you make it?'
         - ' '
         - '&e Click to rename the world.'
         - ''
@@ -18303,14 +18246,14 @@ menus:
         - '&f Examples:'
         - '&7  &6🔥 CAN YOU &6PASS &fTHIS PARKOUR?'
         - '&7  &d♬ &lUPDATE!&f Added music!'
-        - '&7  &e⭐ &fWe &eSpent &fA Long Time Building This Map.'
+        - '&7  &e &fWe &eSpent &fA Long Time Building This Map.'
         - ' '
         - '&e Click to change the description.'
         - ''
       entities-control:
         name: ' '
         lore:
-        - '&c 🍖 Entities Control'
+        - '&c  Entities Control'
         - '&7 Teleport or remove mobs from map.'
         - ' '
         - '&7 Sometimes world has a lot of'
@@ -18332,7 +18275,7 @@ menus:
         - '&f Examples:'
         - '&7 &c 🏹 Strategy &f- Requires a lot of thinking'
         - '&7 &e 🪣 Sandbox &f- Allows building'
-        - '&7 &3 ☻ Adventure &f- Map completion'
+        - '&7 &3  Adventure &f- Map completion'
         - ' '
         - '&e Click to set.'
         - ' '
@@ -18348,15 +18291,15 @@ menus:
         - ' '
         - '&f Examples:'
         - '&7 &4 &m🗡&f Prohibit player combat'
-        - '&7 &3 ☁ &fChange the weather in the world'
-        - '&7 &a ☻ &fHide like messages'
+        - '&7 &3 &fChange the weather in the world'
+        - '&7 &a  &fHide like messages'
         - ' '
         - '&e Click to configure.'
         - ''
       planet-players:
         name: ' '
         lore:
-        - '&6 🛡 Player Management'
+        - '&6 Player Management'
         - '&7 Allow a friend to help you!'
         - ' '
         - '&7 Manage players'' rights to'
@@ -18364,16 +18307,16 @@ menus:
         - '&7 or block violators.'
         - ' '
         - '&f Examples:'
-        - '&7 &3 🌧 &fGrant flight access'
-        - '&7 &a ☻ &fAllow building in the world'
-        - '&7 &4 ❌ &fProhibit a player from visiting the world'
+        - '&7 &3 &fGrant flight access'
+        - '&7 &a &fAllow building in the world'
+        - '&7 &4 &fProhibit a player from visiting the world'
         - ' '
         - '&e Click to configure.'
         - ''
       change-id:
         name: ' '
         lore:
-        - '&c 🔥 ID of the world'
+        - '&c ID of the world'
         - '&7 Quick access to visit the world'
         - ' '
         - '&7 With a short and memorable ID,'
@@ -18381,9 +18324,9 @@ menus:
         - '&7 your world more often through &c/join&7.'
         - ' '
         - '&f Examples:'
-        - '&7 &d ♫ &fMusical World - &dmusic, songs, note'
-        - '&7 &a ⛄ &fOne Universe - &acantpvp, cantcraft'
-        - '&7 &e ⭐ &fUnique IDs - &eskull, hello, smile'
+        - '&7 &d &fMusical World - &dmusic, songs, note'
+        - '&7 &a &fOne Universe - &acantpvp, cantcraft'
+        - '&7 &e &fUnique IDs - &eskull, hello, smile'
         - ' '
         - '&e Click to change the ID.'
         - ''
@@ -18409,7 +18352,7 @@ menus:
           public: Let players enter the world
           private: Prohibit visiting the world
         lore:
-        - '&a ⛨ World Accessibility'
+        - '&a World Accessibility'
         - '&7 Can players enter the world?'
         - ' '
         - '&7 For technical work: coding'
@@ -18426,7 +18369,7 @@ menus:
       advertisement:
         name: ' '
         lore:
-        - '&b ✉ Advertise the World'
+        - '&b  Advertise the World'
         - '&7 An invitation to the world for all players.'
         - ' '
         - '&7 This will send a request to all players '
@@ -18434,16 +18377,16 @@ menus:
         - '&7 world, and someone might even join!'
         - ' '
         - '&f Features: '
-        - '&7 &a 🔥 &fNew players will join the world'
-        - '&7 &3 🛡 &fAvailable once every few minutes'
-        - '&7 &d 🔔 &fThe world name will be displayed'
+        - '&7 &a &fNew players will join the world'
+        - '&7 &3 &fAvailable once every few minutes'
+        - '&7 &d &fThe world name will be displayed'
         - ' '
         - '&e Click to advertise the world.'
         - ''
       play-mode:
         name: ' '
         lore:
-        - '&b ⏻ Game Mode'
+        - '&b  Game Mode'
         - '&7 Start the code of your world.'
         - ' '
         - '&7 This mode will execute'
@@ -18451,9 +18394,9 @@ menus:
         - '&7 in developer mode.'
         - ' '
         - '&f Features:'
-        - '&7 &e 🔔 By default: adventure mode'
-        - '&7 &6 🍖 &fWorld parameters will be applied'
-        - '&7 &a 🔥 &fYour code will run'
+        - '&7 &e By default: adventure mode'
+        - '&7 &6 &fWorld parameters will be applied'
+        - '&7 &a &fYour code will run'
         - ' '
         - '&e Click to switch.'
         - ''
@@ -18470,14 +18413,14 @@ menus:
         - '&f Ideas for builds:'
         - '&7 &e ★ &fHouse, school, shop'
         - '&7 &b 🌊 &fIsland, beach, pool'
-        - '&7 &c 🍖 &fJungle, ruins, basement'
+        - '&7 &c  &fJungle, ruins, basement'
         - ' '
         - '&e Click to switch.'
         - ''
       dev-mode:
         name: ' '
         lore:
-        - '&e ⌘ Developer Mode'
+        - '&e  Developer Mode'
         - '&7 Create code for your world!'
         - ' '
         - '&7 Turn your world into a game with'
@@ -18485,16 +18428,16 @@ menus:
         - '&7 simple, give it a try!'
         - ' '
         - '&f With code:'
-        - '&7 &e ⭐ &fIncrease the number of players'
-        - '&7 &6 © &fCreate interesting mechanics'
-        - '&7 &a ⏻ &fLearn the basics of programming'
+        - '&7 &e  &fIncrease the number of players'
+        - '&7 &6  &fCreate interesting mechanics'
+        - '&7 &a  &fLearn the basics of programming'
         - ' '
         - '&e Click to switch.'
         - ''
       environment:
         name: ' '
         lore:
-        - '&d ⌘ Code Execution Environment'
+        - '&d  Code Execution Environment'
         - '&7 Useful functions for coders.'
         - ' '
         - '&7 Discover limits, the number'
@@ -19097,7 +19040,7 @@ menus:
         - '%4%'
         - '%5%'
   player-profile:
-    title: '&8☻ Profile %player%'
+    title: '&8 Profile %player%'
     items:
       player:
         name: ' '
@@ -19146,13 +19089,13 @@ menus:
         name: ' '
         unknown: Not specified
         lore:
-        - '&9 ✉ &fDiscord: &9%discord%'
-        - '&b ✉ &fTelegram: &b%telegram%'
-        - '&3 ✉ &fX (Twitter): &3%twitter%'
-        - '&c ✉ &fYouTube: &c%youtube%'
+        - '&9  &fDiscord: &9%discord%'
+        - '&b  &fTelegram: &b%telegram%'
+        - '&3  &fX (Twitter): &3%twitter%'
+        - '&c  &fYouTube: &c%youtube%'
         - ''
   profile-settings:
-    title: '&8⌘ Your profile settings'
+    title: '&8 Your profile settings'
     turned-on: '&a  ⏺ &n'
     turned-off: '&7  ○ '
     items:
@@ -19184,7 +19127,7 @@ menus:
       change-social-discord:
         name: ' '
         lore:
-        - '&9 ✉ Discord tag'
+        - '&9  Discord tag'
         - '&7 Your social networks.'
         - ''
         - '&7 You can add a tag'
@@ -19196,7 +19139,7 @@ menus:
       change-social-telegram:
         name: ' '
         lore:
-        - '&b ✉ Telegram username'
+        - '&b  Telegram username'
         - '&7 Your social networks.'
         - ''
         - '&7 You can add a username'
@@ -19208,7 +19151,7 @@ menus:
       change-social-twitter:
         name: ' '
         lore:
-        - '&3 ✉ X (Twitter) username'
+        - '&3  X (Twitter) username'
         - '&7 Your social networks.'
         - ''
         - '&7 You can add a username'
@@ -19220,7 +19163,7 @@ menus:
       change-social-youtube:
         name: ' '
         lore:
-        - '&c ✉ YouTube channel'
+        - '&c  YouTube channel'
         - '&7 Your social networks.'
         - ''
         - '&7 You can add a tag'
