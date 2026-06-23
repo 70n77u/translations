@@ -12021,11 +12021,11 @@ items:
         arguments:
           all:
             name: '&3Require all or any'
-        lore:
+            lore:
             - '&7Execute the condition only when'
             - '&7all players are in the world, or when'
             - '&7any one of them is.'
-        - ''
+            - ''
             - '&eClick to change.'
             - ''
             - '&fOptions:'
@@ -12128,7 +12128,7 @@ items:
               'true': Yes, ignore
       if-entity-contains-block:
         name: '&aContains block inside'
-            lore:
+        lore:
         - '&7Checks whether the large mob'
         - '&7hitbox contains the block'
         - '&7from the location.'
@@ -12159,7 +12159,7 @@ items:
               'true': Require all
           ignore-size:
             name: '&eIgnore block size'
-        lore:
+            lore:
             - '&7If yes is selected, the block'
             - '&7hitbox will be a 1x1x1 cube,'
             - '&7instead of the placed'
@@ -18831,7 +18831,7 @@ blocks:
   killer: Killer
   victim: Victim
   default: Default
-
+  
   # blocks
   event_player: '&bPlayer event'
   event_world: '&cWorld event'
@@ -19238,7 +19238,7 @@ blocks:
   var_clone_list: Clone List
   var_merge_lists: Merge Lists
   var_set_item_skull_textures: Aseta tekstuuri
-    var_set_item_book_owner: Book Author
+  var_set_item_book_owner: Book Author
   var_get_item_book_owner: Get Author
   var_get_item_id: Get Material
   var_set_item_skull_owner: Head Owner
