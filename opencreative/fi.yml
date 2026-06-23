@@ -1,6 +1,6 @@
 #
-# OpenCreative+ 5.8.0 - Well, it's possible.
-# (C) McChicken Studio 2017-2025.
+# OpenCreative+ 6.0.0 - Well, it's possible.
+# (C) McChicken Studio 2017-2026.
 #
 
 #
@@ -179,6 +179,13 @@ modules:
   list:
     amount: '%prefix%List of all modules (%amount%):'
     module: '&6%moduleID% &7- %moduleOwner%&7 - &7%moduleName%&f'
+profiles:
+  default-description: '&7I create awesome worlds!'
+  genders:
+    male: '&3Male ♂'
+    female: '&dFemale ♀'
+    non-binary: '&eNon-binary 🜬'
+    unknown: '&7Not specified'
 environment:
   help: |-
     "%prefix%Manage code, variables, and the world for developers.\n \n&6 /env\
@@ -791,7 +798,10 @@ world:
       your world, or use the command &6/world&f.'
     busy: '%prefix%&cYou''re already connecting to the world, please wait...'
     unloading: '%prefix%&cThis world is being unloaded, please try again later...
-      '
+      :('
+    error: "%prefix%&cFailed to connect to world %id% :(\n \n&c Was loaded before:\
+      \ %wasloaded%\n&c Currently loaded: %loaded%\n&c Phase: %phase%\n \n&c Error:\
+      \ %error%"
   play-mode:
     name: '&3Play'
     message:
@@ -817,6 +827,9 @@ world:
     connecting:
       title: '&eConnecting... '
       subtitle: '&fEntering developer mode...'
+      error: "%prefix%&cFailed to connect to development world %id% :(\n \n&c Was\
+        \ loaded before: %wasloaded%\n&c Currently loaded: %loaded%\n&c Phase: %phase%\n\
+        \ \n&c Error: %error%"
     title: '&bCoding your world'
     subtitle: '&fCreate a &6game &fusing &6coding blocks'
     help: "%prefix%You have entered the &bdevelopment&f world. \n &f\n&f Check out\
@@ -827,12 +840,11 @@ world:
       \ &6text&f, &eitem&f, &flocation&f.\n&f"
     joined: '%prefix%&6%player% &fhas joined the coding world.'
     left: '%prefix%&6%player% &fhas left the coding world.'
-    cant-place-on-floor: '%prefix%&cOnly chests, shulker boxes, and anvils can be
-      placed on the platform.'
-    cant-place-event-on-action: '%prefix%&cThis block must be placed with &7ACTIONS&c
-      or &6CONDITIONS&c.'
-    cant-place-action-on-event: '%prefix%&cThis block must be placed with &bEVENTS&c,
-      &aCYCLES&c, or &9FUNCTIONS&c.'
+    cant-place-on-floor: '&cOnly chests, shulker boxes, and anvils can be placed on
+      the platform.'
+    cant-place-event-on-action: '&cThis block must be placed with &7ACTIONS&c or &6CONDITIONS&c.'
+    cant-place-action-on-event: '&cThis block must be placed with &bEVENTS&c, &aCYCLES&c,
+      or &9FUNCTIONS&c.'
     click-to-copy: '&eClick to copy.'
     set-variable: '&aValue set:'
     set-target: '&dTarget set:'
@@ -890,10 +902,10 @@ world:
   favorites:
     added: '%prefix%You marked this world &7%id% &fas &6favorite&f '
     removed: '%prefix%You removed world &7%id%&f from favorites..'
-    limit: '%prefix%&cYou reached maximum amount of favorite worlds (%limit%)! To
-      add new favorite worlds remove old ones.'
     already-added: '%prefix%&cThis world %id% is already not in the favorites list..'
     already-removed: '%prefix%&cThis world %id% is already in the favorites list..'
+    limit: '%prefix%&cYou reached maximum amount of favorite worlds (%limit%)! To
+      add new favorite worlds remove old ones.'
   categories:
     sandbox: '&e&lSANDBOX'
     adventure: '&9&lADVENTURE'
@@ -1163,6 +1175,20 @@ items:
       - '&fIn hand:'
       - '&e Right-click on a condition sign:'
       - '&7  Toggle NOT on or off'
+    debug-torch:
+      name: '&cDebug Marker &a[Right-click]'
+      lore:
+      - '&7Marks events and executors'
+      - '&7so that they can send'
+      - '&7debug messages.'
+      - ''
+      - '&7Debug messages will be visible'
+      - '&7only in debug mode:'
+      - '&a/env debug on'
+      - ''
+      - '&fIn hand:'
+      - '&e Click on an event sign:'
+      - '&7  Set or unset debug'
     variable:
       saved: '&aSaved'
       global: '&eGlobal'
@@ -1179,6 +1205,12 @@ items:
         lore:
         - '&7Place an item here'
         - '&7with a book of text.'
+      boolean:
+        name: '&eBoolean'
+        lore:
+        - '&7Place an item here'
+        - '&7with clocks with boolean'
+        - '&7value.'
       number:
         name: '&aNumber'
         lore:
@@ -1240,12 +1272,6 @@ items:
         lore:
         - '&7Place any item or'
         - '&7value here.'
-      boolean:
-        name: '&eBoolean'
-        lore:
-        - '&7Place an item here'
-        - '&7with clocks with boolean'
-        - '&7value.'
       list:
         name: '&eList'
         lore:
@@ -1746,7 +1772,7 @@ items:
           name: '&cBlock Manipulation'
           lore:
           - '&7Set block type, copy blocks,'
-          - '&7check block type.'
+          - '&7set water logged, destroy them.'
           - ' '
           - '&eValitse kategoria painamalla'
         other:
@@ -2353,6 +2379,17 @@ items:
         - '&7an inventory.'
         - ' '
         - '&eClick to set event.'
+      player-changed-armor:
+        name: '&bPlayer changed armor'
+        lore:
+        - '&7This is when a player removes'
+        - '&7a piece of armor or equips a new one.'
+        - ' '
+        - '&7Received values:'
+        - '&6 Item in event'
+        - '&e New item'
+        - ' '
+        - '&eClick to set the event.'
       player-changed-sign:
         name: '&6Player changed sign text'
         lore:
@@ -3357,25 +3394,6 @@ items:
         - '&7armor stands, and paintings.'
         - ' '
         - '&eClick to set event.'
-      player-changed-armor:
-        name: '&bPlayer changed armor'
-        lore:
-        - '&7This is when a player removes'
-        - '&7a piece of armor or equips a new one.'
-        - ' '
-        - '&7Received values:'
-        - '&6 Item in event'
-        - '&e New item'
-        - ' '
-        - '&eClick to set the event.'
-      player-air-changed:
-        name: '&bOxygen Level Changed'
-        lore:
-        - '&7This occurs when a player'
-        - '&7starts losing oxygen underwater'
-        - '&7or regains it when surfacing.'
-        - ' '
-        - '&eClick to set the event.'
     actions:
       entity-set-ai:
         name: '&cSet mob AI'
@@ -3600,6 +3618,16 @@ items:
         - '&f Location &7- To where'
         - ' '
         - '&eClick to set action.'
+      entity-set-disguise-name:
+        name: '&6Set Disguise Name'
+        lore:
+        - '&7This will change displayed name'
+        - '&7of mob if it has a disguise.'
+        - ' '
+        - '&fIn the chest:'
+        - '&6 Text &7- Name to display'
+        - ' '
+        - '&eClick to set action.'
       entity-disguise-as-player:
         name: '&6Disguise as player'
         lore:
@@ -3611,6 +3639,33 @@ items:
         - '&6 Text &7- Nickname for skin'
         - ' '
         - '&eClick to set action.'
+      entity-disguise-as-entity:
+        name: '&cDisguise as Entity'
+        lore:
+        - '&7This will disguise'
+        - '&7mob as another entity.'
+        - ' '
+        - '&fIn the chest:'
+        - '&c Item &7- Mob spawn egg'
+        - ' '
+        - '&eClick to set the action.'
+      entity-disguise-as-block:
+        name: '&2Disguise as Block'
+        lore:
+        - '&7This will disguise'
+        - '&7the mob as a block.'
+        - ' '
+        - '&fIn the chest:'
+        - '&c Item &7- Block'
+        - ' '
+        - '&eClick to set the action.'
+      entity-clear-disguise:
+        name: '&cClear Disguise'
+        lore:
+        - '&7This will remove the '
+        - '&7disguise from the mob.'
+        - ' '
+        - '&eClick to set the action.'
       entity-set-armor-stand-pose:
         name: '&6Set armor stand body pose'
         lore:
@@ -3705,6 +3760,52 @@ items:
         - '&c Item(s) &7- Items for inventory.'
         - ''
         - '&eClick to set action.'
+      player-set-item-in-slot:
+        name: '&2Set item in slot'
+        lore:
+        - '&7Sets an item into specified'
+        - '&7player inventory slots.'
+        - ' '
+        - '&fIn chest:'
+        - '&a Numbers &7- Slots'
+        - '&c Item &7- To set'
+        - '&3 Parameter &7- Replace with air or not'
+        - ' '
+        - '&eClick to set action.'
+        placeholders:
+          slots:
+            name: '&aSlots to place into'
+            lore:
+            - '&7Put slime here that'
+            - '&7represents the slot number'
+            - '&7for setting.'
+            - ''
+            - '&a 1-9 &7- Hotbar slots'
+            - '&a 10-18 &7- First inventory row'
+            - '&a 19-27 &7- Second inventory row'
+            - '&a 28-36 &7- Third inventory row'
+            - '&a 37 &7- Boots'
+            - '&a 38 &7- Leggings'
+            - '&a 39 &7- Chestplate'
+            - '&a 40 &7- Helmet'
+            - '&a 41 &7- Off-hand item'
+        arguments:
+          replace-with-air:
+            name: '&fReplace empty slots with air'
+            lore:
+            - '&7If Replace with air is selected and'
+            - '&7the entity has items in unfilled slots'
+            - '&7here, they will'
+            - '&7be replaced with air.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fChoices:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': Do not replace
+              'true': Replace with air
       entity-set-item-in-hand:
         name: '&9Set Item in Hand'
         lore:
@@ -3759,7 +3860,7 @@ items:
         - '&7Removes specific items from mob.'
         - ''
         - '&fIn the chest:'
-        - '&c Item(s) &7- Your item(s)'
+        - '&c Items &7- Your Items'
         - ''
         - '&eClick to set action.'
       entity-give-items:
@@ -3769,7 +3870,7 @@ items:
         - '&7stored in the chest.'
         - ''
         - '&fIn the chest:'
-        - '&c Item(s) &7- Your item(s)'
+        - '&c Items &7- Your Items'
         - ''
         - '&eClick to set action.'
       entity-add-damage:
@@ -3811,6 +3912,528 @@ items:
             choices:
               'false': Set
               'true': Add
+      player-discover-recipe:
+        name: '&aUnlock item recipe'
+        lore:
+        - '&7This will allow the player to craft'
+        - '&7items or cook food from the specified'
+        - '&7recipes.'
+        - ' '
+        - '&fIn the chest:'
+        - '&6 Texts &7- Recipe identifiers'
+        - ' '
+        - '&eClick to set action.'
+      player-undiscover-recipe:
+        name: '&cLock item recipe'
+        lore:
+        - '&7This will prevent the player from'
+        - '&7crafting items or cooking food'
+        - '&7from the specified recipes.'
+        - ' '
+        - '&fIn the chest:'
+        - '&6 Texts &7- Recipe identifiers'
+        - ' '
+        - '&eClick to set action.'
+      world-remove-recipe:
+        name: '&cRemove item recipe'
+        lore:
+        - '&7This will remove the specified'
+        - '&7item recipes and players will not'
+        - '&7be able to craft or cook food'
+        - '&7using these recipes.'
+        - ' '
+        - '&fIn the chest:'
+        - '&6 Texts &7- Recipe identifiers'
+        - ' '
+        - '&eClick to set action.'
+      world-add-merchant-recipe:
+        name: '&aCreate Trade Recipe'
+        lore:
+        - '&7Creates a recipe that allows'
+        - '&7a player to purchase an item'
+        - '&7from a villager.'
+        - ''
+        - '&7To give this recipe to a villager'
+        - '&7after creating it, use the'
+        - '&aSet Recipes&7 action on the villager.'
+        - ' '
+        - '&fIn the chest:'
+        - '&c Item &7- First item'
+        - '&c Item &7- Second item'
+        - '&c Item &7- Result'
+        - '&6 Text &7- Recipe identifier'
+        - '&a Number &7- Purchase count'
+        - '&a Number &7- Purchase limit'
+        - '&3 Option &7- Whether to grant player XP'
+        - '&a Number &7- XP granted to villager'
+        - '&a Number &7- Old price'
+        - ' '
+        - '&eClick to set the action.'
+        placeholders:
+          name:
+            name: '&6Recipe Identifier'
+            lore:
+            - '&7Place a book here that'
+            - '&7contains the recipe name.'
+            - ''
+            - '&7Must contain &c&nonly English&7'
+            - '&7letters and underscores.'
+            - ''
+            - '&7Default:'
+            - '&6 custom'
+          first:
+            name: '&6First Item'
+            lore:
+            - '&7Place the item here that'
+            - '&7must be placed in the left'
+            - '&7trade slot.'
+          second:
+            name: '&6Second Item'
+            lore:
+            - '&7Place the item here that'
+            - '&7must be placed in the right'
+            - '&7trade slot.'
+          result:
+            name: '&6Result Item'
+            lore:
+            - '&7Place the item here that'
+            - '&7will be given to the player'
+            - '&7after trading with the villager.'
+          uses:
+            name: '&aPurchase Count'
+            lore:
+            - '&7Place a slime here that'
+            - '&7contains the number of times'
+            - '&7this trade has already'
+            - '&7been used.'
+            - ''
+            - '&7Default: &a0'
+          max-uses:
+            name: '&aMaximum Purchase Count'
+            lore:
+            - '&7Place a slime here that'
+            - '&7contains the maximum number'
+            - '&7of purchases allowed. Once'
+            - '&7reached, this trade becomes'
+            - '&cunavailable&7.'
+            - ''
+            - '&7Default: &aUnlimited'
+          villager-exp:
+            name: '&aVillager Experience'
+            lore:
+            - '&7Place a slime here that'
+            - '&7contains the amount of experience'
+            - '&7granted to the villager after'
+            - '&7a successful trade.'
+            - ''
+            - '&7Default: &a0'
+          discount:
+            name: '&aItem Amount Discount'
+            lore:
+            - '&7Place a slime here that'
+            - '&7contains the discount amount'
+            - '&7for the required items.'
+            - ''
+            - '&7The higher the discount, the fewer'
+            - '&7items will be required.'
+            - ''
+            - '&7Default: &a0'
+        arguments:
+          player-exp:
+            name: '&2Grant Experience to Player'
+            lore:
+            - '&7When purchasing an item'
+            - '&7from a villager, the player'
+            - '&7can receive experience.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': No, do not grant XP
+              'true': Yes, grant XP
+      world-add-furnace-recipe:
+        name: '&7Create Furnace Recipe'
+        lore:
+        - '&7This will create a recipe that'
+        - '&7allows you to smelt an item'
+        - '&7in a furnace and obtain another item.'
+        - ''
+        - '&7For the player to be able to smelt the item'
+        - '&7after creation, use the action'
+        - '&aUnlock Item Recipe&7.'
+        - ' '
+        - '&fIn the chest:'
+        - '&c Item &7- Required item'
+        - '&c Item &7- Result'
+        - '&6 Text &7- Recipe identifier'
+        - '&a Number &7- Cooking time'
+        - '&a Number &7- Experience amount'
+        - '&3 Parameter &7- Category'
+        - ' '
+        - '&eClick to set the action.'
+        placeholders:
+          name:
+            name: '&6Recipe Identifier'
+            lore:
+            - '&7Place a book here that'
+            - '&7will be used as the recipe name.'
+            - ''
+            - '&7Must contain &c&nonly English&7'
+            - '&7characters and underscores.'
+            - ''
+            - '&7Default: '
+            - '&6 custom'
+          items:
+            name: '&6Required Item'
+            lore:
+            - '&7Place here the item that'
+            - '&7must be put into the top'
+            - '&7slot of the furnace for smelting.'
+          result:
+            name: '&6Smelting Result'
+            lore:
+            - '&7Place here the item that'
+            - '&7will be obtained after smelting'
+            - '&7the required item.'
+          time:
+            name: '&aCooking Time'
+            lore:
+            - '&7Place slime here that'
+            - '&7will represent the amount of time'
+            - '&7required for cooking'
+            - '&7and giving the item.'
+            - ''
+            - '&7Default: &a200'
+            - '&a(in ticks)'
+          experience:
+            name: '&aExperience Amount'
+            lore:
+            - '&7Place slime here that'
+            - '&7will represent the amount of experience'
+            - '&7to give to the player after'
+            - '&7cooking.'
+            - ''
+            - '&7Default: &a0'
+        arguments:
+          category:
+            name: '&cItem Category'
+            lore:
+            - '&7The recipe book has categories'
+            - '&7that recipes are sorted by.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            - '%3%'
+            choices:
+              misc: Miscellaneous
+              building: Building Blocks
+              food: Food
+      world-add-blast-furnace-recipe:
+        name: '&3Create Blast Furnace Recipe'
+        lore:
+        - '&7This will create a recipe that'
+        - '&7allows you to smelt an item'
+        - '&7in a blast furnace and obtain'
+        - '&7another item.'
+        - ''
+        - '&7For the player to be able to smelt the item'
+        - '&7after creation, use the action'
+        - '&aUnlock Item Recipe&7.'
+        - ' '
+        - '&fIn the chest:'
+        - '&c Item &7- Required item'
+        - '&c Item &7- Result'
+        - '&6 Text &7- Recipe identifier'
+        - '&a Number &7- Cooking time'
+        - '&a Number &7- Experience amount'
+        - '&3 Parameter &7- Category'
+        - ' '
+        - '&eClick to set the action.'
+        placeholders:
+          name:
+            name: '&6Recipe Identifier'
+            lore:
+            - '&7Place a book here that'
+            - '&7will be used as the recipe name.'
+            - ''
+            - '&7Must contain &c&nonly English&7'
+            - '&7characters and underscores.'
+            - ''
+            - '&7Default: '
+            - '&6 custom'
+          items:
+            name: '&6Required Item'
+            lore:
+            - '&7Place here the item that'
+            - '&7must be put into the top'
+            - '&7slot of the blast furnace for smelting.'
+          result:
+            name: '&6Smelting Result'
+            lore:
+            - '&7Place here the item that'
+            - '&7will be obtained after smelting'
+            - '&7the required item.'
+          time:
+            name: '&aCooking Time'
+            lore:
+            - '&7Place slime here that'
+            - '&7will represent the amount of time'
+            - '&7required for cooking'
+            - '&7and giving the item.'
+            - ''
+            - '&7Default: &a100'
+            - '&a(in ticks)'
+          experience:
+            name: '&aExperience Amount'
+            lore:
+            - '&7Place slime here that'
+            - '&7will represent the amount of experience'
+            - '&7to give to the player after'
+            - '&7cooking.'
+            - ''
+            - '&7Default: &a0'
+        arguments:
+          category:
+            name: '&cItem Category'
+            lore:
+            - '&7The recipe book has categories'
+            - '&7that recipes are sorted by.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              misc: Miscellaneous
+              building: Building Blocks
+      world-add-smoker-recipe:
+        name: '&6Create Smoker Recipe'
+        lore:
+        - '&7This will create a recipe that'
+        - '&7allows you to smelt an item'
+        - '&7in a smoker and obtain another'
+        - '&7item.'
+        - ''
+        - '&7For the player to be able to smelt the item'
+        - '&7after creation, use the action'
+        - '&aUnlock Item Recipe&7.'
+        - ' '
+        - '&fIn the chest:'
+        - '&c Item &7- Required item'
+        - '&c Item &7- Result'
+        - '&6 Text &7- Recipe identifier'
+        - '&a Number &7- Cooking time'
+        - '&a Number &7- Experience amount'
+        - ' '
+        - '&eClick to set the action.'
+        placeholders:
+          name:
+            name: '&6Recipe Identifier'
+            lore:
+            - '&7Place a book here that'
+            - '&7will be used as the recipe name.'
+            - ''
+            - '&7Must contain &c&nonly English&7'
+            - '&7characters and underscores.'
+            - ''
+            - '&7Default: '
+            - '&6 custom'
+          items:
+            name: '&6Required Item'
+            lore:
+            - '&7Place here the item that'
+            - '&7must be put into the top'
+            - '&7slot of the smoker for smelting.'
+          result:
+            name: '&6Smelting Result'
+            lore:
+            - '&7Place here the item that'
+            - '&7will be obtained after smelting'
+            - '&7the required item.'
+          time:
+            name: '&aCooking Time'
+            lore:
+            - '&7Place slime here that'
+            - '&7will represent the amount of time'
+            - '&7required for cooking'
+            - '&7and giving the item.'
+            - ''
+            - '&7Default: &a100'
+            - '&a(in ticks)'
+          experience:
+            name: '&aExperience Amount'
+            lore:
+            - '&7Place slime here that'
+            - '&7will represent the amount of experience'
+            - '&7to give to the player after'
+            - '&7cooking.'
+            - ''
+            - '&7Default: &a0'
+      world-add-campfire-recipe:
+        name: '&eCreate Campfire Recipe'
+        lore:
+        - '&7This will create a recipe that'
+        - '&7allows you to cook an item'
+        - '&7on a campfire and obtain another'
+        - '&7item.'
+        - ''
+        - '&7For the player to be able to cook the item'
+        - '&7after creation, use the action'
+        - '&aUnlock Item Recipe&7.'
+        - ' '
+        - '&fIn the chest:'
+        - '&c Item &7- Required item'
+        - '&c Item &7- Result'
+        - '&6 Text &7- Recipe identifier'
+        - '&a Number &7- Cooking time'
+        - '&a Number &7- Experience amount'
+        - ' '
+        - '&eClick to set the action.'
+        placeholders:
+          name:
+            name: '&6Recipe Identifier'
+            lore:
+            - '&7Place a book here that'
+            - '&7will be used as the recipe name.'
+            - ''
+            - '&7Must contain &c&nonly English&7'
+            - '&7characters and underscores.'
+            - ''
+            - '&7Default: '
+            - '&6 custom'
+          items:
+            name: '&6Required Item'
+            lore:
+            - '&7Place here the item that'
+            - '&7must be placed on the campfire'
+            - '&7for cooking.'
+          result:
+            name: '&6Cooking Result'
+            lore:
+            - '&7Place here the item that'
+            - '&7will drop after cooking'
+            - '&7the required item.'
+          time:
+            name: '&aCooking Time'
+            lore:
+            - '&7Place slime here that'
+            - '&7will represent the amount of time'
+            - '&7required for cooking'
+            - '&7and giving the item.'
+            - ''
+            - '&7Default: &a600'
+            - '&a(in ticks)'
+          experience:
+            name: '&aExperience Amount'
+            lore:
+            - '&7Place slime here that'
+            - '&7will represent the amount of experience'
+            - '&7to give to the player after'
+            - '&7cooking.'
+            - ''
+            - '&7Default: &a0'
+      world-add-crafting-recipe:
+        name: '&aCreate item recipe'
+        lore:
+        - '&7This will create a recipe that'
+        - '&7can be used to craft an item.'
+        - ''
+        - '&7To allow players to craft the item'
+        - '&7after creation, use the action'
+        - '&aUnlock item recipe&7.'
+        - ' '
+        - '&fIn the chest:'
+        - '&c Items &7- Required for crafting'
+        - '&c Item &7- Result'
+        - '&6 Text &7- Recipe identifier'
+        - '&3 Parameter &7- Ignore shape'
+        - '&3 Parameter &7- Ignore data'
+        - '&3 Parameter &7- Category'
+        - ' '
+        - '&eClick to set action.'
+        placeholders:
+          name:
+            name: '&6Recipe identifier'
+            lore:
+            - '&7Place a book here that'
+            - '&7will be used as the recipe name.'
+            - ''
+            - '&7Must contain &c&nonly English&7'
+            - '&7characters and underscores.'
+            - ''
+            - '&7Default:'
+            - '&6 custom'
+          items:
+            name: '&6Required items'
+            lore:
+            - '&7Place here the items that'
+            - '&7must be put into the slots'
+            - '&7to craft the item.'
+            - ''
+            - '&7The amount of one item type'
+            - '&7can be specified by placing'
+            - '&7items in multiple slots.'
+          result:
+            name: '&6Crafting result'
+            lore:
+            - '&7Place here the item that'
+            - '&7will be crafted from the required items.'
+        arguments:
+          ignore-shape:
+            name: '&eIgnore slot order'
+            lore:
+            - '&7If set to yes, the player will'
+            - '&7be able to craft the item by placing'
+            - '&7the required items in any order.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': No, require exact shape
+              'true': Yes, allow any arrangement
+          ignore-data:
+            name: '&3Ignore item data'
+            lore:
+            - '&7If set to yes, the player will'
+            - '&7be able to craft using specified items,'
+            - '&7even if they have different names or lore.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': No, check item data
+              'true': Yes, accept any item data
+          category:
+            name: '&cItem category'
+            lore:
+            - '&7The recipe book has categories'
+            - '&7that recipes are sorted into.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            - '%3%'
+            - '%4%'
+            choices:
+              misc: Miscellaneous
+              building: Building
+              equipment: Equipment
+              redstone: Redstone
       entity-set-maximum-air:
         name: '&eSet Maximum Air'
         lore:
@@ -4795,7 +5418,7 @@ items:
         - '&7player''s hotbar.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Message'
+        - '&6 Texts &7- Message'
         - '&3 Parameter &7- Separator'
         - ' '
         - '&eClick to set action.'
@@ -4897,7 +5520,7 @@ items:
         - '&7with a delay between them.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Messages'
+        - '&6 Texts &7- Messages'
         - '&a Number &7- Delay'
         - ' '
         - '&eClick to set action.'
@@ -4925,7 +5548,7 @@ items:
         - '&7message in the chat.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Messages'
+        - '&6 Texts &7- Messages'
         - '&3 Option &7- Separator'
         - ' '
         - '&eClick to set action.'
@@ -5012,6 +5635,15 @@ items:
         - '&7action &2Load inventory&7.'
         - ' '
         - '&eClick to set action.'
+        placeholders:
+          number:
+            name: '&aInventory Number'
+            lore:
+            - '&7Place a slime with number here,'
+            - '&7which will be the inventory number.'
+            - ''
+            - '&7By default: &a1'
+            - '&cNumber from 1 to 9'
       player-restore-inventory:
         name: '&2Load inventory'
         lore:
@@ -5021,6 +5653,15 @@ items:
         - '&7cleared.'
         - ' '
         - '&eClick to set action.'
+        placeholders:
+          number:
+            name: '&aInventory Number'
+            lore:
+            - '&7Place a slime with number here,'
+            - '&7which will be the inventory number.'
+            - ''
+            - '&7By default: &a1'
+            - '&cNumber from 1 to 9'
       player-open-book:
         name: '&6Open book'
         lore:
@@ -5471,6 +6112,16 @@ items:
         lore:
         - '&7Deletes local variables'
         - '&7that were set in the line.'
+        - ' '
+        - '&eClick to set the action.'
+      control-clear-global-variables:
+        name: '&cClear Global Variables'
+        lore:
+        - '&7Deletes the global variables'
+        - '&7that were set in the world.'
+        - ''
+        - '&7They are cleared automatically'
+        - '&7after the world is unloaded.'
         - ' '
         - '&eClick to set the action.'
       world-switch-to-build-mode:
@@ -6084,6 +6735,24 @@ items:
         - '&f Pos &7- Jukebox place'
         - ' '
         - '&eClick to set action.'
+      entity-set-villager-recipes:
+        name: '&aSet Villager Trades'
+        lore:
+        - '&7Clears previous trading recipes'
+        - '&7and adds only the specified ones'
+        - '&7that the player can purchase.'
+        - ' '
+        - '&fIn the chest:'
+        - '&6 Texts &7- Identifiers'
+        - ' '
+        - '&eClick to set the action.'
+        placeholders:
+          recipes:
+            name: '&6Trade Recipe Identifiers'
+            lore:
+            - '&7Place a book here that'
+            - '&7contains the identifier of'
+            - '&7a trade recipe.'
       entity-villager-shake-head:
         name: '&6Villager Head Shake'
         lore:
@@ -6343,7 +7012,7 @@ items:
         - '&7the chest.'
         - ' '
         - '&fIn the chest:'
-        - '&c Item(s) &7- Your items'
+        - '&c Items &7- Your items'
         - ' '
         - '&eClick to set the action.'
       player-remove-items:
@@ -6353,7 +7022,7 @@ items:
         - '&7inventory.'
         - ' '
         - '&fIn the chest:'
-        - '&c Item(s) &7- Your items'
+        - '&c Items &7- Your items'
         - ' '
         - '&eClick to set the action.'
       control-throw-error:
@@ -6376,7 +7045,7 @@ items:
         - '&7Restarting won’t run again.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Loop names'
+        - '&6 Texts &7- Loop names'
         - ' '
         - '&eClick to set the action.'
       control-stop-cycles:
@@ -6386,7 +7055,23 @@ items:
         - '&7run until restarted.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Loop names'
+        - '&6 Texts &7- Loop names'
+        - ' '
+        - '&eClick to set the action.'
+      control-break-repeat:
+        name: '&cStop repetition'
+        lore:
+        - '&7This will stop the repetition and'
+        - '&7execute the action after'
+        - '&7the repeating pistons.'
+        - ' '
+        - '&eClick to set the action.'
+      control-skip-repeat:
+        name: '&bSkip repetition'
+        lore:
+        - '&7This will not execute the following'
+        - '&7actions in the repetition, but will'
+        - '&7start next iteration.'
         - ' '
         - '&eClick to set the action.'
       control-stop-code-line:
@@ -6596,7 +7281,7 @@ items:
         - '&7inventory, accessible by pressing E.'
         - ''
         - '&fIn the chest:'
-        - '&c Item(s) &7- Items to set'
+        - '&c Items &7- Items to set'
         - '&7 in inventory.'
         - ''
         - '&eClick to set the action.'
@@ -6608,7 +7293,7 @@ items:
         - '&7the bottom of the screen.'
         - ''
         - '&fIn the chest:'
-        - '&c Item(s) &7- Items to set'
+        - '&c Items &7- Items to set'
         - '&7 in the hotbar'
         - '&3 Option &7- Replace empty'
         - '&7 slots with air'
@@ -6637,7 +7322,7 @@ items:
         - '&7several items.'
         - ''
         - '&fIn the chest:'
-        - '&c Item(s) &7- Items that can'
+        - '&c Items &7- Items that can'
         - '&7be given.'
         - ''
         - '&eClick to set the action.'
@@ -6714,6 +7399,21 @@ items:
             - ''
             - '&7Default: &a6'
             - '&cNumber from 0 to 24'
+      player-show-particle:
+        name: '&5Show Particle'
+        lore:
+        - '&7This will create a particle and'
+        - '&7show it to player.'
+        - ''
+        - '&fIn the chest:'
+        - '&f Location &7- Where to create'
+        - '&5 Particle &7- Particle type'
+        - '&a Number &7- Amount of particles'
+        - '&a Number &7- X offset'
+        - '&a Number &7- Y offset'
+        - '&a Number &7- Z offset'
+        - ''
+        - '&eClick to set the action.'
       world-spawn-particle:
         name: '&5Show Particle to All'
         lore:
@@ -6789,6 +7489,20 @@ items:
         - '&a Number &7- Y Offset'
         - '&a Number &7- Z Offset'
         - ' '
+        - '&eClick to set the action.'
+      world-spawn-particles-circle:
+        name: '&aSpawn particles circle'
+        lore:
+        - '&7Creates circle of particles on'
+        - '&7specified location with radius.'
+        - ''
+        - '&fIn the chest:'
+        - '&f Location &7- Circle center'
+        - '&a Number &7- Circle radius'
+        - '&a Number &7- Amount of circle points'
+        - '&b Vector &7- Plane normal vector'
+        - '&5 Particle &7- To be spawned'
+        - ''
         - '&eClick to set the action.'
       world-create-team:
         name: '&aCreate Team'
@@ -7092,7 +7806,40 @@ items:
         - '&e Variable &7- Second list'
         - ' '
         - '&eClick to set the action.'
-
+      var-set-item-book-owner:
+        name: '&6Set Book Author'
+        lore:
+        - '&7This will set into the variable'
+        - '&7a book with a new author.'
+        - ' '
+        - '&fIn the chest:'
+        - '&e Variable &7- For saving'
+        - '&c Item &7- Book'
+        - '&6 Text &7- Author'
+        - ' '
+        - '&eClick to set the action.'
+      var-get-item-book-owner:
+        name: '&eGet Book Author'
+        lore:
+        - '&7This will set the variable'
+        - '&7to the name of the book author.'
+        - ' '
+        - '&fIn the chest:'
+        - '&e Variable &7- For saving'
+        - '&c Item &7- Book'
+        - ' '
+        - '&eClick to set the action.'
+      var-get-item-id:
+        name: '&eGet Item Material'
+        lore:
+        - '&7This will set the variable'
+        - '&7to the item''s material ID text.'
+        - ' '
+        - '&fIn the chest:'
+        - '&e Variable &7- For saving'
+        - '&c Item &7- Item'
+        - ' '
+        - '&eClick to set the action.'
       var-set-item-skull-textures:
         name: '&6Set Head Texture'
         lore:
@@ -7385,7 +8132,7 @@ items:
         - '&7it again with new scores.'
         - ''
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Scoreboard name'
+        - '&6 Texts &7- Scoreboard name'
         - ''
         - '&eClick to set the action.'
       world-scoreboard-set-number-style:
@@ -7399,7 +8146,7 @@ items:
         - '&7the chest, it will hide the numbers.'
         - ''
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Scoreboard name'
+        - '&6 Texts &7- Scoreboard name'
         - '&6 Text &7- Text with colors and style'
         - ''
         - '&eClick to set the action.'
@@ -7453,7 +8200,7 @@ items:
         - '&7will not be editable.'
         - ''
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Scoreboard name'
+        - '&6 Texts &7- Scoreboard name'
         - ''
         - '&eClick to set the action.'
 
@@ -7552,7 +8299,7 @@ items:
         - '&7unavailable.'
         - ''
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Boss bar name'
+        - '&6 Texts &7- Boss bar name'
         - ''
         - '&eClick to set the action.'
 
@@ -7936,7 +8683,7 @@ items:
         - '&7on the right center of the screen.'
         - ''
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Scoreboard name'
+        - '&6 Texts &7- Scoreboard name'
         - ' '
         - '&eClick to set action.'
       player-hide-scoreboard:
@@ -7946,7 +8693,7 @@ items:
         - '&7and it will no longer be visible.'
         - ''
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Scoreboard name'
+        - '&6 Texts &7- Scoreboard name'
         - ' '
         - '&eClick to set action.'
       player-show-boss-bar:
@@ -7956,7 +8703,7 @@ items:
         - '&7center of the screen.'
         - ''
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Boss bar name'
+        - '&6 Texts &7- Boss bar name'
         - ' '
         - '&eClick to set action.'
       player-hide-boss-bar:
@@ -7966,7 +8713,7 @@ items:
         - '&7and it will no longer be visible.'
         - ''
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Boss bar name'
+        - '&6 Texts &7- Boss bar name'
         - ' '
         - '&eClick to set action.'
       player-hide-entity:
@@ -8034,7 +8781,7 @@ items:
         - '&7there are none, all sounds will stop.'
         - ''
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Sound names'
+        - '&6 Texts &7- Sound names'
         - ''
         - '&eClick to set action.'
         placeholders:
@@ -8318,11 +9065,44 @@ items:
             choices:
               'false': Set
               'true': Add
-      entity-set-display-item:
+      entity-set-display-rotation:
+        name: '&fRotate Display'
+        lore:
+        - '&7Rotates display using'
+        - '&7Euler angels with the'
+        - '&7rotation order X, Y, Z'
+        - ''
+        - '&fIn the chest:'
+        - '&a Number &7- Angle X'
+        - '&a Number &7- Angle Y'
+        - '&a Number &7- Angle Z'
+        - '&3 Parameter &7- Add or set'
+        - '&7 the value'
+        - ' '
+        - '&eClick to set the action.'
+        arguments:
+          add:
+            name: '&fSet or Add'
+            lore:
+            - '&7If Add is selected, your value'
+            - '&7will be added to the current'
+            - '&7value of the display entity.'
+            - ' '
+            - '&eClick to change.'
+            - ' '
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': Set
+              'true': Add
+      entity-set-item:
         name: '&6Set Display Item'
         lore:
-        - '&7Sets a new item for the'
-        - '&7item display entity.'
+        - '&7Sets a new item for arrow,'
+        - '&7item entity, display entity,'
+        - '&7item frame, thrown potion,'
+        - '&7or dropped item.'
         - ''
         - '&fIn the chest:'
         - '&c Item &7- New item'
@@ -8433,6 +9213,17 @@ items:
         - ''
         - '&fIn the chest:'
         - '&a Number &7- Light level'
+        - ' '
+        - '&eClick to set the action.'
+      entity-set-display-interpolation:
+        name: '&eSet Display Interpolation'
+        lore:
+        - '&7Sets the interpolation times for'
+        - '&7the display entity''s transformations.'
+        - ''
+        - '&fIn the chest:'
+        - '&a Number &7- Interpolation delay (ticks)'
+        - '&a Number &7- Interpolation duration (ticks)'
         - ' '
         - '&eClick to set the action.'
       player-set-walk-speed:
@@ -8672,13 +9463,7 @@ items:
       player-clear-potion-effects:
         name: '&fClear potion effects'
         lore:
-        - '&7If nothing is in the chest,'
-        - '&7the player will lose all effects.'
-        - '&7If there are effects listed,'
-        - '&7the player will lose only those.'
-        - ' '
-        - '&fIn the chest:'
-        - '&d Potion(s) &7- Potion effects'
+        - '&7Player will lose all effects.'
         - ' '
         - '&eClick to set action.'
       player-give-potion-effects:
@@ -8688,7 +9473,7 @@ items:
         - '&7that potions have.'
         - ' '
         - '&fIn the chest:'
-        - '&d Potion(s) &7- Potion effects'
+        - '&d Potions &7- Potion effects'
         - ' '
         - '&eClick to set action.'
       player-remove-potion-effects:
@@ -8698,7 +9483,7 @@ items:
         - '&7that potions have from player.'
         - ' '
         - '&fIn the chest:'
-        - '&d Potion(s) &7- Potion effects'
+        - '&d Potions &7- Potion effects'
         - ' '
         - '&eClick to set action.'
       player-firework-boost:
@@ -9016,6 +9801,7 @@ items:
         - ' '
         - '&fIn the chest:'
         - '&f Location &7- Where to launch'
+        - '&a Number &7- Launch power'
         - ' '
         - '&eClick to set the action.'
       player-teleport:
@@ -9284,6 +10070,39 @@ items:
         - '&e Variable &7- To check the type of'
         - ' '
         - '&eClick to set action.'
+      var-get-block-type:
+        name: '&2Get block type'
+        lore:
+        - '&7This will assign the variable'
+        - '&7the block material type.'
+        - ' '
+        - '&fIn the chest:'
+        - '&e Variable &7- To store the result'
+        - '&f Location &7- Block location'
+        - ' '
+        - '&fExamples:'
+        - ' &7Air - &eair '
+        - ' &7Ground torch - &etorch'
+        - ' &7Wall torch - &ewall_torch'
+        - ' '
+        - '&eClick to set the action.'
+      var-get-block-facing:
+        name: '&bGet block facing'
+        lore:
+        - '&7This will assign the variable'
+        - '&7the block facing direction.'
+        - ' '
+        - '&fIn the chest:'
+        - '&e Variable &7- To store the result'
+        - '&f Location &7- Block location'
+        - ' '
+        - '&fExamples:'
+        - ' &7North - &enorth '
+        - ' &7South - &esouth'
+        - ' &7East - &eeast'
+        - ' &7West - &ewest'
+        - ' '
+        - '&eClick to set the action.'
       var-delete-variable:
         name: '&4Delete Variable'
         lore:
@@ -9311,6 +10130,22 @@ items:
         - '&f Location &7- Location'
         - '&a Number &7- Camera Yaw'
         - '&a Number &7- Camera Pitch'
+        - '&a Number &7- Coordinate X'
+        - '&a Number &7- Coordinate Y'
+        - '&a Number &7- Coordinate Z'
+        - '&3 Option &7- Add or not'
+        - ' '
+        - '&eClick to set action.'
+      var-modify-vector:
+        name: '&bModify Vector'
+        lore:
+        - '&7You can change the coordinates'
+        - '&7of the vector and even add'
+        - '&7to them.'
+        - ' '
+        - '&fIn the chest:'
+        - '&e Variable &7- For saving'
+        - '&b Vector &7- Vector'
         - '&a Number &7- Coordinate X'
         - '&a Number &7- Coordinate Y'
         - '&a Number &7- Coordinate Z'
@@ -9388,6 +10223,18 @@ items:
         - '&f Location &7- Location'
         - ' '
         - '&eClick to set action.'
+      var-move-location-by-vector:
+        name: '&3Shift Location by Vector'
+        lore:
+        - '&7Allows shifting locations in'
+        - '&7different directions using a vector.'
+        - ' '
+        - '&fIn the chest:'
+        - '&e Variable &7- To save to'
+        - '&f Location &7- To shift'
+        - '&b Vector &7- Vector'
+        - ' '
+        - '&eClick to set the action.'
       var-sum-numbers:
         name: '&cSum of Numbers +'
         lore:
@@ -9818,7 +10665,36 @@ items:
         - '&fIn the chest:'
         - '&e Variable &7- Result'
         - '&e Variable &7- List'
-        - '&a Number &7- Item number'
+        - '&a Number &7- Item number'  
+        - ' '
+        - '&eClick to set action.'
+      
+      var-get-first-from-list:
+        name: '&9Get first element from list'
+        lore:
+        - '&7This action return fist'
+        - '&7element from list'
+        - ' '
+        - '&fIn the chest:'
+        - '&e Variable &7- Result'
+        - '&e Variable &7- List'
+        - ' '
+        - '&Examples:'
+        - ' &7[&6Watermelon&7, &6Pear&7] &7= &6Watermelon'
+        - ' '
+        - '&eClick to set action.'
+      var-get-last-from-list:
+        name: '&9Get last element from list'
+        lore:
+        - '&7This action return last'
+        - '&7element from list'
+        - ' '
+        - '&fIn the chest:'
+        - '&e Variable &7- Result'
+        - '&e Variable &7- List'
+        - ' '
+        - '&Examples:'
+        - ' &7[&6Watermelon&7, &6Pear&7] &7= &6Pear'
         - ' '
         - '&eClick to set action.'
       var-remove-by-value-from-list:
@@ -9905,6 +10781,77 @@ items:
         - '&e List &7- Values'
         - ' '
         - '&eClick to set action.'
+      var-create-map-by-keys:
+        name: '&aCreate map by keys'
+        lore:
+        - '&7This will create a map from keys'
+        - '&7and values and assign it to'
+        - '&7a variable.'
+        - ' '
+        - '&7Unlike lists, each value'
+        - '&7here has a key. This is'
+        - '&7better than numbering. Get,'
+        - '&7set and remove values'
+        - '&7by their key.'
+        - ' '
+        - '&fIn the chest:'
+        - '&9 Any &7- Keys'
+        - '&9 Any &7- Values'
+        - '&e Variable &7- To store result'
+        - ' '
+        - '&eClick to set the action.'
+      var-get-custom-data-from-item:
+        name: '&3Get item data by key'
+        lore:
+        - '&7Allows you to get item data'
+        - '&7stored by a key.'
+        - ' '
+        - '&fIn the chest:'
+        - '&e Variable &7- To store result'
+        - '&c Item &7- Item with data'
+        - '&6 Text &7- Key'
+        - ' '
+        - '&eClick to set the action.'
+      var-set-custom-data-to-item:
+        name: '&6Set item data by key'
+        lore:
+        - '&7Sets a text value in the item'
+        - '&7and stores it by the key.'
+        - ' '
+        - '&fIn the chest:'
+        - '&e Variable &7- To store result'
+        - '&c Item &7- Item to modify'
+        - '&6 Text &7- Key'
+        - '&6 Text &7- Value'
+        - ' '
+        - '&eClick to set the action.'
+      var-create-item-by-id:
+        name: '&cCreate item by material'
+        lore:
+        - '&7Allows creating an item'
+        - '&7by material from text.'
+        - ' '
+        - '&fIn the chest:'
+        - '&e Variable &7- Result'
+        - '&6 Text &7- Material'
+        - ' '
+        - '&fExamples:'
+        - ' &6wooden_sword &7= &eWooden Sword'
+        - ' &6apple &7= &eApple'
+        - ' '
+        - '&eClick to set the action.'
+      var-remove-custom-data-from-item:
+        name: '&cRemove item data by key'
+        lore:
+        - '&7Removes stored item data'
+        - '&7by the specified key.'
+        - ' '
+        - '&fIn the chest:'
+        - '&6 Texts &7- Keys'
+        - '&e Variable &7- To store result'
+        - '&c Item &7- Item'
+        - ' '
+        - '&eClick to set the action.'
       var-put-into-map:
         name: '&aSet value by key'
         lore:
@@ -10222,16 +11169,18 @@ items:
         - ' '
         - '&eClick to set action.'
       var-round-number:
-        name: '&fRound number'
+        name: '&bRound number'
         lore:
-        - '&7This will remove the digits'
-        - '&7after the decimal point from the'
-        - '&7number and set it in the variable.'
+        - '&7Rounds the number and removes'
+        - '&7digits after the decimal point,'
+        - '&7leaving specified amount of digits.'
         - ' '
         - '&fIn the chest:'
         - '&e Variable &7- To save'
         - '&a Number &7- Number to round'
         - '&3 Option &7- Round type'
+        - '&a Number &7- Amount of digits'
+        - '&7 after the decimal point'
         - ' '
         - '&eClick to set action.'
         placeholders:
@@ -10355,7 +11304,7 @@ items:
         - '&fIn the chest:'
         - '&e Variable &7- To assign'
         - '&6 Text &7- Text to parse'
-        - '&a Number &7- Character index''
+        - '&a Number &7- Character index'
         - ' '
         - '&eClick to set action.'
       var-concat-text:
@@ -10618,6 +11567,29 @@ items:
         - '&b Vector &7- For getting'
         - ' '
         - '&eClick to set action.'
+      var-get-vector-all:
+        name: '&eGet vector''s coordinates'
+        lore:
+        - '&7Sets coordinates of vector to'
+        - '&7specified variables.'
+        - ''
+        - '&fIn the chest:'
+        - '&b Vector &7- To get'
+        - '&e Variable &7- For X coordinate'
+        - '&e Variable &7- For Y coordinate'
+        - '&e Variable &7- For Z coordinate'
+        - ' '
+        - '&eClick to set action.'
+      player-set-spectator-target:
+        name: '&bSet Spectator Target'
+        lore:
+        - '&7Makes player in spectator mode'
+        - '&7watch a specified entity.'
+        - ' '
+        - '&fIn the chest:'
+        - '&6 Text &7- Mob''s name or UUID'
+        - ' '
+        - '&eClick to set action.'
       var-get-vector-y:
         name: '&aGet vector''s Y'
         lore:
@@ -10706,7 +11678,7 @@ items:
               vanilla-java: Minecraft
               optifine-fastmath: Optifine
       var-do-ray-trace-multi:
-        name: '&9Do Ray Trace (Multi)'
+        name: '&9Do Multiple Ray Trace'
         lore:
         - '&7Checks whether ray hits hitboxes'
         - '&7and saves locations of intersection'
@@ -10756,7 +11728,7 @@ items:
               vanilla-java: Minecraft
               optifine-fastmath: Optifine
       var-do-ray-trace-multi-entities:
-        name: '&9Do Ray Trace (Entities)'
+        name: '&9Do Ray Trace with entities'
         lore:
         - '&7Checks whether ray hits mobs hitboxes'
         - '&7and saves locations of intersection'
@@ -10991,783 +11963,48 @@ items:
             name: '&eValue from dictionary'
           map:
             name: '&eDictionary'
-      entity-set-disguise-name:
-        name: '&6Set Disguise Name'
+      repeat-on-circle:
+        name: '&aRepeat on circle'
         lore:
-        - '&7This will change displayed name'
-        - '&7of mob if it has a disguise.'
-        - ' '
-        - '&fIn the chest:'
-        - '&6 Text &7- Name to display'
-        - ' '
-        - '&eClick to set action.'
-      entity-disguise-as-entity:
-        name: '&cDisguise as Entity'
-        lore:
-        - '&7This will disguise'
-        - '&7mob as another entity.'
-        - ' '
-        - '&fIn the chest:'
-        - '&c Item &7- Mob spawn egg'
-        - ' '
-        - '&eClick to set the action.'
-      entity-disguise-as-block:
-        name: '&2Disguise as Block'
-        lore:
-        - '&7This will disguise'
-        - '&7the mob as a block.'
-        - ' '
-        - '&fIn the chest:'
-        - '&c Item &7- Block'
-        - ' '
-        - '&eClick to set the action.'
-      entity-clear-disguise:
-        name: '&cClear Disguise'
-        lore:
-        - '&7This will remove the '
-        - '&7disguise from the mob.'
-        - ' '
-        - '&eClick to set the action.'
-      player-set-item-in-slot:
-        name: '&2Set item in slot'
-        lore:
-        - '&7Sets an item into specified'
-        - '&7player inventory slots.'
-        - ' '
-        - '&fIn chest:'
-        - '&a Numbers &7- Slots'
-        - '&c Item &7- To set'
-        - '&3 Parameter &7- Replace with air or not'
-        - ' '
-        - '&eClick to set action.'
-        placeholders:
-          slots:
-            name: '&aSlots to place into'
-            lore:
-            - '&7Put slime here that'
-            - '&7represents the slot number'
-            - '&7for setting.'
-            - ''
-            - '&a 1-9 &7- Hotbar slots'
-            - '&a 10-18 &7- First inventory row'
-            - '&a 19-27 &7- Second inventory row'
-            - '&a 28-36 &7- Third inventory row'
-            - '&a 37 &7- Boots'
-            - '&a 38 &7- Leggings'
-            - '&a 39 &7- Chestplate'
-            - '&a 40 &7- Helmet'
-            - '&a 41 &7- Off-hand item'
-        arguments:
-          replace-with-air:
-            name: '&fReplace empty slots with air'
-            lore:
-            - '&7If Replace with air is selected and'
-            - '&7the entity has items in unfilled slots'
-            - '&7here, they will'
-            - '&7be replaced with air.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fChoices:'
-            - '%1%'
-            - '%2%'
-            choices:
-              'false': Do not replace
-              'true': Replace with air
-      player-discover-recipe:
-        name: '&aUnlock item recipe'
-        lore:
-        - '&7This will allow the player to craft'
-        - '&7items or cook food from the specified'
-        - '&7recipes.'
-        - ' '
-        - '&fIn the chest:'
-        - '&6 Texts &7- Recipe identifiers'
-        - ' '
-        - '&eClick to set action.'
-      player-undiscover-recipe:
-        name: '&cLock item recipe'
-        lore:
-        - '&7This will prevent the player from'
-        - '&7crafting items or cooking food'
-        - '&7from the specified recipes.'
-        - ' '
-        - '&fIn the chest:'
-        - '&6 Texts &7- Recipe identifiers'
-        - ' '
-        - '&eClick to set action.'
-      world-remove-recipe:
-        name: '&cRemove item recipe'
-        lore:
-        - '&7This will remove the specified'
-        - '&7item recipes and players will not'
-        - '&7be able to craft or cook food'
-        - '&7using these recipes.'
-        - ' '
-        - '&fIn the chest:'
-        - '&6 Texts &7- Recipe identifiers'
-        - ' '
-        - '&eClick to set action.'
-      world-add-furnace-recipe:
-        name: '&7Create Furnace Recipe'
-        lore:
-        - '&7This will create a recipe that'
-        - '&7allows you to smelt an item'
-        - '&7in a furnace and obtain another item.'
-        - ''
-        - '&7For the player to be able to smelt the item'
-        - '&7after creation, use the action'
-        - '&aUnlock Item Recipe&7.'
-        - ' '
-        - '&fIn the chest:'
-        - '&c Item &7- Required item'
-        - '&c Item &7- Result'
-        - '&6 Text &7- Recipe identifier'
-        - '&a Number &7- Cooking time'
-        - '&a Number &7- Experience amount'
-        - '&3 Parameter &7- Category'
-        - ' '
-        - '&eClick to set the action.'
-        placeholders:
-          name:
-            name: '&6Recipe Identifier'
-            lore:
-            - '&7Place a book here that'
-            - '&7will be used as the recipe name.'
-            - ''
-            - '&7Must contain &c&nonly English&7'
-            - '&7characters and underscores.'
-            - ''
-            - '&7Default: '
-            - '&6 custom'
-          items:
-            name: '&6Required Item'
-            lore:
-            - '&7Place here the item that'
-            - '&7must be put into the top'
-            - '&7slot of the furnace for smelting.'
-          result:
-            name: '&6Smelting Result'
-            lore:
-            - '&7Place here the item that'
-            - '&7will be obtained after smelting'
-            - '&7the required item.'
-          time:
-            name: '&aCooking Time'
-            lore:
-            - '&7Place slime here that'
-            - '&7will represent the amount of time'
-            - '&7required for cooking'
-            - '&7and giving the item.'
-            - ''
-            - '&7Default: &a200'
-            - '&a(in ticks)'
-          experience:
-            name: '&aExperience Amount'
-            lore:
-            - '&7Place slime here that'
-            - '&7will represent the amount of experience'
-            - '&7to give to the player after'
-            - '&7cooking.'
-            - ''
-            - '&7Default: &a0'
-        arguments:
-          category:
-            name: '&cItem Category'
-            lore:
-            - '&7The recipe book has categories'
-            - '&7that recipes are sorted by.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            - '%3%'
-            choices:
-              misc: Miscellaneous
-              building: Building Blocks
-              food: Food
-      world-add-blast-furnace-recipe:
-        name: '&3Create Blast Furnace Recipe'
-        lore:
-        - '&7This will create a recipe that'
-        - '&7allows you to smelt an item'
-        - '&7in a blast furnace and obtain'
-        - '&7another item.'
-        - ''
-        - '&7For the player to be able to smelt the item'
-        - '&7after creation, use the action'
-        - '&aUnlock Item Recipe&7.'
-        - ' '
-        - '&fIn the chest:'
-        - '&c Item &7- Required item'
-        - '&c Item &7- Result'
-        - '&6 Text &7- Recipe identifier'
-        - '&a Number &7- Cooking time'
-        - '&a Number &7- Experience amount'
-        - '&3 Parameter &7- Category'
-        - ' '
-        - '&eClick to set the action.'
-        placeholders:
-          name:
-            name: '&6Recipe Identifier'
-            lore:
-            - '&7Place a book here that'
-            - '&7will be used as the recipe name.'
-            - ''
-            - '&7Must contain &c&nonly English&7'
-            - '&7characters and underscores.'
-            - ''
-            - '&7Default: '
-            - '&6 custom'
-          items:
-            name: '&6Required Item'
-            lore:
-            - '&7Place here the item that'
-            - '&7must be put into the top'
-            - '&7slot of the blast furnace for smelting.'
-          result:
-            name: '&6Smelting Result'
-            lore:
-            - '&7Place here the item that'
-            - '&7will be obtained after smelting'
-            - '&7the required item.'
-          time:
-            name: '&aCooking Time'
-            lore:
-            - '&7Place slime here that'
-            - '&7will represent the amount of time'
-            - '&7required for cooking'
-            - '&7and giving the item.'
-            - ''
-            - '&7Default: &a100'
-            - '&a(in ticks)'
-          experience:
-            name: '&aExperience Amount'
-            lore:
-            - '&7Place slime here that'
-            - '&7will represent the amount of experience'
-            - '&7to give to the player after'
-            - '&7cooking.'
-            - ''
-            - '&7Default: &a0'
-        arguments:
-          category:
-            name: '&cItem Category'
-            lore:
-            - '&7The recipe book has categories'
-            - '&7that recipes are sorted by.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            choices:
-              misc: Miscellaneous
-              building: Building Blocks
-      world-add-smoker-recipe:
-        name: '&6Create Smoker Recipe'
-        lore:
-        - '&7This will create a recipe that'
-        - '&7allows you to smelt an item'
-        - '&7in a smoker and obtain another'
-        - '&7item.'
-        - ''
-        - '&7For the player to be able to smelt the item'
-        - '&7after creation, use the action'
-        - '&aUnlock Item Recipe&7.'
-        - ' '
-        - '&fIn the chest:'
-        - '&c Item &7- Required item'
-        - '&c Item &7- Result'
-        - '&6 Text &7- Recipe identifier'
-        - '&a Number &7- Cooking time'
-        - '&a Number &7- Experience amount'
-        - ' '
-        - '&eClick to set the action.'
-        placeholders:
-          name:
-            name: '&6Recipe Identifier'
-            lore:
-            - '&7Place a book here that'
-            - '&7will be used as the recipe name.'
-            - ''
-            - '&7Must contain &c&nonly English&7'
-            - '&7characters and underscores.'
-            - ''
-            - '&7Default: '
-            - '&6 custom'
-          items:
-            name: '&6Required Item'
-            lore:
-            - '&7Place here the item that'
-            - '&7must be put into the top'
-            - '&7slot of the smoker for smelting.'
-          result:
-            name: '&6Smelting Result'
-            lore:
-            - '&7Place here the item that'
-            - '&7will be obtained after smelting'
-            - '&7the required item.'
-          time:
-            name: '&aCooking Time'
-            lore:
-            - '&7Place slime here that'
-            - '&7will represent the amount of time'
-            - '&7required for cooking'
-            - '&7and giving the item.'
-            - ''
-            - '&7Default: &a100'
-            - '&a(in ticks)'
-          experience:
-            name: '&aExperience Amount'
-            lore:
-            - '&7Place slime here that'
-            - '&7will represent the amount of experience'
-            - '&7to give to the player after'
-            - '&7cooking.'
-            - ''
-            - '&7Default: &a0'
-      world-add-campfire-recipe:
-        name: '&eCreate Campfire Recipe'
-        lore:
-        - '&7This will create a recipe that'
-        - '&7allows you to cook an item'
-        - '&7on a campfire and obtain another'
-        - '&7item.'
-        - ''
-        - '&7For the player to be able to cook the item'
-        - '&7after creation, use the action'
-        - '&aUnlock Item Recipe&7.'
-        - ' '
-        - '&fIn the chest:'
-        - '&c Item &7- Required item'
-        - '&c Item &7- Result'
-        - '&6 Text &7- Recipe identifier'
-        - '&a Number &7- Cooking time'
-        - '&a Number &7- Experience amount'
-        - ' '
-        - '&eClick to set the action.'
-        placeholders:
-          name:
-            name: '&6Recipe Identifier'
-            lore:
-            - '&7Place a book here that'
-            - '&7will be used as the recipe name.'
-            - ''
-            - '&7Must contain &c&nonly English&7'
-            - '&7characters and underscores.'
-            - ''
-            - '&7Default: '
-            - '&6 custom'
-          items:
-            name: '&6Required Item'
-            lore:
-            - '&7Place here the item that'
-            - '&7must be placed on the campfire'
-            - '&7for cooking.'
-          result:
-            name: '&6Cooking Result'
-            lore:
-            - '&7Place here the item that'
-            - '&7will drop after cooking'
-            - '&7the required item.'
-          time:
-            name: '&aCooking Time'
-            lore:
-            - '&7Place slime here that'
-            - '&7will represent the amount of time'
-            - '&7required for cooking'
-            - '&7and giving the item.'
-            - ''
-            - '&7Default: &a600'
-            - '&a(in ticks)'
-          experience:
-            name: '&aExperience Amount'
-            lore:
-            - '&7Place slime here that'
-            - '&7will represent the amount of experience'
-            - '&7to give to the player after'
-            - '&7cooking.'
-            - ''
-            - '&7Default: &a0'
-      world-add-crafting-recipe:
-        name: '&aCreate item recipe'
-        lore:
-        - '&7This will create a recipe that'
-        - '&7can be used to craft an item.'
-        - ''
-        - '&7To allow players to craft the item'
-        - '&7after creation, use the action'
-        - '&aUnlock item recipe&7.'
-        - ' '
-        - '&fIn the chest:'
-        - '&c Items &7- Required for crafting'
-        - '&c Item &7- Result'
-        - '&6 Text &7- Recipe identifier'
-        - '&3 Parameter &7- Ignore shape'
-        - '&3 Parameter &7- Ignore data'
-        - '&3 Parameter &7- Category'
-        - ' '
-        - '&eClick to set action.'
-        placeholders:
-          name:
-            name: '&6Recipe identifier'
-            lore:
-            - '&7Place a book here that'
-            - '&7will be used as the recipe name.'
-            - ''
-            - '&7Must contain &c&nonly English&7'
-            - '&7characters and underscores.'
-            - ''
-            - '&7Default:'
-            - '&6 custom'
-          items:
-            name: '&6Required items'
-            lore:
-            - '&7Place here the items that'
-            - '&7must be put into the slots'
-            - '&7to craft the item.'
-            - ''
-            - '&7The amount of one item type'
-            - '&7can be specified by placing'
-            - '&7items in multiple slots.'
-          result:
-            name: '&6Crafting result'
-            lore:
-            - '&7Place here the item that'
-            - '&7will be crafted from the required items.'
-        arguments:
-          ignore-shape:
-            name: '&eIgnore slot order'
-            lore:
-            - '&7If set to yes, the player will'
-            - '&7be able to craft the item by placing'
-            - '&7the required items in any order.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            choices:
-              'false': No, require exact shape
-              'true': Yes, allow any arrangement
-          ignore-data:
-            name: '&3Ignore item data'
-            lore:
-            - '&7If set to yes, the player will'
-            - '&7be able to craft using specified items,'
-            - '&7even if they have different names or lore.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            choices:
-              'false': No, check item data
-              'true': Yes, accept any item data
-          category:
-            name: '&cItem category'
-            lore:
-            - '&7The recipe book has categories'
-            - '&7that recipes are sorted into.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            - '%3%'
-            - '%4%'
-            choices:
-              misc: Miscellaneous
-              building: Building
-              equipment: Equipment
-              redstone: Redstone
-      control-clear-global-variables:
-        name: '&cClear Global Variables'
-        lore:
-        - '&7Deletes the global variables'
-        - '&7that were set in the world.'
-        - ''
-        - '&7They are cleared automatically'
-        - '&7after the world is unloaded.'
-        - ' '
-        - '&eClick to set the action.'
-      control-break-repeat:
-        name: '&cStop repetition'
-        lore:
-        - '&7This will stop the repetition and'
-        - '&7execute the action after'
-        - '&7the repeating pistons.'
-        - ' '
-        - '&eClick to set the action.'
-      control-skip-repeat:
-        name: '&bSkip repetition'
-        lore:
-        - '&7This will not execute the following'
-        - '&7actions in the repetition, but will'
-        - '&7start next iteration.'
-        - ' '
-        - '&eClick to set the action.'
-      player-show-particle:
-        name: '&5Show Particle'
-        lore:
-        - '&7This will create a particle and'
-        - '&7show it to player.'
+        - '&7Executes action, moving by'
+        - '&7circle with given parameters.'
         - ''
         - '&fIn the chest:'
-        - '&f Location &7- Where to create'
-        - '&5 Particle &7- Particle type'
-        - '&a Number &7- Amount of particles'
-        - '&a Number &7- X offset'
-        - '&a Number &7- Y offset'
-        - '&a Number &7- Z offset'
+        - '&e Variable &7- Location of circle point'
+        - '&f Location &7- Center of circle'
+        - '&a Number &7- Radius'
+        - '&a Number &7- Amount of circle points'
+        - '&b Vector &7- Plain normal vector'
         - ''
-        - '&eClick to set the action.'
-      var-set-item-book-owner:
-        name: '&6Set Book Author'
-        lore:
-        - '&7This will set into the variable'
-        - '&7a book with a new author.'
-        - ' '
-        - '&fIn the chest:'
-        - '&e Variable &7- For saving'
-        - '&c Item &7- Book'
-        - '&6 Text &7- Author'
-        - ' '
-        - '&eClick to set the action.'
-      var-get-block-type:
-        name: '&2Get block type'
-        lore:
-        - '&7This will assign the variable'
-        - '&7the block material type.'
-        - ' '
-        - '&fIn the chest:'
-        - '&e Variable &7- To store the result'
-        - '&e Variable &7- Block location'
-        - ' '
-        - '&eClick to set the action.'
-      var-get-block-facing:
-        name: '&bGet block facing'
-        lore:
-        - '&7This will assign the variable'
-        - '&7the block facing direction.'
-        - ' '
-        - '&fIn the chest:'
-        - '&e Variable &7- To store the result'
-        - '&e Variable &7- Block location'
-        - ' '
-        - '&eClick to set the action.'
-      var-modify-vector:
-        name: '&bModify Vector'
-        lore:
-        - '&7You can change the coordinates'
-        - '&7of the vector and even add'
-        - '&7to them.'
-        - ' '
-        - '&fIn the chest:'
-        - '&e Variable &7- For saving'
-        - '&b Vector &7- Vector'
-        - '&a Number &7- Coordinate X'
-        - '&a Number &7- Coordinate Y'
-        - '&a Number &7- Coordinate Z'
-        - '&3 Option &7- Add or not'
-        - ' '
-        - '&eClick to set action.'
-      var-move-location-by-vector:
-        name: '&3Shift Location by Vector'
-        lore:
-        - '&7Allows shifting locations in'
-        - '&7different directions using a vector.'
-        - ' '
-        - '&fIn the chest:'
-        - '&e Variable &7- To save to'
-        - '&f Location &7- To shift'
-        - '&b Vector &7- Vector'
-        - ' '
-        - '&eClick to set the action.'
-      var-get-first-from-list:
-        name: '&9Get first element from list'
-        lore:
-        - '&7This action return fist'
-        - '&7element from list'
-        - ' '
-        - '&fIn the chest:'
-        - '&e Variable &7- Result'
-        - '&e Variable &7- List'
-        - ' '
-        - '&eClick to set action.'
-      var-get-last-from-list:
-        name: '&9Get last element from list'
-        lore:
-        - '&7This action return last'
-        - '&7element from list'
-        - ' '
-        - '&fIn the chest:'
-        - '&e Variable &7- Result'
-        - '&e Variable &7- List'
-        - ' '
-        - '&eClick to set action.'
-      var-create-map-by-keys:
-        name: '&aCreate map by keys'
-        lore:
-        - '&7This will create a map from keys'
-        - '&7and values and assign it to'
-        - '&7a variable.'
-        - ' '
-        - '&7Unlike lists, each value'
-        - '&7here has a key. This is'
-        - '&7better than numbering. Get,'
-        - '&7set and remove values'
-        - '&7by their key.'
-        - ' '
-        - '&fIn the chest:'
-        - '&9 Any &7- Keys'
-        - '&9 Any &7- Values'
-        - '&e Variable &7- To store result'
-        - ' '
-        - '&eClick to set the action.'
-      var-get-custom-data-from-item:
-        name: '&3Get item data by key'
-        lore:
-        - '&7Allows you to get item data'
-        - '&7stored by a key.'
-        - ' '
-        - '&fIn the chest:'
-        - '&e Variable &7- To store result'
-        - '&c Item &7- Item with data'
-        - '&6 Text &7- Key'
-        - ' '
-        - '&eClick to set the action.'
-      var-set-custom-data-to-item:
-        name: '&6Set item data by key'
-        lore:
-        - '&7Sets a text value in the item'
-        - '&7and stores it by the key.'
-        - ' '
-        - '&fIn the chest:'
-        - '&e Variable &7- To store result'
-        - '&c Item &7- Item to modify'
-        - '&6 Text &7- Key'
-        - '&6 Text &7- Value'
-        - ' '
-        - '&eClick to set the action.'
-      var-create-item-by-id:
-        name: '&cCreate item by material'
-        lore:
-        - '&7Allows creating an item'
-        - '&7by material from text.'
-        - ' '
-        - '&fIn the chest:'
-        - '&e Variable &7- Result'
-        - '&6 Text &7- Material'
-        - ' '
-        - '&eClick to set the action.'
-      var-remove-custom-data-from-item:
-        name: '&cRemove item data by key'
-        lore:
-        - '&7Removes stored item data'
-        - '&7by the specified key.'
-        - ' '
-        - '&fIn the chest:'
-        - '&6 Texts &7- Keys'
-        - '&e Variable &7- To store result'
-        - '&c Item &7- Item'
-        - ' '
-        - '&eClick to set the action.'
-      var-get-vector-all:
-        name: '&eGet vector''s coordinates'
-        lore:
-        - '&7Sets coordinates of vector to'
-        - '&7specified variables.'
-        - ''
-        - '&fIn the chest:'
-        - '&b Vector &7- To get'
-        - '&e Variable &7- For X coordinate'
-        - '&e Variable &7- For Y coordinate'
-        - '&e Variable &7- For Z coordinate'
-        - ' '
-        - '&eClick to set action.'
-      player-set-spectator-target:
-        name: '&bSet Spectator Target'
-        lore:
-        - '&7Makes player in spectator mode'
-        - '&7watch a specified entity.'
-        - ' '
-        - '&fIn the chest:'
-        - '&6 Text &7- Mob''s name or UUID'
-        - ' '
-        - '&eClick to set action.'
-      var-get-item-book-owner:
-        name: '&eGet Book Author'
-        lore:
-        - '&7This will set the variable'
-        - '&7to the name of the book author.'
-        - ' '
-        - '&fIn the chest:'
-        - '&e Variable &7- For saving'
-        - '&c Item &7- Book'
-        - ' '
-        - '&eClick to set the action.'
-      var-get-item-id:
-        name: '&eGet Item Material'
-        lore:
-        - '&7This will set the variable'
-        - '&7to the item''s material ID text.'
-        - ' '
-        - '&fIn the chest:'
-        - '&e Variable &7- For saving'
-        - '&c Item &7- Item'
-        - ' '
-        - '&eClick to set the action.'
-      entity-set-display-rotation:
-        name: '&fRotate Display'
-        lore:
-        - '&7Rotates display using'
-        - '&7Euler angels with the'
-        - '&7rotation order X, Y, Z'
-        - ''
-        - '&fIn the chest:'
-        - '&a Number &7- Angle X'
-        - '&a Number &7- Angle Y'
-        - '&a Number &7- Angle Z'
-        - '&3 Parameter &7- Add or set'
-        - '&7 the value'
-        - ' '
-        - '&eClick to set the action.'
-        arguments:
-          add:
-            name: '&fSet or Add'
-            lore:
-            - '&7If Add is selected, your value'
-            - '&7will be added to the current'
-            - '&7value of the display entity.'
-            - ' '
-            - '&eClick to change.'
-            - ' '
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            choices:
-              'false': Set
-              'true': Add
-      entity-set-display-interpolation:
-        name: '&eSet Display Interpolation'
-        lore:
-        - '&7Sets the interpolation times for'
-        - '&7the display entity''s transformations.'
-        - ''
-        - '&fIn the chest:'
-        - '&a Number &7- Interpolation delay (ticks)'
-        - '&a Number &7- Interpolation duration (ticks)'
-        - ' '
-        - '&eClick to set the action.'
+        - '&eClick to set an action.'
     conditions:
+      if-world-entity-exists:
+        name: '&dEntity exists'
+        lore:
+        - '&7Checks whether a mob exists'
+        - '&7with the specified name or UUID.'
+        - ' '
+        - '&fIn the chest:'
+        - '&6 Texts &7- Mob name or UUID'
+        - '&3 Parameter &7- All or any of them'
+        - ' '
+        - '&eClick to set the condition.'
+        arguments:
+          all:
+            name: '&3Execute for all or any'
+            lore:
+            - '&7Execute the condition only when'
+            - '&7all mobs exist, or when'
+            - '&7any of them exists.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': Any
+              'true': Require all
       if-world-is-player-in:
         name: '&6Player is in world'
         lore:
@@ -11775,7 +12012,7 @@ items:
         - '&7specified nickname is in world.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Player nicknames'
+        - '&6 Texts &7- Player nicknames'
         - '&3 Parameter &7- All or one of them'
         - '&3 Parameter &7- In any world, or only in'
         - '&7 the build or code world'
@@ -11784,11 +12021,11 @@ items:
         arguments:
           all:
             name: '&3Require all or any'
-            lore:
+        lore:
             - '&7Execute the condition only when'
             - '&7all players are in the world, or when'
             - '&7any one of them is.'
-            - ''
+        - ''
             - '&eClick to change.'
             - ''
             - '&fOptions:'
@@ -11815,6 +12052,173 @@ items:
               all: In any world
               build: Only in the build world
               dev: Only in the coding world
+      if-entity-contains-location:
+        name: '&6Contains location point'
+        lore:
+        - '&7Checks whether the location'
+        - '&7point is inside the hitbox.'
+        - ' '
+        - '&fIn chest:'
+        - '&f Locations &7- Locations'
+        - '&7 to compare'
+        - '&3 Parameter &7- All or any'
+        - ' '
+        - '&eClick to set condition.'
+        arguments:
+          all:
+            name: '&3Execute for all or any'
+            lore:
+            - '&7Execute the condition only when'
+            - '&7all locations are inside'
+            - '&7the mob, or any of them.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': For any
+              'true': Require all
+      if-entity-overlaps-block:
+        name: '&eOverlaps the block'
+        lore:
+        - '&7Checks whether the mob hitbox'
+        - '&7intersects the block hitbox.'
+        - ' '
+        - '&fIn chest:'
+        - '&f Locations &7- Locations'
+        - '&7 to compare'
+        - '&3 Parameter &7- Ignore'
+        - '&7 the block''s own size'
+        - '&3 Parameter &7- All or any'
+        - ' '
+        - '&eClick to set condition.'
+        arguments:
+          all:
+            name: '&3Execute for all or any'
+            lore:
+            - '&7Execute the condition only when'
+            - '&7all blocks intersect'
+            - '&7with the mob, or any of them.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': For any
+              'true': Require all
+          ignore-size:
+            name: '&eIgnore block size'
+            lore:
+            - '&7If yes is selected, the block'
+            - '&7hitbox will be a 1x1x1 cube,'
+            - '&7instead of the placed'
+            - '&7block''s actual size.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': No, use block size
+              'true': Yes, ignore
+      if-entity-contains-block:
+        name: '&aContains block inside'
+            lore:
+        - '&7Checks whether the large mob'
+        - '&7hitbox contains the block'
+        - '&7from the location.'
+        - ' '
+        - '&fIn chest:'
+        - '&f Locations &7- Locations'
+        - '&7 to compare'
+        - '&3 Parameter &7- Ignore'
+        - '&7 the block''s own size'
+        - '&3 Parameter &7- All or any'
+        - ' '
+        - '&eClick to set condition.'
+        arguments:
+          all:
+            name: '&3Execute for all or any'
+            lore:
+            - '&7Execute the condition only when'
+            - '&7all blocks are inside the mob,'
+            - '&7or any of them.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': For any
+              'true': Require all
+          ignore-size:
+            name: '&eIgnore block size'
+        lore:
+            - '&7If yes is selected, the block'
+            - '&7hitbox will be a 1x1x1 cube,'
+            - '&7instead of the placed'
+            - '&7block''s actual size.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': No, use block size
+              'true': Yes, ignore
+      if-entity-is-inside-block:
+        name: '&6Block contains mob'
+        lore:
+        - '&7Checks whether the block'
+        - '&7hitbox contains the small'
+        - '&7mob hitbox.'
+        - ' '
+        - '&fIn chest:'
+        - '&f Locations &7- Locations'
+        - '&7 to compare'
+        - '&3 Parameter &7- Ignore'
+        - '&7 the block''s own size'
+        - ' '
+        - '&eClick to set condition.'
+        arguments:
+          all:
+            name: '&3Execute for all or any'
+            lore:
+            - '&7Execute the condition only when'
+            - '&7the mob hitbox is inside all'
+            - '&7blocks, or any of them.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': For any
+              'true': Require all
+          ignore-size:
+            name: '&eIgnore block size'
+            lore:
+            - '&7If yes is selected, the block'
+            - '&7hitbox will be a 1x1x1 cube,'
+            - '&7instead of the placed'
+            - '&7block''s actual size.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': No, use block size
+              'true': Yes, ignore
       if-entity-uuid-equals:
         name: '&aEntity UUID matches'
         lore:
@@ -11822,7 +12226,7 @@ items:
         - '&7ID of entity matches specified one.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Identifier'
+        - '&6 Texts &7- Identifier'
         - ' '
         - '&eClick to set the condition.'
       if-var-boolean-is-true:
@@ -11859,7 +12263,7 @@ items:
         - '&7is running in the game or not.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Cycle names'
+        - '&6 Texts &7- Cycle names'
         - '&3 Parameter &7- All or one of them'
         - ' '
         - '&eClick to set the condition.'
@@ -11896,8 +12300,9 @@ items:
       if-world-is-thundering:
         name: '&bThunderstorm Weather'
         lore:
-        - '&7Checks if the current'
-        - '&7weather in the world is a thunderstorm with lightning.'
+        - '&7Checks if the current weather'
+        - '&7in the world is a thunderstorm'
+        - '&7with lightning.'
         - ' '
         - '&eClick to set the condition.'
       if-world-is-day-time:
@@ -12430,6 +12835,84 @@ items:
         - '&6 Text &7- Team'
         - ' '
         - '&eClick to set the condition.'
+      if-var-item-has-custom-data:
+        name: '&cIf item data equals'
+        lore:
+        - '&7Checks whether the value'
+        - '&7stored in the item by the key'
+        - '&7equals any of the specified values.'
+        - ' '
+        - '&fIn the chest:'
+        - '&6 Texts &7- Values'
+        - '&c Item &7- Item'
+        - '&6 Text &7- Value key'
+        - ' '
+        - '&eClick to set the condition.'
+      if-var-item-has-custom-key:
+        name: '&6If item has key'
+        lore:
+        - '&7Checks whether the item'
+        - '&7has a value by the specified key.'
+        - ' '
+        - '&fIn the chest:'
+        - '&6 Text &7- Keys'
+        - '&c Item &7- Item'
+        - '&3 Parameter &7- All or any'
+        - ' '
+        - '&eClick to set the condition.'
+        arguments:
+          all:
+            name: '&3Execute on all or any'
+            lore:
+            - '&7Execute the condition only when'
+            - '&7the item has values for'
+            - '&7all keys, or any of them.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': Any
+              'true': Require all
+      if-var-list-value-at-index-equals:
+        name: '&fIf value at index equals'
+        lore:
+        - '&7Checks whether the value'
+        - '&7from the list at the specified index'
+        - '&7equals any of the values.'
+        - ' '
+        - '&fIn the chest:'
+        - '&9 Any values &7- Values'
+        - '&e List &7- To compare'
+        - '&a Number &7- Index'
+        - ' '
+        - '&eClick to set the condition.'
+      if-var-list-value-at-last-equals:
+        name: '&cIf last value equals'
+        lore:
+        - '&7Checks whether the last'
+        - '&7element of the list equals'
+        - '&7any of the values.'
+        - ' '
+        - '&fIn the chest:'
+        - '&9 Any values &7- Values'
+        - '&e List &7- To compare'
+        - ' '
+        - '&eClick to set the condition.'
+      if-var-list-value-at-first-equals:
+        name: '&aIf first value equals'
+        lore:
+        - '&7Checks whether the first'
+        - '&7element of the list equals'
+        - '&7any of the values.'
+        - ' '
+        - '&fIn the chest:'
+        - '&9 Any values &7- Values'
+        - '&e List &7- To compare'
+        - ' '
+        - '&eClick to set the condition.'
       if-var-equals:
         name: '&5Variable equals value'
         lore:
@@ -12502,7 +12985,7 @@ items:
         - '&7is equal to the given text.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Content'
+        - '&6 Texts &7- Content'
         - '&6 Text &7- For checking'
         - '&3 Option &7- Ignore color'
         - '&3 Option &7- Ignore case'
@@ -12547,7 +13030,7 @@ items:
         - '&7contains the given second text.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Content'
+        - '&6 Texts &7- Content'
         - '&6 Text &7- For checking'
         - '&3 Option &7- Ignore color'
         - '&3 Option &7- Ignore case'
@@ -12592,7 +13075,7 @@ items:
         - '&7ends with the given text.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- End'
+        - '&6 Texts &7- End'
         - '&6 Text &7- For checking'
         - '&3 Option &7- Ignore color'
         - '&3 Option &7- Ignore case'
@@ -12637,7 +13120,7 @@ items:
         - '&7starts with the given text.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Start'
+        - '&6 Texts &7- Start'
         - '&6 Text &7- For checking'
         - '&3 Option &7- Ignore color'
         - '&3 Option &7- Ignore case'
@@ -12875,6 +13358,209 @@ items:
             choices:
               'false': Match Any
               'true': Require All
+      if-player-is-wearing-item:
+        name: '&bWearing Item'
+        lore:
+        - '&7Checks whether the player'
+        - '&7is wearing an item as a helmet,'
+        - '&7chestplate, leggings,'
+        - '&7or boots.'
+        - ' '
+        - '&fIn the chest:'
+        - '&c Item &7- Helmet'
+        - '&c Item &7- Chestplate'
+        - '&c Item &7- Leggings'
+        - '&c Item &7- Boots'
+        - '&3 Parameter &7- Require all'
+        - '&3 Parameter &7- Require air'
+        - '&3 Parameters &7- Ignore data'
+        - ' '
+        - '&eClick to set the condition.'
+        arguments:
+          all:
+            name: '&fMatch Any or All'
+            lore:
+            - '&7Execute actions when'
+            - '&7the player is wearing all'
+            - '&7specified items or'
+            - '&7any one of them.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': Match Any
+              'true': Require All
+          require-air:
+            name: '&bRequire Empty Slots'
+            lore:
+            - '&7If enabled and a slot above'
+            - '&7is empty, but the player has'
+            - '&7an item in that slot,'
+            - '&7the check will fail.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': Ignore Item in Empty Slot
+              'true': Require Empty Slot
+          ignore-amount:
+            name: '&eIgnore Amount'
+            lore:
+            - '&7Sometimes you need to check'
+            - '&7whether the player has enough'
+            - '&7items.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': Check Amount
+              'true': Ignore Amount
+          ignore-name:
+            name: '&6Ignore Name'
+            lore:
+            - '&7Items can be renamed'
+            - '&7using an'
+            - '&7anvil.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': Check Name
+              'true': Ignore Name
+          ignore-lore:
+            name: '&3Ignore Lore'
+            lore:
+            - '&7Custom lore usually requires'
+            - '&7commands, plugins,'
+            - '&7or mods.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': Check Lore
+              'true': Ignore Lore
+          ignore-enchantments:
+            name: '&dIgnore Enchantments'
+            lore:
+            - '&7Items can be enchanted'
+            - '&7using an anvil or'
+            - '&7enchanting table.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': Check Enchantments
+              'true': Ignore Enchantments
+          ignore-flags:
+            name: '&eIgnore Item Tags'
+            lore:
+            - '&7These special tags are'
+            - '&7usually added through'
+            - '&7NBT editors.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': Check Tags
+              'true': Ignore Tags
+          ignore-damage:
+            name: '&eIgnore Durability'
+            lore:
+            - '&7Useful when comparing'
+            - '&7tools, weapons,'
+            - '&7or armor.'
+            - ''
+            - '&eClick to change.'
+            - ''
+            - '&fOptions:'
+            - '%1%'
+            - '%2%'
+            choices:
+              'false': Check Durability
+              'true': Ignore Durability
+        placeholders:
+          helmet:
+            name: '&6Helmet'
+          chestplate:
+            name: '&6Chestplate'
+          leggings:
+            name: '&6Leggings'
+          boots:
+            name: '&6Boots'
+      if-player-is-dead:
+        name: '&4Player is Dead'
+        lore:
+        - '&7Checks if the player'
+        - '&7is deceased and no longer alive.'
+        - ' '
+        - '&eClick to set the condition.'
+      if-player-is-underwater:
+        name: '&9Is Underwater'
+        lore:
+        - '&7Checks if the player'
+        - '&7is underwater.'
+        - ' '
+        - '&eClick to set the condition.'
+      if-player-is-in-rain:
+        name: '&3Is in Rain'
+        lore:
+        - '&7Checks if the player'
+        - '&7is exposed to rain.'
+        - ' '
+        - '&eClick to set the condition.'
+      if-player-is-in-lava:
+        name: '&cIs in Lava'
+        lore:
+        - '&7Checks if the player'
+        - '&7is inside a lava pool.'
+        - ' '
+        - '&eClick to set the condition.'
+      if-player-is-in-powdered-snow:
+        name: '&bIs in Powdered Snow'
+        lore:
+        - '&7Checks if the player'
+        - '&7is in powdered snow, where it can freeze.'
+        - ' '
+        - '&eClick to set the condition.'
+      if-player-is-inside-vehicle:
+        name: '&3Is Inside Vehicle'
+        lore:
+        - '&7Checks if the player'
+        - '&7is inside a vehicle (minecart, boat).'
+        - ' '
+        - '&eClick to set the condition.'
+      if-player-is-in-team:
+        name: '&aIs in a Team'
+        lore:
+        - '&7Checks if the player'
+        - '&7is listed as a team member.'
+        - ' '
+        - '&fIn the chest:'
+        - '&6 Text &7- Scoreboard'
+        - '&6 Text &7- Team'
+        - ' '
+        - '&eClick to set the condition.'
       if-player-is-inventory-full:
         name: '&6Inventory is full'
         lore:
@@ -12982,6 +13668,28 @@ items:
               owner: Owner
               build: Builder
               develop: Developer
+      if-player-in-area:
+        name: '&bIs in region'
+        lore:
+        - '&7Checks whether player'
+        - '&is between two locations.'
+        - ' '
+        - '&fIn the chest:'
+        - '&f Location &7- First point'
+        - '&f Location &7- Second point'
+        - ' '
+        - '&eClick to set the condition.'
+      if-entity-in-area:
+        name: '&bIs in region'
+        lore:
+        - '&7Checks whether entity'
+        - '&7is between two locations.'
+        - ' '
+        - '&fIn the chest:'
+        - '&f Location &7- First point'
+        - '&f Location &7- Second point'
+        - ' '
+        - '&eClick to set the condition.'
       if-var-location-in-area:
         name: '&6Location in region'
         lore:
@@ -13002,7 +13710,7 @@ items:
         - '&7the chest.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Nicknames'
+        - '&6 Texts &7- Nicknames'
         - '&7 for comparison'
         - '&3 Option &7- Ignore'
         - '&7 case or not'
@@ -13032,7 +13740,7 @@ items:
         - '&eItem Clicked, &fItem Dragged.'
         - ' '
         - '&fIn the chest:'
-        - '&a Number(s) &7- Slots to compare'
+        - '&a Numbers &7- Slots to compare'
         - ' '
         - '&eClick to set the condition.'
       if-player-current-slot-equals:
@@ -13042,7 +13750,7 @@ items:
         - '&7the player is currently using.'
         - ' '
         - '&fIn the chest:'
-        - '&a Number(s) &7- Slots to compare'
+        - '&a Numbers &7- Slots to compare'
         - ' '
         - '&eClick to set the condition.'
       if-player-can-see-player:
@@ -13052,7 +13760,7 @@ items:
         - '&7another player with the specified name.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Player names or UUIDs'
+        - '&6 Texts &7- Player names or UUIDs'
         - '&3 Argument &7- All or one'
         - ' '
         - '&eClick to set the condition.'
@@ -13078,7 +13786,7 @@ items:
         - '&7an entity with the specified name.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Names or UUIDs'
+        - '&6 Texts &7- Names or UUIDs'
         - '&7 of entities'
         - '&3 Argument &7- All or one'
         - ' '
@@ -13105,7 +13813,7 @@ items:
         - '&7the specified scoreboard set.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Scoreboard names'
+        - '&6 Texts &7- Scoreboard names'
         - ' '
         - '&eClick to set the condition.'
       if-player-boss-bar-equals:
@@ -13115,7 +13823,7 @@ items:
         - '&7one of the specified boss bars.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Names for comparison'
+        - '&6 Texts &7- Names for comparison'
         - ' '
         - '&eClick to set the condition.'
       if-player-has-resource-pack:
@@ -13141,7 +13849,7 @@ items:
         - '&7certain potion effects.'
         - ' '
         - '&fIn the chest:'
-        - '&9 Potion(s) &7- Effects to compare'
+        - '&9 Potions &7- Effects to compare'
         - '&3 Argument &7- All or any of them'
         - ' '
         - '&eClick to set the condition.'
@@ -13169,7 +13877,7 @@ items:
         - '&7the chest.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Names'
+        - '&6 Texts &7- Names'
         - '&7 for comparison'
         - '&3 Option &7- Ignore'
         - '&7 case or not'
@@ -13219,7 +13927,7 @@ items:
         - '&eRequest item purchase&7.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Item names'
+        - '&6 Texts &7- Item names'
         - ' '
         - '&eClick to set condition.'
       if-player-liked-world:
@@ -13259,7 +13967,7 @@ items:
         - '&7Works with event: &bSent message'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Messages'
+        - '&6 Texts &7- Messages'
         - '&7 for comparison'
         - '&3 Option &7- Ignore'
         - '&7 case or not'
@@ -13288,7 +13996,7 @@ items:
         - '&7as specified items.'
         - ' '
         - '&fIn the chest:'
-        - '&c Item(s) &7- Items for'
+        - '&c Items &7- Items for'
         - '&7 comparison'
         - '&3 Options &7- Ignoring'
         - '&7 options'
@@ -13402,7 +14110,7 @@ items:
         - '&7an item in the main or off hand.'
         - ' '
         - '&fIn the chest:'
-        - '&c Item(s) &7- Items for'
+        - '&c Items &7- Items for'
         - '&7 comparison'
         - '&3 Option &7- Hand for'
         - '&7 comparison'
@@ -13527,6 +14235,16 @@ items:
             choices:
               'false': Consider item durability
               'true': Ignore item durability
+      if-player-is-inventory-own:
+        name: '&3If clicked own inventory'
+        lore:
+        - '&7Checks whether player'
+        - '&7clicked an item in own inventory.'
+        - ''
+        - '&7Works with: &6Item Click'
+        - '&7and &eItem Drag&7.'
+        - ' '
+        - '&eClick to set the condition.'
       if-player-item-equals:
         name: '&6Item equals'
         lore:
@@ -13539,7 +14257,7 @@ items:
         - '&7the item&7.'
         - ' '
         - '&fIn the chest:'
-        - '&c Item(s) &7- Items for'
+        - '&c Items &7- Items for'
         - '&7 comparison'
         - '&3 Options &7- Ignoring'
         - '&7 item data'
@@ -13688,7 +14406,7 @@ items:
         - '&7any of the specified items in inventory.'
         - ' '
         - '&fIn the chest:'
-        - '&c Item(s) &7- Items for comparison'
+        - '&c Items &7- Items for comparison'
         - '&3 Option &7- Require quantity'
         - '&3 Option &7- Ignore item data'
         - ' '
@@ -13734,7 +14452,7 @@ items:
         - '&7on an item for the player.'
         - ' '
         - '&fIn the chest:'
-        - '&c Item(s) &7- Items for'
+        - '&c Items &7- Items for'
         - '&7 comparison'
         - ' '
         - '&eClick to set condition.'
@@ -13745,7 +14463,7 @@ items:
         - '&7opened inventory.'
         - ' '
         - '&fIn the chest:'
-        - '&6 Text(s) &7- Name for'
+        - '&6 Texts &7- Name for'
         - '&7 comparison'
         - '&3 Options &7- Ignore'
         - '&7 caps and color'
@@ -13789,7 +14507,7 @@ items:
         - '&7the player''s feet.'
         - ' '
         - '&fIn the chest:'
-        - '&c Item(s) &7- Block for'
+        - '&c Items &7- Block for'
         - '&7 comparison'
         - ' '
         - '&eClick to set condition.'
@@ -13803,7 +14521,7 @@ items:
         - '&7will not trigger.'
         - ' '
         - '&fIn the chest:'
-        - '&c Item(s) &7- Block for'
+        - '&c Items &7- Block for'
         - '&7 comparison'
         - '&f Location(s) &7- Location'
         - '&7 for comparison'
@@ -13820,7 +14538,7 @@ items:
         - '&cDamaged block&7, &eInteracted&7.'
         - ' '
         - '&fIn the chest:'
-        - '&c Item(s) &7- Block for'
+        - '&c Items &7- Block for'
         - '&7 comparison'
         - ' '
         - '&eClick to set condition.'
@@ -13837,377 +14555,6 @@ items:
         - '&7 and the location'
         - ' '
         - '&eClick to set condition.'
-      if-world-entity-exists:
-        name: '&dEntity exists'
-        lore:
-        - '&7Checks whether a mob exists'
-        - '&7with the specified name or UUID.'
-        - ' '
-        - '&fIn the chest:'
-        - '&6 Texts &7- Mob name or UUID'
-        - '&3 Parameter &7- All or any of them'
-        - ' '
-        - '&eClick to set the condition.'
-        arguments:
-          all:
-            name: '&3Execute for all or any'
-            lore:
-            - '&7Execute the condition only when'
-            - '&7all mobs exist, or when'
-            - '&7any of them exists.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            choices:
-              'false': Any
-              'true': Require all
-      if-entity-contains-location:
-        name: '&6Contains location point'
-        lore:
-        - '&7Checks whether the location'
-        - '&7point is inside the hitbox.'
-        - ' '
-        - '&fIn chest:'
-        - '&f Locations &7- Locations'
-        - '&7 to compare'
-        - '&3 Parameter &7- All or any'
-        - ' '
-        - '&eClick to set condition.'
-        arguments:
-          all:
-            name: '&3Execute for all or any'
-            lore:
-            - '&7Execute the condition only when'
-            - '&7all locations are inside'
-            - '&7the mob, or any of them.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            choices:
-              'false': For any
-              'true': Require all
-      if-entity-overlaps-block:
-        name: '&eOverlaps the block'
-        lore:
-        - '&7Checks whether the mob hitbox'
-        - '&7intersects the block hitbox.'
-        - ' '
-        - '&fIn chest:'
-        - '&f Locations &7- Locations'
-        - '&7 to compare'
-        - '&3 Parameter &7- Ignore'
-        - '&7 the block''s own size'
-        - '&3 Parameter &7- All or any'
-        - ' '
-        - '&eClick to set condition.'
-        arguments:
-          all:
-            name: '&3Execute for all or any'
-            lore:
-            - '&7Execute the condition only when'
-            - '&7all blocks intersect'
-            - '&7with the mob, or any of them.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            choices:
-              'false': For any
-              'true': Require all
-          ignore-size:
-            name: '&eIgnore block size'
-            lore:
-            - '&7If yes is selected, the block'
-            - '&7hitbox will be a 1x1x1 cube,'
-            - '&7instead of the placed'
-            - '&7block''s actual size.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            choices:
-              'false': No, use block size
-              'true': Yes, ignore
-      if-entity-contains-block:
-        name: '&aContains block inside'
-        lore:
-        - '&7Checks whether the large mob'
-        - '&7hitbox contains the block'
-        - '&7from the location.'
-        - ' '
-        - '&fIn chest:'
-        - '&f Locations &7- Locations'
-        - '&7 to compare'
-        - '&3 Parameter &7- Ignore'
-        - '&7 the block''s own size'
-        - '&3 Parameter &7- All or any'
-        - ' '
-        - '&eClick to set condition.'
-        arguments:
-          all:
-            name: '&3Execute for all or any'
-            lore:
-            - '&7Execute the condition only when'
-            - '&7all blocks are inside the mob,'
-            - '&7or any of them.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            choices:
-              'false': For any
-              'true': Require all
-          ignore-size:
-            name: '&eIgnore block size'
-            lore:
-            - '&7If yes is selected, the block'
-            - '&7hitbox will be a 1x1x1 cube,'
-            - '&7instead of the placed'
-            - '&7block''s actual size.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            choices:
-              'false': No, use block size
-              'true': Yes, ignore
-      if-entity-is-inside-block:
-        name: '&6Block contains mob'
-        lore:
-        - '&7Checks whether the block'
-        - '&7hitbox contains the small'
-        - '&7mob hitbox.'
-        - ' '
-        - '&fIn chest:'
-        - '&f Locations &7- Locations'
-        - '&7 to compare'
-        - '&3 Parameter &7- Ignore'
-        - '&7 the block''s own size'
-        - ' '
-        - '&eClick to set condition.'
-        arguments:
-          all:
-            name: '&3Execute for all or any'
-            lore:
-            - '&7Execute the condition only when'
-            - '&7the mob hitbox is inside all'
-            - '&7blocks, or any of them.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            choices:
-              'false': For any
-              'true': Require all
-          ignore-size:
-            name: '&eIgnore block size'
-            lore:
-            - '&7If yes is selected, the block'
-            - '&7hitbox will be a 1x1x1 cube,'
-            - '&7instead of the placed'
-            - '&7block''s actual size.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            choices:
-              'false': No, use block size
-              'true': Yes, ignore
-      if-var-item-has-custom-data:
-        name: '&cIf item data equals'
-        lore:
-        - '&7Checks whether the value'
-        - '&7stored in the item by the key'
-        - '&7equals any of the specified values.'
-        - ' '
-        - '&fIn the chest:'
-        - '&6 Texts &7- Values'
-        - '&c Item &7- Item'
-        - '&6 Text &7- Value key'
-        - ' '
-        - '&eClick to set the condition.'
-      if-var-item-has-custom-key:
-        name: '&6If item has key'
-        lore:
-        - '&7Checks whether the item'
-        - '&7has a value by the specified key.'
-        - ' '
-        - '&fIn the chest:'
-        - '&6 Text &7- Keys'
-        - '&c Item &7- Item'
-        - '&3 Parameter &7- All or any'
-        - ' '
-        - '&eClick to set the condition.'
-        arguments:
-          all:
-            name: '&3Execute on all or any'
-            lore:
-            - '&7Execute the condition only when'
-            - '&7the item has values for'
-            - '&7all keys, or any of them.'
-            - ''
-            - '&eClick to change.'
-            - ''
-            - '&fOptions:'
-            - '%1%'
-            - '%2%'
-            choices:
-              'false': Any
-              'true': Require all
-      if-var-list-value-at-index-equals:
-        name: '&fIf value at index equals'
-        lore:
-        - '&7Checks whether the value'
-        - '&7from the list at the specified index'
-        - '&7equals any of the values.'
-        - ' '
-        - '&fIn the chest:'
-        - '&9 Any values &7- Values'
-        - '&e List &7- To compare'
-        - '&a Number &7- Index'
-        - ' '
-        - '&eClick to set the condition.'
-      if-var-list-value-at-last-equals:
-        name: '&cIf last value equals'
-        lore:
-        - '&7Checks whether the last'
-        - '&7element of the list equals'
-        - '&7any of the values.'
-        - ' '
-        - '&fIn the chest:'
-        - '&9 Any values &7- Values'
-        - '&e List &7- To compare'
-        - ' '
-        - '&eClick to set the condition.'
-      if-var-list-value-at-first-equals:
-        name: '&aIf first value equals'
-        lore:
-        - '&7Checks whether the first'
-        - '&7element of the list equals'
-        - '&7any of the values.'
-        - ' '
-        - '&fIn the chest:'
-        - '&9 Any values &7- Values'
-        - '&e List &7- To compare'
-        - ' '
-        - '&eClick to set the condition.'
-      if-player-is-dead:
-        name: '&4Player is Dead'
-        lore:
-        - '&7Checks if the player'
-        - '&7is deceased and no longer alive.'
-        - ' '
-        - '&eClick to set the condition.'
-      if-player-is-underwater:
-        name: '&9Is Underwater'
-        lore:
-        - '&7Checks if the player'
-        - '&7is underwater.'
-        - ' '
-        - '&eClick to set the condition.'
-      if-player-is-in-rain:
-        name: '&3Is in Rain'
-        lore:
-        - '&7Checks if the player'
-        - '&7is exposed to rain.'
-        - ' '
-        - '&eClick to set the condition.'
-      if-player-is-in-lava:
-        name: '&cIs in Lava'
-        lore:
-        - '&7Checks if the player'
-        - '&7is inside a lava pool.'
-        - ' '
-        - '&eClick to set the condition.'
-      if-player-is-in-powdered-snow:
-        name: '&bIs in Powdered Snow'
-        lore:
-        - '&7Checks if the player'
-        - '&7is in powdered snow, where it can freeze.'
-        - ' '
-        - '&eClick to set the condition.'
-      if-player-is-inside-vehicle:
-        name: '&3Is Inside Vehicle'
-        lore:
-        - '&7Checks if the player'
-        - '&7is inside a vehicle (minecart, boat).'
-        - ' '
-        - '&eClick to set the condition.'
-      if-player-is-in-team:
-        name: '&aIs in a Team'
-        lore:
-        - '&7Checks if the player'
-        - '&7is listed as a team member.'
-        - ' '
-        - '&fIn the chest:'
-        - '&6 Text &7- Scoreboard'
-        - '&6 Text &7- Team'
-        - ' '
-        - '&eClick to set the condition.'
-      if-player-in-area:
-        name: '&bIs in region'
-        lore:
-        - '&7Checks whether player'
-        - '&is between two locations.'
-        - ' '
-        - '&fIn the chest:'
-        - '&f Location &7- First point'
-        - '&f Location &7- Second point'
-        - ' '
-        - '&eClick to set the condition.'
-      if-entity-in-area:
-        name: '&bIs in region'
-        lore:
-        - '&7Checks whether entity'
-        - '&7is between two locations.'
-        - ' '
-        - '&fIn the chest:'
-        - '&f Location &7- First point'
-        - '&f Location &7- Second point'
-        - ' '
-        - '&eClick to set the condition.'
-      if-player-is-inventory-own:
-        name: '&3If clicked own inventory'
-        lore:
-        - '&7Checks whether player'
-        - '&7clicked an item in own inventory.'
-        - ''
-        - '&7Works with: &6Item Click'
-        - '&7and &eItem Drag&7.'
-        - ' '
-        - '&eClick to set the condition.'
-    debug-torch:
-      name: '&cDebug Marker &a[Right-click]'
-      lore:
-      - '&7Marks events and executors'
-      - '&7so that they can send'
-      - '&7debug messages.'
-      - ''
-      - '&7Debug messages will be visible'
-      - '&7only in debug mode:'
-      - '&a/env debug on'
-      - ''
-      - '&fIn hand:'
-      - '&e Click on an event sign:'
-      - '&7  Set or unset debug'
 menus:
   player-control:
     title: '&1 Control: %name%'
@@ -14818,7 +15165,9 @@ menus:
         - '&7 source code, which &aallows&7 players'
         - '&7 to &bcreate&7 their own worlds.'
         - ''
-        - '&c McChicken Studio 2017-2025'
+        - '&c McChicken Studio 2017-2026'
+        - '&3 Contributors: &7onn512, pawsashatoy, LWJENNI,'
+        - '&7  HACKERPRO17, liventmst, logiklop, 70N77U, kalienda.'
         - '&3 Translators: &7initzero, Nagibator6000LoL,'
         - '&7  DrakesWeb, kogtyv, Senmpai333.'
         - ''
@@ -17289,6 +17638,158 @@ menus:
         - '&e ⏵ &nDrag item here to change icon&e...'
         - '&8  ID: %moduleID%'
         - ' '
+  player-profile:
+    title: '&8☻ Profile %player%'
+    items:
+      player:
+        name: ' '
+        lore:
+        - '&7 %player%'
+        - '&f Gender: &7%gender%'
+        - ''
+        - '%description%'
+        - ''
+      worlds:
+        name: ' '
+        lore:
+        - '&a 🌊 Created worlds'
+        - ''
+        - '&7  Click to show'
+        - '&7  worlds that were created'
+        - '&7  by this player.'
+        - ''
+      modules:
+        name: ' '
+        lore:
+        - '&6 🪓 Created modules'
+        - ''
+        - '&7  Click to show'
+        - '&7  modules that were created'
+        - '&7  by this player.'
+        - ''
+      favorite-worlds:
+        name: ' '
+        lore:
+        - '&d ❤ Favorite worlds'
+        - ''
+        - '&7  Click to show'
+        - '&7  this player''s favorite worlds.'
+        - ''
+      statistics:
+        name: ' '
+        lore:
+        - '&a 🌊 &fWorlds: &a%worlds%'
+        - '&6 🪓 &fModules: &6%modules%'
+        - ''
+        - '&e ⌚ &fPlaytime: &e%playtime%'
+        - '&2 🎣 &fVisited: &2%visits% worlds'
+        - ''
+      social-links:
+        name: ' '
+        unknown: Not specified
+        lore:
+        - '&9 ✉ &fDiscord: &9%discord%'
+        - '&b ✉ &fTelegram: &b%telegram%'
+        - '&3 ✉ &fX (Twitter): &3%twitter%'
+        - '&c ✉ &fYouTube: &c%youtube%'
+        - ''
+  profile-settings:
+    title: '&8⌘ Your profile settings'
+    turned-on: '&a  ⏺ &n'
+    turned-off: '&7  ○ '
+    items:
+      player:
+        name: ' '
+        lore:
+        - '&7 %player%'
+        - '&f Gender: &7%gender%'
+        - ''
+        - '%description%'
+        - ''
+      change-description:
+        name: ' '
+        lore:
+        - '&6 ✂ About me'
+        - '&7 Short phrases about you.'
+        - ''
+        - '&7 Tell players who you are,'
+        - '&7 how good you are at coding'
+        - '&7 and building worlds.'
+        - ' '
+        - '&f Examples:'
+        - '&7  &6Bob, I like trains.'
+        - '&7  &aBest coder on the server!'
+        - '&7  &cDaizy, Daizy, give me your answer..'
+        - ' '
+        - '&e Click to change the description.'
+        - ''
+      change-social-discord:
+        name: ' '
+        lore:
+        - '&9 ✉ Discord tag'
+        - '&7 Your social networks.'
+        - ''
+        - '&7 You can add a tag'
+        - '&7 so players can contact'
+        - '&7 you on Discord.'
+        - ' '
+        - '&e Click to change.'
+        - ''
+      change-social-telegram:
+        name: ' '
+        lore:
+        - '&b ✉ Telegram username'
+        - '&7 Your social networks.'
+        - ''
+        - '&7 You can add a username'
+        - '&7 so players can contact'
+        - '&7 you on Telegram.'
+        - ' '
+        - '&e Click to change.'
+        - ''
+      change-social-twitter:
+        name: ' '
+        lore:
+        - '&3 ✉ X (Twitter) username'
+        - '&7 Your social networks.'
+        - ''
+        - '&7 You can add a username'
+        - '&7 so players can contact'
+        - '&7 you on X (Twitter).'
+        - ' '
+        - '&e Click to change.'
+        - ''
+      change-social-youtube:
+        name: ' '
+        lore:
+        - '&c ✉ YouTube channel'
+        - '&7 Your social networks.'
+        - ''
+        - '&7 You can add a tag'
+        - '&7 so players can find'
+        - '&7 your YouTube channel.'
+        - ' '
+        - '&e Click to change.'
+        - ''
+      gender:
+        name: ' '
+        choices:
+          unknown: Not selected
+          male: Male
+          female: Female
+          non-binary: Non-binary
+        lore:
+        - '&d Gender selection'
+        - ''
+        - '&e  Click to change'
+        - '&e  your profile gender.'
+        - ''
+        - '&f Options:'
+        - '%1%'
+        - '%2%'
+        - '%3%'
+        - '%4%'
+        - ''
   own-modules:
     title: '&2☄ My Modules'
     items:
@@ -18182,152 +18683,13 @@ menus:
         - '%3%'
         - '%4%'
         - '%5%'
-  player-profile:
-    title: '&8 Profile %player%'
-    items:
-      player:
+      create:
         name: ' '
         lore:
-        - '&7 %player%'
-        - '&f Gender: &7%gender%'
+        - '&a ✔ Create World'
+        - '&f All set? Let''s go!'
         - ''
-        - '%description%'
-        - ''
-      worlds:
-        name: ' '
-        lore:
-        - '&a 🌊 Created worlds'
-        - ''
-        - '&7  Click to show'
-        - '&7  worlds that were created'
-        - '&7  by this player.'
-        - ''
-      modules:
-        name: ' '
-        lore:
-        - '&6 🪓 Created modules'
-        - ''
-        - '&7  Click to show'
-        - '&7  modules that were created'
-        - '&7  by this player.'
-        - ''
-      favorite-worlds:
-        name: ' '
-        lore:
-        - '&d ❤ Favorite worlds'
-        - ''
-        - '&7  Click to show'
-        - '&7  this player''s favorite worlds.'
-        - ''
-      statistics:
-        name: ' '
-        lore:
-        - '&a 🌊 &fWorlds: &a%worlds%'
-        - '&6 🪓 &fModules: &6%modules%'
-        - ''
-        - '&e  &fPlaytime: &e%playtime%'
-        - '&2 🎣 &fVisited: &2%visits% worlds'
-        - ''
-      social-links:
-        name: ' '
-        unknown: Not specified
-        lore:
-        - '&9  &fDiscord: &9%discord%'
-        - '&b  &fTelegram: &b%telegram%'
-        - '&3  &fX (Twitter): &3%twitter%'
-        - '&c  &fYouTube: &c%youtube%'
-        - ''
-  profile-settings:
-    title: '&8 Your profile settings'
-    turned-on: '&a  ⏺ &n'
-    turned-off: '&7  ○ '
-    items:
-      player:
-        name: ' '
-        lore:
-        - '&7 %player%'
-        - '&f Gender: &7%gender%'
-        - ''
-        - '%description%'
-        - ''
-      change-description:
-        name: ' '
-        lore:
-        - '&6 ✂ About me'
-        - '&7 Short phrases about you.'
-        - ''
-        - '&7 Tell players who you are,'
-        - '&7 how good you are at coding'
-        - '&7 and building worlds.'
-        - ' '
-        - '&e Click to change the description.'
-        - ''
-      change-social-discord:
-        name: ' '
-        lore:
-        - '&9  Discord tag'
-        - '&7 Your social networks.'
-        - ''
-        - '&7 You can add a tag'
-        - '&7 so players can contact'
-        - '&7 you on Discord.'
-        - ' '
-        - '&e Click to change.'
-        - ''
-      change-social-telegram:
-        name: ' '
-        lore:
-        - '&b  Telegram username'
-        - '&7 Your social networks.'
-        - ''
-        - '&7 You can add a username'
-        - '&7 so players can contact'
-        - '&7 you on Telegram.'
-        - ' '
-        - '&e Click to change.'
-        - ''
-      change-social-twitter:
-        name: ' '
-        lore:
-        - '&3  X (Twitter) username'
-        - '&7 Your social networks.'
-        - ''
-        - '&7 You can add a username'
-        - '&7 so players can contact'
-        - '&7 you on X (Twitter).'
-        - ' '
-        - '&e Click to change.'
-        - ''
-      change-social-youtube:
-        name: ' '
-        lore:
-        - '&c  YouTube channel'
-        - '&7 Your social networks.'
-        - ''
-        - '&7 You can add a tag'
-        - '&7 so players can find'
-        - '&7 your YouTube channel.'
-        - ' '
-        - '&e Click to change.'
-        - ''
-      gender:
-        name: ' '
-        choices:
-          unknown: Not selected
-          male: Male
-          female: Female
-          non-binary: Non-binary
-        lore:
-        - '&d Gender selection'
-        - ''
-        - '&e  Click to change'
-        - '&e  your profile gender.'
-        - ''
-        - '&f Options:'
-        - '%1%'
-        - '%2%'
-        - '%3%'
-        - '%4%'
+        - '&eClick to create your world...'
         - ''
 deaths:
   title: '&cDied!'
@@ -18498,6 +18860,7 @@ blocks:
   repeat_for_list: '&fFor list'
   repeat_always: Always
   repeat_for_entry: '&6For dictionary'
+  repeat_on_circle: '&aOn circle'
   # Events
   player_join: Joined world
   player_quit: Left world
@@ -18557,9 +18920,12 @@ blocks:
   player_killed_mob: Killed a mob
   player_damage_player: Hit a player
   player_changed_sign: Sign changed
+  player_changed_armor: Armor changed
   player_entered_vehicle: Entered Vehicle
   player_vehicle_exit: Vehicle Exit
-  player_set_bee_stingers: Number of stingers
+  player_set_bee_stingers_in_body: Number of stingers
+  player_discover_recipe: Unlock recipe
+  player_undiscover_recipe: Lock recipe
 
   world_play_mode: '&aPlay mode'
   world_variable_transfer: Value receive
@@ -18608,7 +18974,7 @@ blocks:
   entity_set_silent: Silence
   entity_set_physics: Mob physics
   entity_set_collidable: Mob collision
-  entity_set_bee_stingers: Number of stingers
+  entity_set_bee_stingers_in_body: Number of stingers
   entity_pig_zombie_angered: Zombie Pig Angered
   entity_bat_toggled_sleep_mode: Bat sleep mode
   entity_slime_split: Slime Split
@@ -18622,7 +18988,7 @@ blocks:
   entity_resurrected: Resurrected
   entity_potion_effected: Potion Effect Applied
   entity_warden_anger_changed: Warden got angry
-  entity_air_changed: Air level changed
+  player_air_changed: Air level changed
   entity_entered_vehicle: Entered Vehicle
   entity_vehicle_exit: Vehicle Exit
   entity_projectile_hit: Projectile hit block
@@ -18697,6 +19063,7 @@ blocks:
   player_apply_mending: Apply mending
   player_set_compass_target: Set compass target
   player_set_hotbar: Set hotbar
+  player_set_item_in_slot: Item in slot
   player_set_item_cooldown: Item cooldown
   player_open_sign: Open sign
   player_set_time: Set time
@@ -18754,11 +19121,17 @@ blocks:
   player_set_remaining_air: Remaining Air
   player_release_shoulders: Release Shoulders
   player_set_visual_fire: Visual Fire
+  player_show_particle: Spawn particle
+  
 
   entity_remove: '&cRemove'
   entity_set_team: Set team
   entity_unset_team: Unset team
+  entity_set_disguise_name: Disguise name
   entity_disguise_as_player: Player disguise
+  entity_disguise_as_entity: Mob disguise
+  entity_disguise_as_block: Block disguise
+  entity_clear_disguise: Clear disguise
   entity_set_step_height: Step height
   entity_set_scale: Set scale
   entity_set_target: Set target
@@ -18773,7 +19146,7 @@ blocks:
   entity_get_item_by_slot: Get Item
   entity_give_items: Give Items
   entity_remove_items: Remove Items
-  entity_add_damage: Vahinko
+  entity_add_damage: Damage
   entity_set_health: Set Health
   entity_set_walk_speed: Walk Speed
   entity_set_max_health: Max Health
@@ -18807,14 +19180,16 @@ blocks:
   entity_set_display_text: Display Text
   entity_set_display_scale: Display Scale
   entity_set_display_translation: Display Offset
-  entity_set_display_item: Display Item
+  entity_set_display_rotation: Display Rotation
+  entity_set_item: Display Item
   entity_set_display_billboard: Display Type
   entity_set_text_display_see_through: Läpinäkyvä teksti
   entity_set_text_display_shadow: Tekstin varjo
   entity_set_text_display_opacity: Tekstin läpinäkymättömyys
   entity_set_text_display_width: Tekstin leveys
   entity_set_display_brightness: Display Brightness
-  entity_set_friction: rFiction
+  entity_set_display_interpolation: Dis. Interpolation
+  entity_set_friction: Friction
   entity_set_visual_fire: Visual Fire
   entity_set_parrot_color: Papukaijan väri
   entity_set_fox_sleeping: Fox Sleeping
@@ -18863,6 +19238,11 @@ blocks:
   var_clone_list: Clone List
   var_merge_lists: Merge Lists
   var_set_item_skull_textures: Aseta tekstuuri
+    var_set_item_book_owner: Book Author
+  var_get_item_book_owner: Get Author
+  var_get_item_id: Get Material
+  var_set_item_skull_owner: Head Owner
+  
   var_remove_item_lore_line: '&cPoista rivi'
   var_convert_to_json: Save as JSON
   var_parse_json: Parse JSON
@@ -18877,8 +19257,11 @@ blocks:
   control_stop_code_line: '&4Stop code line'
   control_wait: '&eWait'
   control_clear_local_variables: '&cClear local'
+  control_clear_global_variables: '&cClear Global'
   control_launch_cycles: '&aLaunch cycle'
   control_stop_cycles: '&3Stop cycle'
+  control_skip_repeat: '&bSkip repeat'
+  control_break_repeat: '&cStop repeat'
 
   var_set_value: Assign value
   var_get_type: Get type of var
@@ -19027,6 +19410,12 @@ blocks:
   world_spawn_end_crystal: End Crystal
   world_spawn_falling_block: Falling Block
   world_spawn_eye_of_ender: Eye of Ender
+  world_add_crafting_recipe: Craft Recipe
+  world_add_furnace_recipe: Furnace Recipe
+  world_add_blast_furnace_recipe: Blasting Recipe
+  world_add_smoker_recipe: Smoker Recipe
+  world_add_campfire_recipe: Campfire Recipe
+  world_remove_recipe: Remove Recipe
   #
   if_player_stands_on_block: Is standing on block
   if_player_looks_at_block: Looking at block
@@ -19034,6 +19423,7 @@ blocks:
   if_player_has_item: Has item
   if_player_has_item_in_hand: Holding item
   if_player_block_equals: Block equals
+  if_player_is_wearing_item: Wearing armor
   if_player_is_sneaking: Is sneaking
   if_player_is_flying: Is flying
   if_player_is_on_ground: Is on ground
@@ -19041,6 +19431,7 @@ blocks:
   if_player_name_equals: Name equals
   if_player_message_equals: Message equals
   if_player_is_near_location: Near location
+  if_player_is_inventory_own: Own Inventory
   if_player_item_equals: Item equals
   if_player_inventory_full: Inventory full
   if_player_inventory_name_equals: Inventory name equals
@@ -19063,12 +19454,21 @@ blocks:
   if_player_scoreboard_equals: Scoreboard Equals
   if_player_boss_bar_equals: Boss Bar Equals
   if_player_has_resource_pack: Has Resource Pack
+  if_player_in_area: In Region
+  if_player_is_in_team: In Team
+  if_player_is_dead: Dead
+  if_player_is_underwater: Underwater
+  if_player_is_in_rain: In Rain
+  if_player_is_in_lava: In Lava
+  if_player_is_in_powdered_snow: In Powdered Snow
+  if_player_is_inside_vehicle: Inside Vehicle
   world_set_difficulty: Set Difficulty
   world_spawn_arrow: Spawn Arrow
   world_spawn_firework: Spawn Firework
   world_create_firework_explosion: Firework Explosion
   world_create_experience_orb: Spawn XP Orb
   world_spawn_particles_line: Line of Particles
+  world_spawn_particles_circle: Circle Particles
   world_create_team: Create Team
   world_team_set_color: Set Team Color
   world_delete_team: Delete Team
@@ -19109,6 +19509,7 @@ blocks:
   if_world_block_is_preferred_tool: Preferred Tool
   if_world_block_is_valid_tool: Tool Mineable
   if_world_is_player_in: Player Online
+  if_world_entity_exists: Entity Exists
 
   if_entity_name_equals: Name equals
   if_entity_is_player: Is Player
@@ -19133,7 +19534,12 @@ blocks:
   if_entity_is_inside_vehicle: Inside Vehicle
   if_entity_has_no_physics: No Physics
   if_entity_is_invulnerable: Invulnerable
+  if_entity_contains_location: Contains location
+  if_entity_contains_block: Contains block
+  if_entity_overlaps_block: Overlaps block
+  if_entity_is_inside_block: Inside block
   if_entity_uuid_equals: UUID Equals
+  if_entity_in_area: In Region
   if_var_equals: '&bEquals value'
   if_var_is_null: '&cIs null'
   if_var_exists: '&6Exists'
@@ -19153,48 +19559,6 @@ blocks:
   selection_set: '&dSet target'
   selection_add: '&dAdd target'
   selection_remove: '&dRemove target'
-  player_changed_armor: Armor changed
-  player_set_bee_stingers_in_body: Number of stingers
-  player_discover_recipe: Unlock recipe
-  player_undiscover_recipe: Lock recipe
-  entity_set_bee_stingers_in_body: Number of stingers
-  player_set_item_in_slot: Item in slot
-  player_show_particle: Spawn particle
-  entity_set_disguise_name: Disguise name
-  entity_disguise_as_entity: Mob disguise
-  entity_disguise_as_block: Block disguise
-  entity_clear_disguise: Clear disguise
-  var_set_item_book_owner: Book Author
-  var_set_item_skull_owner: Head Owner
-  control_clear_global_variables: '&cClear Global'
-  control_skip_repeat: '&bSkip repeat'
-  control_break_repeat: '&cStop repeat'
-  var_get_block_type: Block type
-  var_get_block_facing: Block face
-  var_modify_vector: Modify vector
-  var_get_vector_all: Get. Vect. all
-  player_set_spectator_target: Look at enti.
-  world_add_crafting_recipe: Craft Recipe
-  world_add_furnace_recipe: Furnace Recipe
-  world_add_blast_furnace_recipe: Blasting Recipe
-  world_add_smoker_recipe: Smoker Recipe
-  world_add_campfire_recipe: Campfire Recipe
-  world_remove_recipe: Remove Recipe
-  if_player_is_inventory_own: Own Inventory
-  if_player_in_area: In Region
-  if_player_is_in_team: In Team
-  if_player_is_dead: Dead
-  if_player_is_underwater: Underwater
-  if_player_is_in_rain: In Rain
-  if_player_is_in_lava: In Lava
-  if_player_is_in_powdered_snow: In Powdered Snow
-  if_player_is_inside_vehicle: Inside Vehicle
-  if_world_entity_exists: Entity Exists
-  if_entity_contains_location: Contains location
-  if_entity_contains_block: Contains block
-  if_entity_overlaps_block: Overlaps block
-  if_entity_is_inside_block: Inside block
-  if_entity_in_area: In Region
   var_get_last_from_list: Last element
   var_get_first_from_list: First element
   var_create_map_by_keys: Map by keys
@@ -19208,11 +19572,6 @@ blocks:
   if_var_list_value_at_last_equals: Last equals
   if_var_list_value_at_index_equals: At index equals
   var_move_location_by_vector: Move loc by vec
-  player_air_changed: Air level changed
-  var_get_item_book_owner: Get Author
-  var_get_item_id: Get Material
-  entity_set_display_rotation: Display Rotation
-  entity_set_display_interpolation: Display Interpolation
 time:
   ago: ago
   days: d
@@ -19220,11 +19579,3 @@ time:
   minutes: min
   seconds: sec
   less-second: less than a second
-profiles:
-  default-description: '&7I create awesome worlds!'
-  genders:
-    male: '&3Male ♂'
-    female: '&dFemale ♀'
-    non-binary: '&eNon-binary 🜬'
-    unknown: '&7Not specified'
-only-in-lobby: '%prefix%&cThis can only be used in the lobby (/spawn).'
