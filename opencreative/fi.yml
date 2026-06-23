@@ -334,7 +334,7 @@ creative:
   reloaded: '%prefix%Plugin has been &6successfully&f reloaded!'
   loaded-worlds-list: '%prefix%List of loaded worlds, total %amount%: &6'
   locale:
-    changed: '%prefix%&fChanged language to &6English&f!'
+    changed: '%prefix%&fChanged language to &6Finnish&f!'
     not-found: '%prefix%&cNot found localization file for this language '
     resetting: '%prefix%Loading default localization files, please wait...'
     reset: '%prefix%Plugin has &6successfully&f reset the localization files to defaults!'
@@ -1065,15 +1065,14 @@ creative-chat:
   cooldown: '%cc-prefix%&fPlease wait &6%cooldown% seconds&f before sending another
     message.'
 advertisement:
-  message: "%prefix%&6Invitation:\n&f &7%player% &f&ninvites&f you to the world: \n\
-    &f %world%&r\n &f\n&a &a &n[Click to join]&f\n &f"
-  hover: "&f%planetName%\n&8Created by %planetOwner%\n \n&a  &7Online: &a%planetOnline%\n\
-    &e &7 Rating: &f%planetReputation%\n&3 ⚐&7 Category: &f%planetCategory%\n \n\
-    &aClick to join the world"
+  message: "%prefix%&6Kutsu:\n&f &7%player% &fkutsuu pelaajia maailmaansa: \n\
+    &f %world%&r\n &f\n&a &a &n[Liity maailmaan]&f\n &f"
+  hover: "&f%planetName%\n&8Luonut %planetOwner%\n \n&a  &7Pelaajia: &a%planetOnline%\n\
+    &e &7 Maine: &f%planetReputation%\n&3 ⚐&7 Kategoria: &f%planetCategory%\n \n\
+    &aPaina liittyäksesi"
   no-money: '%prefix%&cYou need to have %money% more coins to advertise this world.'
-  cooldown: '%prefix%Please wait &6%cooldown% seconds&f before advertising again.'
-  closed-world: '%prefix%&fTo advertise your world, &6you need to first allow player
-    entry&f in the world settings.'
+  cooldown: '%prefix%Odota &6%cooldown% sekunttia&f ennen kuin voit mainostaa uudelleen.'
+  closed-world: '%prefix%&fAvaa maailma muille, jotta voit mainostaa sitä.'
 items:
   disabled:
     name: '&c'
@@ -1278,10 +1277,9 @@ items:
       - '&7Change your flight speed in the world to'
       - '&7move faster between blocks.'
     world-settings:
-      name: '&7World Settings &a[Right-click]'
+      name: '&7Maailma asetukset'
       lore:
-      - '&7Customize &6your world&7, change its name, description, category,'
-      - '&7ID, and much more!'
+      - '&7Muuta maailmasi asetuksia ja ulkoasua!'
     variables:
       name: '&fValues &a[Right-click]'
       lore:
@@ -3406,9 +3404,9 @@ items:
             name: '&fMob AI'
             lore:
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -3430,9 +3428,9 @@ items:
             name: '&fMob silence'
             lore:
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -3454,9 +3452,9 @@ items:
             name: '&fMob pass-through'
             lore:
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -3478,9 +3476,9 @@ items:
             name: '&fEntity physics'
             lore:
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -3528,9 +3526,9 @@ items:
             - '&7increase current value with'
             - '&7specified one.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -3593,9 +3591,9 @@ items:
             - '&7Select shoulder to release'
             - '&7parrots from it.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -3700,9 +3698,9 @@ items:
             - '&7increase current value with'
             - '&7specified one.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -3731,7 +3729,7 @@ items:
             - ''
             - '&eClick to toggle.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -3793,7 +3791,7 @@ items:
             - '&7here, they will'
             - '&7be replaced with air.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
             - '&fChoices:'
             - '%1%'
@@ -3901,7 +3899,7 @@ items:
             - ''
             - '&eClick to toggle.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4041,9 +4039,9 @@ items:
             - '&7from a villager, the player'
             - '&7can receive experience.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4119,9 +4117,9 @@ items:
             - '&7The recipe book has categories'
             - '&7that recipes are sorted by.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -4200,9 +4198,9 @@ items:
             - '&7The recipe book has categories'
             - '&7that recipes are sorted by.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4388,9 +4386,9 @@ items:
             - '&7be able to craft the item by placing'
             - '&7the required items in any order.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4403,9 +4401,9 @@ items:
             - '&7be able to craft using specified items,'
             - '&7even if they have different names or lore.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4417,9 +4415,9 @@ items:
             - '&7The recipe book has categories'
             - '&7that recipes are sorted into.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -4448,9 +4446,9 @@ items:
             - '&7will be added to the current'
             - '&7value of the entity.'
             - ' '
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ' '
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4475,9 +4473,9 @@ items:
             - '&7will be added to the current'
             - '&7value of the entity.'
             - ' '
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ' '
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4502,9 +4500,9 @@ items:
             - '&7will be added to the current'
             - '&7value of the entity.'
             - ' '
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ' '
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4541,7 +4539,7 @@ items:
             - ' '
             - '&eClick to toggle.'
             - ' '
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4567,7 +4565,7 @@ items:
             - ' '
             - '&eClick to toggle.'
             - ' '
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4625,7 +4623,7 @@ items:
             - ' '
             - '&eClick to toggle.'
             - ' '
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4651,7 +4649,7 @@ items:
             - ' '
             - '&eClick to toggle.'
             - ' '
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4689,7 +4687,7 @@ items:
             - ''
             - '&eClick to toggle.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4715,7 +4713,7 @@ items:
             - ''
             - '&eClick to toggle.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4741,7 +4739,7 @@ items:
             - ''
             - '&eClick to toggle.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4768,7 +4766,7 @@ items:
             - ''
             - '&eClick to toggle.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4795,7 +4793,7 @@ items:
             - ''
             - '&eClick to toggle.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4855,7 +4853,7 @@ items:
             - ''
             - '&eClick to toggle.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -4971,9 +4969,9 @@ items:
             - '&7Use GET to retrieve content from the website'
             - '&7or POST to send data.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -4986,9 +4984,9 @@ items:
             - '&7the request body is in valid format.'
             - '&7Example JSON: &6{"content":"Hello"}'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -5033,9 +5031,9 @@ items:
             name: '&fMenu''s type'
             lore:
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -5102,9 +5100,9 @@ items:
             - '&7will be added to the current'
             - '&7amount the player has.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -5129,9 +5127,9 @@ items:
             - '&7will be added to the current'
             - '&7amount the entity has.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -5212,9 +5210,9 @@ items:
             - '&7items in empty slots will be'
             - '&7replaced by air.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -5424,9 +5422,9 @@ items:
             - '&7Choose how to join the texts'
             - '&7and display them on hotbar.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -5471,7 +5469,7 @@ items:
             - '&cpurchased again&7 as they are'
             - '&7meant to be permanent.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -5554,9 +5552,9 @@ items:
             - '&7Choose how to display the message'
             - '&7in the chat.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -5722,9 +5720,9 @@ items:
             - '&7by the player will also be added'
             - '&7to the container''s inventory.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -5770,9 +5768,9 @@ items:
             lore:
             - '&7Choose the style of the advancement.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -5854,9 +5852,9 @@ items:
             - '&7this category, they may not hear'
             - '&7the sound.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -5915,9 +5913,9 @@ items:
             - '&7It is recommended that the player'
             - '&7is already in the air at some height.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -5943,9 +5941,9 @@ items:
             - '&7Make the player glow'
             - '&7or disable glowing.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -5968,9 +5966,9 @@ items:
             - '&7Select shoulder to release'
             - '&7parrots from it.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -5999,9 +5997,9 @@ items:
             - '&7Lets the player fly over the map'
             - '&7to explore and take screenshots.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6014,9 +6012,9 @@ items:
             - '&7after landing or stopping their'
             - '&7flight.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6041,9 +6039,9 @@ items:
             - '&7movement speed will'
             - '&7increase.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6068,9 +6066,9 @@ items:
             - '&7will start sneaking, which'
             - '&7should reduce their speed.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6094,9 +6092,9 @@ items:
             - '&7will appear burning, but'
             - '&7won’t take any damage.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6239,9 +6237,9 @@ items:
             - '&7will appear burning, but'
             - '&7won’t take any damage.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6264,9 +6262,9 @@ items:
             - '&7If set to yes, the fox'
             - '&7will sleep on the ground.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6289,9 +6287,9 @@ items:
             - '&7If set to yes, the fox'
             - '&7will sit on the ground.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6314,9 +6312,9 @@ items:
             - '&7If set to yes, snow golem'
             - '&7will have a pumpkin.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6339,9 +6337,9 @@ items:
             - '&7If set to yes, the'
             - '&7bee will have nectar.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6364,9 +6362,9 @@ items:
             - '&7If set to yes, the'
             - '&7bee will have a stinger.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6389,9 +6387,9 @@ items:
             - '&7If set to yes, the'
             - '&7cat will lie on the ground.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6415,9 +6413,9 @@ items:
             - '&7horse or donkey will have'
             - '&7a chest.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6441,9 +6439,9 @@ items:
             - '&7will be removed when it is'
             - '&7too far from spawn.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6468,9 +6466,9 @@ items:
             - '&7will become aggressive and'
             - '&7attack its targets.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6493,9 +6491,9 @@ items:
             - '&7If set to yes, the mob'
             - '&7will move on its own.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6861,9 +6859,9 @@ items:
             - '&7Choose the mode to let the'
             - '&7player build, explore, or watch.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -6904,9 +6902,9 @@ items:
             - '&7health will increase by the'
             - '&7specified amount.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6935,9 +6933,9 @@ items:
             - '&7health will increase by the'
             - '&7specified amount.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6964,9 +6962,9 @@ items:
             - '&7health will increase by the'
             - '&7specified amount.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -6992,9 +6990,9 @@ items:
             - '&7hunger will increase by the'
             - '&7specified amount.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -7156,9 +7154,9 @@ items:
             - '&7Choose whether the action'
             - '&7includes sound.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -7243,9 +7241,9 @@ items:
             - '&7items in empty slots will be'
             - '&7replaced by air.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -7302,9 +7300,9 @@ items:
             - '&7items in empty slots will be'
             - '&7replaced by air.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -7343,9 +7341,9 @@ items:
             - '&7Choose which side of the sign'
             - '&7the player will edit.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -7544,7 +7542,7 @@ items:
             - '&7Sets the rules for '
             - '&7collision between teams.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -7574,7 +7572,7 @@ items:
             - '&7Sets the visibility'
             - '&7of name tags between teams.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -7617,7 +7615,7 @@ items:
             - '&7invisibility rules'
             - '&7between teams.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -7656,9 +7654,9 @@ items:
             - '&7on which this action'
             - '&7should be performed.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -7684,9 +7682,9 @@ items:
             - '&7on which this action'
             - '&7should be performed.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -7702,9 +7700,9 @@ items:
             - '&7the sign can still be edited'
             - '&7by players.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -7731,9 +7729,9 @@ items:
             - '&7on which this action'
             - '&7should be performed.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -7745,7 +7743,7 @@ items:
             - '&7Whether the text on the sign'
             - '&7will glow or not.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -7770,7 +7768,7 @@ items:
             - '&7in water and it will be more'
             - '&7resistant to explosions.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -7961,7 +7959,7 @@ items:
             - '&7Specifies the level of'
             - '&7difficulty for world.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -7993,9 +7991,9 @@ items:
             - '&7breaking a block, particles of'
             - '&7breaking will appear around it.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8009,9 +8007,9 @@ items:
             - '&7breaking a block, experience'
             - '&7may appear, like when mining ores.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8040,9 +8038,9 @@ items:
             - '&7Enable redstone signal or'
             - '&7disable and turn off the mechanism.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8094,9 +8092,9 @@ items:
             - '&7If set to yes, the item'
             - '&7will be dropped with an offset.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8271,9 +8269,9 @@ items:
             - '&7Choose the overlay type'
             - '&7that the bossbar will have.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -8317,9 +8315,9 @@ items:
             - '&7If no damage is dealt, the'
             - '&7lightning will just be an effect.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8356,9 +8354,9 @@ items:
             - '&7With fire, some blocks'
             - '&7will catch fire.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8372,9 +8370,9 @@ items:
             - '&7for beauty, other times for'
             - '&7destruction.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8445,9 +8443,9 @@ items:
             - '&7Without AI, the mob can''t'
             - '&7move or make sounds.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8460,9 +8458,9 @@ items:
             - '&7With no gravity, the mob will'
             - '&7float in the air.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8476,9 +8474,9 @@ items:
             - '&7have a glow and can be seen'
             - '&7through walls.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8491,9 +8489,9 @@ items:
             - '&7With this option, you won''t need'
             - '&7to hover to see the mob''s name.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8507,9 +8505,9 @@ items:
             - '&7able to see the mob, but it can'
             - '&7still see you!'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8523,9 +8521,9 @@ items:
             - '&7can''t take damage, but you can'
             - '&7still throw it into the void.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8540,9 +8538,9 @@ items:
             - '&7personal mobs only visible to one,'
             - '&7this option is for you.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8570,9 +8568,9 @@ items:
             - '&7This will set the weather visible'
             - '&7only to this player.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -8610,9 +8608,9 @@ items:
             - '&7This will set the weather visible'
             - '&7only to this player.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8814,9 +8812,9 @@ items:
             - '&7will be added to the current'
             - '&7value of the player.'
             - ' '
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ' '
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -8841,9 +8839,9 @@ items:
             - '&7will be added to the current'
             - '&7value of the player.'
             - ' '
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ' '
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9021,9 +9019,9 @@ items:
             - '&7will be added to the current'
             - '&7value of the display entity.'
             - ' '
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ' '
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9052,9 +9050,9 @@ items:
             - '&7will be added to the current'
             - '&7value of the display entity.'
             - ' '
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ' '
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9083,9 +9081,9 @@ items:
             - '&7will be added to the current'
             - '&7value of the display entity.'
             - ' '
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ' '
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9122,9 +9120,9 @@ items:
             - '&7will be seen by players'
             - '&7around it.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -9241,9 +9239,9 @@ items:
             - '&7your value will be added to the'
             - '&7player''s current value.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9269,9 +9267,9 @@ items:
             - '&7your value will be added to the'
             - '&7player''s current value.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9298,9 +9296,9 @@ items:
             - '&7your value will be added to the'
             - '&7player''s current value.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9327,9 +9325,9 @@ items:
             - '&7your value will be added'
             - '&7to the player''s current value.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9358,9 +9356,9 @@ items:
             - '&7your value will be added'
             - '&7to the player''s current value.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9388,9 +9386,9 @@ items:
             - '&7your value will be added'
             - '&7to the player''s current value.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9418,9 +9416,9 @@ items:
             - '&7your value will be added'
             - '&7to the player''s current value.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9447,9 +9445,9 @@ items:
             - '&7your value will be added'
             - '&7to the player''s current value.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9528,7 +9526,7 @@ items:
             name: '&3Hand for swing'
             lore:
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
             - '&fChoices:'
             - '%1%'
@@ -9574,9 +9572,9 @@ items:
             - '&7your value will be added'
             - '&7to the player''s current value.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9603,9 +9601,9 @@ items:
             - '&7your value will be added'
             - '&7to the player''s current value.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9645,9 +9643,9 @@ items:
             - '&7your value will be added'
             - '&7to the player''s current value.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9673,9 +9671,9 @@ items:
             - '&7the current value will be'
             - '&7increased by yours.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9702,9 +9700,9 @@ items:
             - '&7the current value will be'
             - '&7increased by yours.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9731,9 +9729,9 @@ items:
             - '&7the current value will be'
             - '&7increased by yours.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9759,9 +9757,9 @@ items:
             - '&7the current value will be'
             - '&7increased by yours.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9822,9 +9820,9 @@ items:
             - '&7the player will not move, but'
             - '&7their camera will turn.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -9860,7 +9858,7 @@ items:
             - ''
             - '&eClick to toggle.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -9961,7 +9959,7 @@ items:
             - ''
             - '&eClick to toggle.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -10353,9 +10351,9 @@ items:
             - '&7it''s better to use the'
             - '&7compact version.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -10714,9 +10712,9 @@ items:
             - '&7those that are the first'
             - '&7or the last.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -11194,9 +11192,9 @@ items:
             - '&7Choose how the number'
             - '&7will be rounded.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -11321,9 +11319,9 @@ items:
             lore:
             - '&7Choose how to concat the texts. '
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -11664,9 +11662,9 @@ items:
             lore:
             - '&7Choose how to trace the ray.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -11714,9 +11712,9 @@ items:
             lore:
             - '&7Choose how to trace the ray.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -11755,9 +11753,9 @@ items:
             - '&7will be added to the list'
             - '&7when hit by the ray.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -11770,9 +11768,9 @@ items:
             lore:
             - '&7Choose how to trace the ray.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -11896,9 +11894,9 @@ items:
             - '&7the actions between pistons'
             - '&7will also execute.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -11992,9 +11990,9 @@ items:
             - '&7all mobs exist, or when'
             - '&7any of them exists.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12021,9 +12019,9 @@ items:
             - '&7all players are in the world, or when'
             - '&7any one of them is.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12037,9 +12035,9 @@ items:
             - '&7is in the build world or in'
             - '&7the coding world.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -12067,9 +12065,9 @@ items:
             - '&7all locations are inside'
             - '&7the mob, or any of them.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12097,9 +12095,9 @@ items:
             - '&7all blocks intersect'
             - '&7with the mob, or any of them.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12113,9 +12111,9 @@ items:
             - '&7instead of the placed'
             - '&7block''s actual size.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12144,9 +12142,9 @@ items:
             - '&7all blocks are inside the mob,'
             - '&7or any of them.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12160,9 +12158,9 @@ items:
             - '&7instead of the placed'
             - '&7block''s actual size.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12190,9 +12188,9 @@ items:
             - '&7the mob hitbox is inside all'
             - '&7blocks, or any of them.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12206,9 +12204,9 @@ items:
             - '&7instead of the placed'
             - '&7block''s actual size.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12243,9 +12241,9 @@ items:
             - '&7all values are true, or when'
             - '&7any one of them is.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12270,9 +12268,9 @@ items:
             - '&7all cycles are running, or when'
             - '&7any one of them is running.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12341,9 +12339,9 @@ items:
             - '&7all values match, or when'
             - '&7at least one of them matches.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12368,9 +12366,9 @@ items:
             - '&7all values match, or when'
             - '&7at least one of them matches.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12395,9 +12393,9 @@ items:
             - '&7all values match, or when'
             - '&7at least one of them matches.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12423,9 +12421,9 @@ items:
             - '&7all values match, or when'
             - '&7at least one of them matches.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12450,9 +12448,9 @@ items:
             - '&7all values match, or when'
             - '&7at least one of them matches.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12477,9 +12475,9 @@ items:
             - '&7all values match, or when'
             - '&7at least one of them matches.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12504,9 +12502,9 @@ items:
             - '&7all values match, or when'
             - '&7at least one of them matches.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12531,9 +12529,9 @@ items:
             - '&7all values match, or when'
             - '&7at least one of them matches.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12558,9 +12556,9 @@ items:
             - '&7all values match, or when'
             - '&7at least one of them matches.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12585,9 +12583,9 @@ items:
             - '&7all values match, or when'
             - '&7at least one of them matches.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12614,9 +12612,9 @@ items:
             - '&7all values match, or when'
             - '&7at least one of them matches.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12643,9 +12641,9 @@ items:
             - '&7all values match, or when'
             - '&7at least one of them matches.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12863,9 +12861,9 @@ items:
             - '&7the item has values for'
             - '&7all keys, or any of them.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12944,9 +12942,9 @@ items:
             - '&7will be met only if the item has'
             - '&7all the specified enchantments.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -12961,9 +12959,9 @@ items:
             - '&7it will only check if the'
             - '&7enchantment type exists.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -12995,9 +12993,9 @@ items:
             - '&7in the text differ in'
             - '&7UPPERCASE or lowercase.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13010,9 +13008,9 @@ items:
             - '&7color codes, since it''s quite'
             - '&7rare to require them.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13040,9 +13038,9 @@ items:
             - '&7in the text differ in'
             - '&7UPPERCASE or lowercase.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13055,9 +13053,9 @@ items:
             - '&7color codes, since it''s quite'
             - '&7rare to require them.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13085,9 +13083,9 @@ items:
             - '&7in the text differ in'
             - '&7UPPERCASE or lowercase.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13100,9 +13098,9 @@ items:
             - '&7color codes, since it''s quite'
             - '&7rare to require them.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13130,9 +13128,9 @@ items:
             - '&7in the text differ in'
             - '&7UPPERCASE or lowercase.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13145,9 +13143,9 @@ items:
             - '&7color codes, since it''s quite'
             - '&7rare to require them.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13183,9 +13181,9 @@ items:
             - '&7will pass only if the list contains'
             - '&7all specified values.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13212,9 +13210,9 @@ items:
             - '&7it can also be equal to the'
             - '&7specified number.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13241,9 +13239,9 @@ items:
             - '&7it can also be equal to the'
             - '&7specified number.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13273,9 +13271,9 @@ items:
             - '&7it can also be equal to the'
             - '&7specified number.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13289,9 +13287,9 @@ items:
             - '&7it can also be equal to the'
             - '&7specified number.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13317,9 +13315,9 @@ items:
             - '&7all variables are empty, or when'
             - '&7at least one of them is empty.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13345,9 +13343,9 @@ items:
             - '&7all variables exist, or when'
             - '&7at least one of them exists.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13380,9 +13378,9 @@ items:
             - '&7specified items or'
             - '&7any one of them.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13396,9 +13394,9 @@ items:
             - '&7an item in that slot,'
             - '&7the check will fail.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13411,9 +13409,9 @@ items:
             - '&7whether the player has enough'
             - '&7items.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13426,9 +13424,9 @@ items:
             - '&7using an'
             - '&7anvil.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13441,9 +13439,9 @@ items:
             - '&7commands, plugins,'
             - '&7or mods.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13456,9 +13454,9 @@ items:
             - '&7using an anvil or'
             - '&7enchanting table.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13471,9 +13469,9 @@ items:
             - '&7usually added through'
             - '&7NBT editors.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13486,9 +13484,9 @@ items:
             - '&7tools, weapons,'
             - '&7or armor.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13584,9 +13582,9 @@ items:
             - '&7while in Creative mode they can'
             - '&7even destroy the entire world.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -13652,9 +13650,9 @@ items:
             - '&7can develop in /dev and'
             - '&7run the game with /play.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -13719,9 +13717,9 @@ items:
             - '&7the case of letters (CAPS)'
             - '&7and lowercase letters.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13766,9 +13764,9 @@ items:
             - '&7Perform actions if the condition'
             - '&7matches for all or any players.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13793,9 +13791,9 @@ items:
             - '&7Perform actions if the condition'
             - '&7matches for all or any entities.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13856,9 +13854,9 @@ items:
             - '&7will pass only if the player has'
             - '&7all listed potion effects.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13888,9 +13886,9 @@ items:
             - '&7the case of letters (CAPS)'
             - '&7and lowercase letters.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13903,9 +13901,9 @@ items:
             - '&7color codes, as it''s rare'
             - '&7when needed.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -13976,9 +13974,9 @@ items:
             - '&7will check if the message'
             - '&7matches upper and lower case.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14005,9 +14003,9 @@ items:
             - '&7if the player has enough'
             - '&7of an item.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14019,9 +14017,9 @@ items:
             - '&7Items can be renamed via'
             - '&7an anvil.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14034,9 +14032,9 @@ items:
             - '&7a code or mod and creative'
             - '&7may be needed.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14048,9 +14046,9 @@ items:
             - '&7Items can be enchanted via'
             - '&7an anvil or enchanting table.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14062,9 +14060,9 @@ items:
             - '&7These special tags'
             - '&7are set via NBT editor (mod).'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14076,9 +14074,9 @@ items:
             - '&7Useful when comparing'
             - '&7items with the same name.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14090,9 +14088,9 @@ items:
             - '&7Useful when item is tool,'
             - '&7weapon or armor.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14118,9 +14116,9 @@ items:
             - '&7The player can hold an item'
             - '&7in the main or off hand.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -14137,9 +14135,9 @@ items:
             - '&7if the player has enough'
             - '&7of an item.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14151,9 +14149,9 @@ items:
             - '&7Items can be renamed via'
             - '&7an anvil.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14166,9 +14164,9 @@ items:
             - '&7a code or mod and creative'
             - '&7may be needed.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14180,9 +14178,9 @@ items:
             - '&7Items can be enchanted via'
             - '&7an anvil or enchanting table.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14194,9 +14192,9 @@ items:
             - '&7These special tags'
             - '&7are set via NBT editor (mod).'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14208,9 +14206,9 @@ items:
             - '&7Useful when comparing'
             - '&7items with the same name.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14222,9 +14220,9 @@ items:
             - '&7Useful when item is tool,'
             - '&7weapon or armor.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14266,9 +14264,9 @@ items:
             - '&7if the player has enough'
             - '&7items.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14281,9 +14279,9 @@ items:
             - '&7renamed via'
             - '&7anvil.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14295,9 +14293,9 @@ items:
             - '&7To set the item lore,'
             - '&7a code or mod is required.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14310,9 +14308,9 @@ items:
             - '&7enchanted via'
             - '&7anvil or table.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14325,9 +14323,9 @@ items:
             - '&7are set via'
             - '&7NBT editor (mod).'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14340,9 +14338,9 @@ items:
             - '&7items with same'
             - '&7names.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14354,9 +14352,9 @@ items:
             - '&7Useful when item is tool,'
             - '&7weapon or armor.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14383,9 +14381,9 @@ items:
             - '&7If item data is ignored,'
             - '&7only the material will be checked.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14414,9 +14412,9 @@ items:
             - '&7will be met only if the player'
             - '&7has all specified items.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14430,9 +14428,9 @@ items:
             - '&7If data is ignored, only the'
             - '&7item material will be checked.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             - '%3%'
@@ -14472,9 +14470,9 @@ items:
             - '&7the case of letters (CAPS)'
             - '&7and lowercase letters.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -14487,9 +14485,9 @@ items:
             - '&7color codes, as it''s rare'
             - '&7when needed.'
             - ''
-            - '&eClick to change.'
+            - '&ePaina muuttaaksesi.'
             - ''
-            - '&fOptions:'
+            - '&fVaihtoehdot:'
             - '%1%'
             - '%2%'
             choices:
@@ -15038,25 +15036,23 @@ menus:
     title: '&0%name%'
     items:
       advertisement:
-        name: ' '
+        name: '&b Mainosta maailmaa'
         lore:
-        - '&b Mainosta maailmaa'
         - ' '
-        - '&7  It will invite every player'
-        - '&7  from server to this world.'
+        - '&7  Lähetä kutsu kaikille creativen'
+        - '&7  pelaajille liittyä maailmaasi.'
         - ' '
-        - '&e Click to advertise.'
+        - '&e Paina mainostaaksesi.'
         - ''
       play-mode:
         name: ' '
         lore:
-        - '&b  Play mode'
-        - '&7 We''re playing now!'
+        - '&b Pelailutila'
+        - '&7 Pelit käyntiin!'
         - ' '
-        - '&7  Currently code works fine'
-        - '&7  and visitors play a game.'
+        - '&7  Pelaajat pääsevät seikkailemaan luomaasi maailmaa'
         - ' '
-        - '&e Click to change mode.'
+        - '&e Paina vaihtaaksesi tilaa'
         - ''
       build-mode:
         name: ' '
@@ -17925,21 +17921,17 @@ menus:
         - '&e Click to open.'
         - ''
       change-category:
-        name: ' '
+        name: '&e🗡 Maailman kategoria'
         lore:
-        - '&e 🗡 World Category'
-        - '&7 Genre of the world for searching in the browser.'
+        - '&7 Genre johon maailma luokitellaan.'
         - ' '
-        - '&7 Players often look for worlds based on'
-        - '&7 genres, so how would you classify'
-        - '&7 your world?'
+        - '&7 Auttaa pelaajia löytämään maailmasi'
         - ' '
-        - '&e Click to set.'
+        - '&e Paina asettaaksesi.'
         - ' '
       planet-flags:
-        name: ' '
+        name: '&6 ⇄ Maailman asetukset'
         lore:
-        - '&6 ⇄ World Options'
         - '&7 Additional game rules.'
         - ' '
         - '&7 Options allow you to change'
@@ -17949,9 +17941,8 @@ menus:
         - '&e Click to configure.'
         - ''
       planet-players:
-        name: ' '
+        name: '&6 Pelaajien hallinta'
         lore:
-        - '&6 Player Management'
         - '&7 Allow a friend to help you!'
         - ' '
         - '&7 Manage players'' rights to'
@@ -17961,9 +17952,8 @@ menus:
         - '&e Click to configure.'
         - ''
       change-id:
-        name: ' '
+        name: '&c Maailman ID'
         lore:
-        - '&c ID of the world'
         - '&7 Quick access to visit the world'
         - ' '
         - '&7 With a short and memorable ID,'
@@ -17973,9 +17963,8 @@ menus:
         - '&e Click to change the ID.'
         - ''
       change-spawn:
-        name: ' '
+        name: '&3 ⭘ Spawn sijainti'
         lore:
-        - '&3 ⭘ Player Spawn Location'
         - '&7 Also the respawn point for players!'
         - ''
         - '&7 Upon entering the world, or upon'
@@ -17989,12 +17978,11 @@ menus:
         - '&e Right click &7- teleport.'
         - ''
       change-sharing:
-        name: ' '
+        name: '&a Pääsy'
         choices:
-          public: Let players enter the world
-          private: Prohibit visiting the world
+          public: Pelaajat voivat liittyä
+          private: Estää pelaajien liittymisen
         lore:
-        - '&a World Accessibility'
         - '&7 Can players enter the world?'
         - ' '
         - '&7 For technical work: coding'
@@ -18009,26 +17997,17 @@ menus:
         - '&e or close the world.'
         - ' '
       advertisement:
-        name: ' '
+        name: '&b Mainosta maailmaa'
         lore:
-        - '&b  Advertise the World'
-        - '&7 An invitation to the world for all players.'
         - ' '
-        - '&7 This will send a request to all players '
-        - '&7 to visit your'
-        - '&7 world, and someone might even join!'
+        - '&7  Lähetä kutsu kaikille creativen'
+        - '&7  pelaajille liittyä maailmaasi.'
         - ' '
-        - '&f Features: '
-        - '&7 &a &fNew players will join the world'
-        - '&7 &3 &fAvailable once every few minutes'
-        - '&7 &d &fThe world name will be displayed'
-        - ' '
-        - '&e Click to advertise the world.'
+        - '&e Paina mainostaaksesi.'
         - ''
       play-mode:
-        name: ' '
+        name: '&bPelailutila'
         lore:
-        - '&b  Game Mode'
         - '&7 Start the code of your world.'
         - ' '
         - '&7 This mode will execute'
@@ -18040,12 +18019,11 @@ menus:
         - '&7 &6 &fWorld parameters will be applied'
         - '&7 &a &fYour code will run'
         - ' '
-        - '&e Click to switch.'
+        - '&e Paina vaihtaaksesi tilaa.'
         - ''
       build-mode:
-        name: ' '
+        name: '&c⛏ Rakennustila'
         lore:
-        - '&c ⛏ Build Mode'
         - '&7 Build a map for your world!'
         - ' '
         - '&7 Creative mode allows you to'
@@ -18057,12 +18035,11 @@ menus:
         - '&7 &b 🌊 &fIsland, beach, pool'
         - '&7 &c  &fJungle, ruins, basement'
         - ' '
-        - '&e Click to switch.'
+        - '&e Paina vaihtaaksesi tilaa.'
         - ''
       dev-mode:
-        name: ' '
+        name: '&eOhjelmointitila'
         lore:
-        - '&e  Developer Mode'
         - '&7 Create code for your world!'
         - ' '
         - '&7 Turn your world into a game with'
@@ -18074,69 +18051,58 @@ menus:
         - '&7 &6  &fCreate interesting mechanics'
         - '&7 &a  &fLearn the basics of programming'
         - ' '
-        - '&e Click to switch.'
+        - '&e Paina vaihtaaksesi tilaa.'
         - ''
       environment:
-        name: ' '
+        name: '&dKoodiympäristö'
         lore:
-        - '&d  Code Execution Environment'
         - '&7 Useful functions for coders.'
         - ' '
         - '&7 Discover limits, the number'
         - '&7 of variables, change time'
         - '&7 and coding formatting.'
         - ' '
-        - '&e Click to switch.'
+        - '&e Paina hallitaksesi.'
         - ''
       time:
         choices:
-          '1': Always day
-          '2': Always evening
-          '3': Always night
-          '4': Change day and night
-        name: ' '
+          '1': Päivä
+          '2': Ilta
+          '3': Yö
+          '4': Vaihtuva
+        name: '&e☀ Vaihda päivänaikaa'
         lore:
-        - '&e ☀ Change World Time'
-        - '&7 The sun shines directly in the eye.'
         - ' '
-        - '&7 For survival, you can enable'
-        - '&7 the day and night cycle, or make'
-        - '&7 it permanently day or night.'
+        - '&7 Valaistus luo tuonnelman!'
         - ''
-        - '&f Options:'
+        - '&f Vaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
         - '%4%'
         - ''
-        - '&e Click to change the time.'
+        - '&e Paina vaihtaaksesi päivänaikaa.'
         - ''
       autosave:
         choices:
-          'true': Save all world changes
-          'false': Don't save world changes
-        name: ' '
+          'true': Tallenna pelitilan muutokset
+          'false': Tallenna vain rakennustilan muutokset
+        name: '&c 🪣 Automaattiset tallennukset'
         lore:
-        - '&c 🪣 Auto-saving'
-        - '&7 Saves new buildings in world.'
-        - ' '
-        - '&7 If this is &cdisabled&7, new'
-        - '&7 buildings and world changes'
-        - '&7 &cwill be not saved&7.'
+        - '&7 Määrittää pysyykö muutokset maailmassa'
         - ''
         - '&f Options:'
         - '%1%'
         - '%2%'
         - ''
-        - '&c Click to change saving.'
+        - '&c Paina muuttaaksesi.'
         - ''
   world-settings-categories:
-    title: Choose new category
+    title: Valitse kategoria (TÄHÄN NE ELON KEKSIMÄT NIMET)
     items:
       sandbox:
-        name: ' '
+        name: '&e Sandbox'
         lore:
-        - '&e Sandbox'
         - '&7 Freedom of choices.'
         - ' '
         - '&7 In these worlds players'
@@ -18245,7 +18211,7 @@ menus:
   world-settings-flags:
     turned-on: '&a ● '
     turned-off: '&7 ○ '
-    title: World options
+    title: Maailman asetukset
     items:
       back:
         name: ' '
@@ -18257,41 +18223,31 @@ menus:
         - ''
       world-borders:
         choices:
-          '1': Show blue borders
-          '2': Show green borders
-          '3': Show red borders
-          '4': Don't show borders
-        name: '&bWorld Borders'
+          '1': Näytä sininen raja
+          '2': Näytä vihreä raja
+          '3': Näytä punainen raja
+          '4': Älä näytä rajaa
+        name: '&bMaailman raja'
         lore:
-        - ' '
-        - '&7When you''re close to'
-        - '&7world borders you can'
-        - '&7see blue moving lines.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
         - '%4%'
       player-damage:
         choices:
-          '1': Players take all damage
-          '2': Players are invincible
-          '3': Disable combat damage
-          '4': Disable fall damage
-          '5': Disable PvP, fall damage
-        name: '&ePlayer damage'
+          '1': Pelaajat vahingoittuvat
+          '2': Pelaajat ovat vahingoittumattomia
+          '3': Estä taisteluvahinko
+          '4': Estä putoamisvahinko
+          '5': Estä PvP ja putoamisvahinko
+        name: '&ePelaajavaihinko'
         lore:
-        - ' '
-        - '&7You can make players'
-        - '&7immortal and they won''t'
-        - '&7take damage in the world.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
@@ -18299,54 +18255,40 @@ menus:
         - '%5%'
       weather:
         choices:
-          '1': Always no rain
-          '2': Always rain
-          '3': Switch weather
-        name: '&bWeather cycle'
+          '1': Ei sada
+          '2': Sataa
+          '3': Sää muuttuu
+        name: '&bSäätila'
         lore:
-        - ' '
-        - '&7You can enable weather cycle,'
-        - '&7which will change the weather in the'
-        - '&7world from sunny to rainy.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
       join-messages:
         choices:
-          '1': Show messages
-          '2': Hide messages
-        name: '&aJoin/leave messages'
+          '1': Näytä viestit
+          '2': Piilota viestit
+        name: '&aLiittymisviestit'
         lore:
-        - ' '
-        - '&7You can disable notifications when'
-        - '&7someone joins or leaves the world.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
       block-interact:
         choices:
-          '1': Allow using all blocks
-          '2': Disable block interaction
-          '3': Don't change repeaters, comparators, note blocks
-          '4': Disable use of chests, doors, trapdoors
-          '5': Allow only buttons, levers, pressure plates
-        name: '&6Block interaction'
+          '1': Salli kaikki
+          '2': Estä kaikki
+          '3': Estä redstonekomponenttien muuttaminen
+          '4': Estä ovien ja arkkujen käyttö
+          '5': Salli vain napit, vivut ja painelaatat
+        name: '&6Palikka vuorovaikutukset'
         lore:
-        - ' '
-        - '&7Players often start changing'
-        - '&7note blocks and opening'
-        - '&7unnecessary chests and doors.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
@@ -18354,21 +18296,16 @@ menus:
         - '%5%'
       mob-spawn:
         choices:
-          '1': Don't spawn mobs
-          '2': Let all mobs spawn
-          '3': Spawn all mobs except slimes
-          '4': Spawn only peaceful animals
-          '5': Spawn only monsters
-        name: '&2Mob spawning in world'
+          '1': Estä kaikki
+          '2': Salli kaikki
+          '3': Estä limat
+          '4': Spawnaa vain eläimiä
+          '5': Spawnaa vain hirviöitä
+        name: '&2Mobien spawnaaminen'
         lore:
-        - ' '
-        - '&7In survival worlds, different'
-        - '&7mobs and monsters spawn automatically'
-        - '&7in various places.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
@@ -18376,178 +18313,125 @@ menus:
         - '%5%'
       mob-interact:
         choices:
-          '1': Allow interaction with mobs
-          '2': Disable interaction with any mob
-          '3': Disable changing frames and stands
-        name: '&3Mob interaction'
+          '1': Salli kaikki
+          '2': Estä kaikki
+          '3': Estä kehysten ja telineiden muuttamiset
+        name: '&3Mobi vuorovaikutukset'
         lore:
-        - ' '
-        - '&7Players can often steal items'
-        - '&7from frames or armor stands, even though'
-        - '&7they are meant for decoration.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
       immediate-respawn:
         choices:
-          '1': Player must press the button
-          '2': Player respawns immediately
-        name: '&7Player respawn'
+          '1': Avaa valikon
+          '2': Uuudelleensyntyy välittömästi
+        name: '&7Pelaajien uudelleensyntyminen'
         lore:
-        - ' '
-        - '&7You can make it so the player'
-        - '&7doesn''t have to press the Respawn button,'
-        - '&7but respawns immediately.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
       mob-loot:
         choices:
-          '1': Allow items to drop from mobs
-          '2': Nothing should drop
-        name: '&aMob loot drops'
+          '1': Mobit pudottavat esineet kuollessaan
+          '2': Mobit eivät pudota esineitään
+        name: '&aMobien pudotukset'
         lore:
-        - ' '
-        - '&7When a mob dies, it usually'
-        - '&7drops an item, for example, a zombie drops a carrot.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
       natural-regeneration:
         choices:
-          '1': Let health regenerate
-          '2': Don't regenerate player health
-        name: '&dHealth regeneration'
+          '1': Vahinko paraantuu
+          '2': Vahinko ei paraannu
+        name: '&dElämän palautuminen'
         lore:
-        - ' '
-        - '&7When a player takes damage, if'
-        - '&7they are full, their health will regenerate'
-        - '&7through hunger.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
       keep-inventory:
         choices:
-          '1': Let items drop on death
-          '2': Keep inventory on death
-        name: '&6Keep inventory on death'
+          '1': Tavarat putoavat kuolemassa
+          '2': Tavarat pysyvät pelaajalla
+        name: '&6Kuolintavarat'
         lore:
-        - ' '
-        - '&7Usually when a player dies, all'
-        - '&7their items drop. But you can keep'
-        - '&7their inventory.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
       block-changing:
         choices:
-          '1': Let blocks change themselves
-          '2': Disable block changes
-        name: '&bBlock changing'
+          '1': Palikat voivat muuttaa tilaansa
+          '2': Palikat eivät muutu itsestään
+        name: '&bPalikoiden muuttuminen'
         lore:
-        - ' '
-        - '&7Block changes happen'
-        - '&7when ice melts, or when'
-        - '&7leaves without trees dry up.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
       like-messages:
         choices:
-          '1': Send /like notifications
-          '2': Hide /like notifications
-        name: '&aLike messages'
+          '1': Näytä /like ilmoitukset
+          '2': Piilota /like ilmoitukset
+        name: '&aIlmoita maailman tykkäyksistä'
         lore:
-        - ' '
-        - '&7When a player gives a positive'
-        - '&7rating, a message about the like'
-        - '&7is displayed to everyone in chat.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
       death-messages:
         choices:
-          '1': Send death messages
-          '2': Hide death messages
-        name: '&cPlayer death messages'
+          '1': Näytä kuolinviestit
+          '2': Piilota kuolinviesit
+        name: '&cKuolinviestit'
         lore:
-        - ' '
-        - '&7When a player dies in the world,'
-        - '&7a death message is sent by default.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
       block-explosion:
         choices:
-          '1': Let blocks explode
-          '2': Disable block explosions
-        name: '&cBlock destruction'
+          '1': Palikat voivat räjähtää
+          '2': Estä palikoiden räjähtäminen
+        name: '&cPalikoiden vahingoittuminen'
         lore:
-        - ' '
-        - '&7Many players start exploding'
-        - '&7your map as soon as they get'
-        - '&7creative mode.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
       fire-spread:
         choices:
-          '1': Let fire spread
-          '2': Disable block burning
-        name: '&eFire behavior'
+          '1': Tuli leviää
+          '2': Tuli ei leviä
+        name: '&eTulen leviäminen'
         lore:
-        - ' '
-        - '&7To prevent your wooden houses'
-        - '&7from burning, you can'
-        - '&7simply turn off fire.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
       locator-bar:
         choices:
-          '1': Let it be visible
-          '2': Hide the bar completely
-        name: '&7Locator Bar'
+          '1': Näe pelaajat alapalkilla
+          '2': Piilota paikannuspalkki
+        name: '&7Paikannuspalkki'
         lore:
-        - ' '
-        - '&7This is the strip that shows'
-        - '&7the points with players’ locations.'
-        - '&7For hide-and-seek it''s better to hide.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&eClick to change.'
-        - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
   world-creation:
@@ -18569,9 +18453,9 @@ menus:
         - '&7the ocean for fishing, and plains'
         - '&7with large biomes for survival.'
         - ''
-        - '&eClick to change.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
@@ -18590,9 +18474,9 @@ menus:
         - '&7is red with no water, and in the End,'
         - '&7everything is mysterious!'
         - ''
-        - '&eClick to change.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
@@ -18607,9 +18491,9 @@ menus:
         - '&7Nether portals, pillager outposts,'
         - '&7and desert pyramids.'
         - ''
-        - '&eClick to change.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
       create:
@@ -18638,9 +18522,9 @@ menus:
         - '&7Let the world have various'
         - '&7biomes, or just one.'
         - ''
-        - '&eClick to change.'
+        - '&ePaina muuttaaksesi.'
         - ''
-        - '&fOptions:'
+        - '&fVaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
