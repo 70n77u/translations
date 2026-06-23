@@ -147,16 +147,14 @@ modules:
   help: |-
     %prefix%Module is prepared coding blocks lines, made by players, that add some features in your world. They can be inserted in developers world. To browse modules use &6/module&f command.
     &6 /module load ID &f- Loads module by specified ID
-  not-found: '%prefix%&cCan''t find module with ID %id% '
-  private: '%prefix%&cThis module is private, so only owner can install it.. '
-  created: '%prefix%You created a &6module&f! Every player &6can install&f your selected
-    code. Now you can change it''s display name, description and icon in modules browser.'
-  deleted: '%prefix%Module &6%moduleID%&f was deleted '
-  installed: '%prefix%&6%player%&f installed module &6%moduleName% &fby %moduleOwner%'
-  few-space: '%prefix%&cSeems like all your coding platforms are filled with code!
-    To load this module we need %required% free rows of code.'
-  error: '%prefix%&cCan''t save code for module, please fix problems in code!'
-  fail: '%prefix%&cFailed to load module %moduleName%&c by %moduleOwner%'
+  not-found: '%prefix%&cModuulia jonka ID on %id% ei löytynyt '
+  private: '%prefix%&cTämä moduuli on yksityinen, joten vain sinä voit käyttää sitä '
+  created: '%prefix%Loit &6moduulin&f! Pelaajat voivat käyttää moduulin koodia. Voit muuttaa moduulin asetuksia ja ulkonäköä moduuliselaimessa.'
+  deleted: '%prefix%Moduuli &6%moduleID%&f poistettiin '
+  installed: '%prefix%&6%player%&f asensi moduulin &6%moduleName% &f(tekijä: %moduleOwner%)'
+  few-space: '%prefix%&cKoodialustoilla ei ole tarpeeksi tilaa moduulille.'
+  error: '%prefix%&cModuulin koodia ei saatu tallennettua. Korjaa mahdolliset koodiongelmat'
+  fail: '%prefix%&cModuulin %moduleName%&c (tekijä:%moduleOwner%) lataaminen epäonnistui'
   default-name: '&7%player%''s Module'
   default-description: '&7My cool module!'
   info: |-
@@ -167,12 +165,12 @@ modules:
      &f Luotu: &6%moduleCreationTime%
      &f Lataukset: &6%moduleDownloads%
      &f Maine: &6%moduleReputation%
-     &f Pääsy: &6%moduleSharing%
+     &f Käyttö: &6%moduleSharing%
   rating:
-    not-installed: '%prefix%&cYou can''t rate the module before you install it in world.'
-    liked: '%prefix%You &6liked&f this module '
-    disliked: '%prefix%You &6disliked&f this module.. '
-    already-rated: '%prefix%&cYou already rated this module before..'
+    not-installed: '%prefix%&cAsenna moduuli maailmaan, jotta voit arvioida sen'
+    liked: '%prefix%Tykkäsit moduulia '
+    disliked: '%prefix%Et tykännyt moduulia '
+    already-rated: '%prefix%&cOlet jo arvioinut moduulin'
   sharing:
     public: '&aJulkinen'
     private: '&cYksityinen'
@@ -194,39 +192,37 @@ environment:
   variables:
     cleared: '%prefix%All variables have been successfully removed.'
     size: |-
-      %prefix%There are currently &6%count% variables&f in the world.
+      %prefix%Maailmassa on &6%count%&f muuttujaa.
        &fThis includes all list contents and keys with values from dictionaries.
     get:
-      empty: '%prefix%&cThis variable does not exist '
+      empty: '%prefix%&cMuuttujaa ei ole olemassa '
       message: |-
-        %prefix%Variable data &6%variable%&f:
-         &fVariable type: %type%
-         &fValue type: %valuetype%
-         &fValue: &6%value%
+        %prefix%Muuttuja &6%variable%&f:
+         &fTyyppi: %type%
+         &fAvaruus: %valuetype%
+         &fArvo: &6%value%
     list:
-      empty: '%prefix%There are currently no variables set in the world.'
+      empty: '%prefix%Maailmassa ei ole muuttujia.'
       header: |2-
 
-        %prefix%List of variables in the world (&6%current% &fout of &6%amount%&f total):
-      variable: '&f  &6 %name% &fType: &6%type%&f Value: &6%value%'
+        %prefix%Maailman muuttujat (&f%current% / %amount%):
+      variable: '&f  &6 %name% &ftyyppi: &6%type%&f Arvo: &6%value%'
       next-page: '&a                   [Seuraava →]'
       previous-page: '&c[← Edellinen]'
-      navigation: "\n&f Navigation: "
+      navigation: "\n&f Navigation: MISSÄ TÄMÄ TEKSTI ESIINTYY"
     set:
       help: |-
         %prefix%To change variable value type in chat:
          &6/env var set [Variable Name] [global/saved] [text,number,item,location] (Value)
         &f Item, that will be used in setting item is from main hand.
-      limit: '%prefix%&cReached limit of variables (%limit%)!'
-      message: '%prefix%Assigned variable %variable%&f: &7%value%'
+      limit: '%prefix%&cMuuttuja raja (%limit%) saavutettu'
+      message: '%prefix%Muuttuja määritetty %variable%&f: &7%value%'
   save-location:
-    enabled: '%prefix%Now when you join coding world you &6will be teleported&f to
-      the last location.'
-    disabled: '%prefix%You &6disabled teleportation &fto the last location on coding
-      world join.'
+    enabled: '%prefix%Koodimaailma muistaa sijaintisi'
+    disabled: '%prefix%Spawnaat aina koodimaailman alkuun'
   night-vision:
-    enabled: '%prefix%Now when you join coding world you &6will get night vision&f!'
-    disabled: '%prefix%You &6disabled night vision&f on coding world join.'
+    enabled: '%prefix%Pimeänäkö päällä'
+    disabled: '%prefix%Pimeänäkö pois päältä'
   drops:
     enabled: '%prefix%Now coding items will be &6dropped &fwhen you destroy a chest.'
     disabled: '%prefix%You &6disabled coding items drop&f on chest destroy.'
@@ -249,24 +245,23 @@ environment:
     potion: '&bTaikajuoma'
     list: '&eLista'
     vector: '&bVektori'
-    map: '&eKartta'
+    map: '&eSanakirja'
   execute:
     help: |-
       %prefix%Call executors by yourself, and they will execute code.
        &6/env execute function [Name] &f- Call Function.
        &6/env execute method [Name] &f- Call Method.
        &6/env execute player_join [Player] &f- Call Player Join event.
-    offline: '%prefix%&cPlayer is not in world.'
-    function: '%prefix%Calling function &9%function%&f...'
-    function-not-found: '%prefix%&cThis function doesn''t exist '
-    method: '%prefix%Calling method &a%method%&f...'
-    method-not-found: '%prefix%&cThis method doesn''t exist '
+    offline: '%prefix%&cPelaaja ei ole maailmassa'
+    function: '%prefix%Suoritetaan funktio &9%function%&f...'
+    function-not-found: '%prefix%&cFunktiota ei ole olemassa '
+    method: '%prefix%Suoritetaan metodi &a%method%&f...'
+    method-not-found: '%prefix%&cMetodia ei ole olemassa '
   platform:
-    claimed: '%prefix%Created a &6new platform &ffor coding, now you can place coding
-      blocks here too!'
-    limit: '%prefix%&cYou reached a limit of %amount% platforms, you can''t create
-      new coding platforms anymore '
+    claimed: '%prefix%Koodialusta lisätty'
+    limit: '%prefix%&cKoodialustojen raja (%amount%) saavutettu '
   hints:
+    # Dev mode locales. low priority
     cycle: '&aNumber &f- Time in ticks, &6Text&f - Name'
     function: '&fClick with &6Text&f in hand to rename'
     method: '&fClick with &6Text&f in hand to rename'
@@ -294,6 +289,7 @@ environment:
     holding-event: '&fPlace the block at the &bbeginning of the line'
     holding-action: '&fPlace the block &7after the event'
   prompter:
+    # AI coding. translate never
     help: |-
       %prefix%You can try to generate a simple code by your words:
        &6/env make [Your wishes]
@@ -327,10 +323,9 @@ environment:
     few-args: '%prefix%&cYou need to describe your ideas in more detail, this is too
       few words.. '
   duplication:
-    success: '%prefix%&fCode lines successfully &6copied &fto the new location '
-    fail: '%prefix%&cThere was a problem copying the code lines.. '
-    few-space: '%prefix%&cIt seems all platforms are filled with your code! To paste
-      code lines, you need %required% free rows for coding blocks.'
+    success: '%prefix%&fKoodirivit kopioitiin eri riveille '
+    fail: '%prefix%&cKoodirivien kopiointi epäonnistui '
+    few-space: '%prefix%&cKoodiriveille ei ollut tarpeeksi tilaa. Vapauta %required% riviä jotta koodi mahtuu.'
 help:
   placeholders: '%prefix%List of placeholders: &6%player% %player_uuid% %entity% %entity_uuid%
     %target% %target_uuid% %players_amount% %entities_amount% %online%'
@@ -15137,19 +15132,14 @@ menus:
         - ''
         - '&7Oletko varma? Paina &aHyväksy'
       delete-module:
-        name: '&cYou''re about to &4delete module&c.'
+        name: '&cOlet poistamassa moduulia.'
         lore:
         - ''
-        - '&7No one will be able to download '
-        - '&7your module, it will &cdisappear'
-        - '&7and will be &4forgotten forever&7.'
+        - '&7Kukaan ei enään pysty lataamaan sitä '
+        - '&7ja sitä ei voi palauttaa'
         - ''
-        - '&7You''re about to remove companion,'
-        - '&7that was created by you..'
-        - '&7Are you sure? Yes? Click &aConfirm&7.'
-        - ''
-    delete-world: '&4Delete %name%?'
-    delete-module: '&4Delete %name%?'
+    delete-world: '&4Poista %name%?'
+    delete-module: '&4Poista %name%?'
     request-money: '&8Buy &0%name%&8?'
   creative:
     title: '&8Open&0Creative&3+ &8%version%'
@@ -17505,7 +17495,7 @@ menus:
           - ''
           - '&7Some values may be &3empty&7.'
   modules:
-    title: '&4⏼ Modules'
+    title: '&4⏼ Moduulit'
     items:
       previous-page:
         name: ' '
@@ -17518,105 +17508,81 @@ menus:
       next-page:
         name: ' '
         lore:
-        - '&e Next... #%page% &6→'
+        - '&e Seuraava... #%page% &6→'
         - ''
         - '&7  Click to see'
         - '&7  next modules.'
         - ''
       no-modules:
-        name: '&c&oNo Modules!'
+        name: '&c&oEi moduuleja!'
         lore:
-        - '&7Seems like no one created a module..'
-        - '&7What are you waiting for? Create the&d first&7 one!'
+        - '&7Mun moduulit on kadoksissa D:'
       own-modules:
-        name: ' '
-        lore:
-        - '&a 🧪 My modules '
-        - ''
-        - '&7  See the list of your modules,'
-        - '&7  showing their rating and count'
-        - '&7  of downloads.'
-        - ' '
-        - '&e  Click to view your modules.'
-        - ' '
+        name: '&a 🧪 Omat moduulit '
+        lore: ''
       module:
         name: '&f%moduleName%'
         lore:
-        - '&8Created by %moduleOwner%'
+        - '&8Luonut %moduleOwner%'
         - ' '
         - '&7 %moduleDescription%'
         - ' '
-        - '&e  &7Rating: &a%moduleReputation%'
-        - '&6  &7Downloads: &a%moduleDownloads%'
+        - '&e  &7Maine: &a%moduleReputation%'
+        - '&6  &7Lataukset: &a%moduleDownloads%'
         - ' '
-        - '&2 ⏵ &nClick to install&2...'
+        - '&2 ⏵ &nPaina ladataksesi'
         - '&8  ID: %moduleID%'
         - ' '
   module-settings:
-    title: '&4 Module Settings'
+    title: '&4 Moduuli asetukset'
     turned-on: '&a ● &n'
     turned-off: '&7 ○ '
     items:
       change-name:
-        name: ' '
+        name: '&c  Moduulin nimi'
         lore:
-        - '&c  Module Name'
-        - '&7 The main purpose of module.'
         - ''
-        - '&7 It should be easy to remember and'
-        - '&7 understand it''s purpose. Displayed'
-        - '&7 in the modules list.'
+        - '&7 Lyhyt ja tunnistettava nimi on parhain'
         - ' '
-        - '&e Click to rename the module.'
+        - '&e Paina muuttaaksesi nimeä.'
         - ''
       change-description:
-        name: ' '
+        name: '&6 ✂ Moduulin kuvaus'
         lore:
-        - '&6 ✂ Module Description'
-        - '&7 Features of module.'
         - ''
-        - '&7 It describes main and unique features '
-        - '&7 that will attract players to install'
-        - '&7 your module..'
+        - '&7 Kuvaa moduulin ominaisuuksia '
         - ' '
-        - '&e Click to change the description.'
+        - '&e Paina muuttaaksesi kuvausta.'
         - ''
       change-sharing:
-        name: ' '
+        name: '&a ⚓ Moduulin käyttö '
         choices:
-          public: Let players download the module
-          private: Prohibit downloading the module
+          public: Pelaajat saavat käyttää
+          private: Pelaajat eivät saa käyttää
         lore:
-        - '&a ⚓ Module Access '
-        - '&7 Can players download module or not'
         - ' '
-        - '&7 If this is your module for'
-        - '&7 private usage, then prohibit'
-        - '&7 others from downloading it.'
-        - ' '
-        - '&f Options:'
+        - '&f Määrittää saavatko muut pelaajat'
+        - '&f käyttää moduulia'
         - '%1%'
         - '%2%'
         - ' '
-        - '&e Click to open'
-        - '&e or close the module.'
+        - '&e Paina muuttaaksesi.'
         - ' '
       install:
-        name: ' '
+        name: '&a  Asenna moduuli'
         lore:
-        - '&a  Install the module'
+        - 
         - '&7 Pastes module''s code'
         - ' '
         - '&7  Adds module''s coding lines'
         - '&7  in developers world. To apply'
         - '&7  it &nyou have to type&7 &e/play&7.'
         - ' '
-        - '&2 ⏵ &nClick to install&2...'
+        - '&2 ⏵ &nCPaina asentaaksesi&2...'
         - ''
       delete:
-        name: ' '
+        name: '&4 ☠ Poista moduuli'
         lore:
-        - '&4 ☠ Delete this module'
         - '&c This action is irreversible!'
         - ' '
         - '&7  This will forgot the module'
@@ -17628,14 +17594,14 @@ menus:
       module:
         name: '&f%moduleName%'
         lore:
-        - '&8Created by %moduleOwner%'
+        - '&8Luonut %moduleOwner%'
         - ' '
         - '&7 %moduleDescription%'
         - ' '
         - '&e  &7Rating: &a%moduleReputation%'
         - '&6  &7Downloads: &a%moduleDownloads%'
         - ' '
-        - '&e ⏵ &nDrag item here to change icon&e...'
+        - '&e ⏵ &nAseta esine muuttaaksesi kuvaketta&e...'
         - '&8  ID: %moduleID%'
         - ' '
   player-profile:
@@ -17791,7 +17757,7 @@ menus:
         - '%4%'
         - ''
   own-modules:
-    title: '&2☄ My Modules'
+    title: '&2☄ Omat moduulit'
     items:
       previous-page:
         name: ' '
@@ -17810,10 +17776,9 @@ menus:
         - '&7  next modules.'
         - ''
       no-modules:
-        name: '&c&oNo Modules!'
+        name: '&c&oEi moduuleja!'
         lore:
-        - '&7It looks like you haven''t &ccreated&7 your own module yet!'
-        - '&7What are you waiting for? Create your&d first&7 module!'
+        - '&7Et ole vielä luonut moduuleja!'
       tutorial:
         name: ' '
         lore:
@@ -17827,27 +17792,25 @@ menus:
         - '&7  click the &aSave module&7 button.'
         - ''
       all-modules:
-        name: ' '
+        name: '&c  Kaikki moduulit'
         lore:
-        - '&c  All Modules'
         - ''
-        - '&7  Click to view'
-        - '&7  all modules from'
-        - '&7  server players.'
+        - '&7  Paina nähdäksesi kaikki'
+        - '&7  pelaajien tekemät moduulit'
         - ''
       module:
         name: '&f%moduleName%'
         lore:
-        - '&8Created by %moduleOwner%'
+        - '&8Luonut %moduleOwner%'
         - ' '
         - '&7 %moduleDescription%'
         - ' '
-        - '&e  &7Rating: &a%moduleReputation%'
-        - '&6  &7Downloads: &a%moduleDownloads%'
+        - '&e  &7Maine: &a%moduleReputation%'
+        - '&6  &7Lataukset: &a%moduleDownloads%'
         - ' '
-        - '&5 &7Created: &d%moduleCreationTime%'
+        - '&5 &7Luotu: &d%moduleCreationTime%'
         - ' '
-        - '&e ⏵ &nClick to open settings&e...'
+        - '&e ⏵ &nPaina avataksesi asetukset&e...'
         - '&8  ID: %moduleID%'
         - ' '
   own-worlds:
