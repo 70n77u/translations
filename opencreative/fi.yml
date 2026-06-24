@@ -178,6 +178,7 @@ modules:
     amount: '%prefix%List of all modules (%amount%):'
     module: '&6%moduleID% &7- %moduleOwner%&7 - &7%moduleName%&f'
 profiles:
+  #experimental feature. dont translate right now
   default-description: '&7I create awesome worlds!'
   genders:
     male: '&3Male ♂'
@@ -193,7 +194,7 @@ environment:
     cleared: '%prefix%All variables have been successfully removed.'
     size: |-
       %prefix%Maailmassa on &6%count%&f muuttujaa.
-       &fThis includes all list contents and keys with values from dictionaries.
+       &fTähän kuuluu listojen ja sanakirjojen arvot.
     get:
       empty: '%prefix%&cMuuttujaa ei ole olemassa '
       message: |-
@@ -206,7 +207,7 @@ environment:
       header: |2-
 
         %prefix%Maailman muuttujat (&f%current% / %amount%):
-      variable: '&f  &6 %name% &ftyyppi: &6%type%&f Arvo: &6%value%'
+      variable: '&f  &6 %name% &fAvaruus: &6%type%&f Arvo: &6%value%'
       next-page: '&a                   [Seuraava →]'
       previous-page: '&c[← Edellinen]'
       navigation: "\n&f Navigation: MISSÄ TÄMÄ TEKSTI ESIINTYY"
@@ -642,11 +643,12 @@ coding-warning:
 lobby:
   title: ''
   subtitle: ''
-  message: "\n <white>\n<white>\n <white>\n <white>%branding% <dark_gray>5.8\n<green>\
-    \ Well, it's possible!\n <white>\n<gold>  <white>Explore all <gold>worlds<white>\
-    \ using the compass!\n<light_purple> ❤ <white>Create your own world and <light_purple>invite\
+  message: "\n <b><gradient:#a78bfa:#ddd6fe>FabiCraft</gradient></b>\n
+    <b><u>Creative</u></b><color:#94a3b8>+</color> <color:#64748b>[BETA]</color>\n
+    <white>\n<gold>  <white>Seikkaile <gold>maailmoja<white>!\n
+    <light_purple> ❤ <white>Create your own world and <light_purple>invite\
     \ <white>your friends!\n <yellow><white> Have fun and <yellow>create <white>whatever\
-    \ you want!\n \n<white>\n <white>"
+    \ you want!\n<white>"
 creating-world:
   not-enough-played: '%prefix%&fYou need to play &6%time%&f in other worlds before
     creating a new world.'
@@ -788,7 +790,7 @@ world:
   left: '%prefix%%player% has left the world.'
   connecting:
     title: '&aConnecting... '
-    subtitle: '&fPlease wait...'
+    subtitle: '&fOdota hetki...'
     owner-help: '%prefix%Welcome back to &6your world&f! Use the compass to manage
       your world, or use the command &6/world&f.'
     busy: '%prefix%&cYou''re already connecting to the world, please wait...'
@@ -14806,7 +14808,7 @@ menus:
         - '&e  Click to change'
         - '&e  current player type.'
         - ''
-        - '&f  Options:'
+        - '&f  Vaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
@@ -14820,8 +14822,8 @@ menus:
         lore:
         - ' &6← &eEdellinen...'
         - ''
-        - '&7  Click to open'
-        - '&7  world settings.'
+        - '&7  Paina palataksesi'
+        - '&7  Maailman asetuksiin.'
         - ''
       previous-page:
         name: ' '
@@ -14845,40 +14847,39 @@ menus:
         - '&7You are alone in this world...'
         - '&7Maybe you should advertise it?'
   entities-browser:
-    title: '&4 Entities control'
-    removed: '%prefix%&fEntity &6%name%&f (%x%,%y%,%z%) was removed by %player%'
-    removed-all: '%prefix%&6%count%&f entities were removed by %player%'
+    title: '&4 Olentojen hallinta'
+    removed: '%prefix%&f%player% poisti olennon &6%name%&f (%x%,%y%,%z%)'
+    removed-all: '%prefix%&f%player% poisti &6%count%&f olentoa'
     items:
       entity:
         name: ' '
         lore:
-        - '&7 Name: &e%name%'
+        - '&7 Nimi: &e%name%'
         - ''
-        - '&7 Type: &f%type%'
-        - '&7 Location: &f%x% %y% %z%'
+        - '&7 Tyyppi: &f%type%'
+        - '&7 Sijainti: &f%x% %y% %z%'
         - ''
-        - '&e Left click &7- Teleport to him'
-        - '&e Right click &7- Teleport entity here'
+        - '&e vasenklikkaa &7- Teleporttaa olennon luokse'
+        - '&e oikeaklikkaa &7- Teleporttaa olento luoksesi'
         - ''
-        - '&c LMB+SHIFT &7- Remove entity'
+        - '&c vasenklikkaa + SHIFT &7- Poista olento'
         - ''
       type:
-        name: ' '
+        name: '&3Olento suodattimet'
         choices:
-          all: All entities
-          friendly: Only friendly
-          monsters: Only monsters
-          items: Items
-          transport: Transport
-          decoration: Decoration
-          not-living: Not alive
+          all: Kaikki olennot
+          friendly: Vain passiiviset 
+          monsters: Vain hirviöt
+          items: Itemit
+          transport: Liikennevälineet
+          decoration: Koristeet
+          not-living: Elottomat
         lore:
-        - '&3  Entity type'
         - ''
-        - '&e  Click to change'
-        - '&e  current entity type.'
+        - '&e  Paina valitaksesi'
+        - '&e  näkyvät olennot.'
         - ''
-        - '&f  Choices:'
+        - '&f  vaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
@@ -14895,14 +14896,13 @@ menus:
         - '&7  world''s settings.'
         - ''
       remove-all:
-        name: ' '
+        name: ' &c⌀ Poista kaikki olennot'
         lore:
-        - ' &c⌀ Remove entities with type'
         - ''
-        - '&7  Deletes every entity'
-        - '&7  that listed here.'
+        - '&7  Poistaa kaikki olennot,'
+        - '&7  jotka näkyvät listalla.'
         - ''
-        - '&e  Click to remove.'
+        - '&e  Paina poistaaksesi.'
         - ''
       previous-page:
         name: ' '
@@ -14921,10 +14921,9 @@ menus:
         - '&7  next entities.'
         - ''
       no-entities:
-        name: '&c&oNo entities!'
+        name: '&c&oEi olentoja!'
         lore:
-        - '&7In this world air is clean..'
-        - '&7Maybe you can spawn a mob?'
+        - '&7Hieman yksinäistä...'
   world-moderation:
     title: '&1World Control'
     items:
@@ -15583,11 +15582,11 @@ menus:
           - '&7set the function name by'
           - '&7right-clicking on the sign.'
     environment:
-      title: '&5 Code Environment'
+      title: '&5 Koodiympäristö'
       turned-on: '&d   ● &n'
       turned-off: '&7   ○ '
       colors:
-        title: Choose a new block...
+        title: valitse uusi palikka...
       items:
         back:
           name: ' '
@@ -15598,160 +15597,119 @@ menus:
           - '&7  world settings.'
           - ''
         create-platform-limit:
-          name: ' '
+          name: '&cKoodialusta raja saavutettu!'
           lore:
-          - '&c No more platforms available!'
           - ''
-          - '&7 You have created %amount% out of'
-          - '&7 the allowed %limit% platforms.'
+          - '&7 Koodialustoja: %amount%/%limit%'
           - ''
         create-platform:
-          name: ' '
+          name: '&b☀ &lLuo koodialusta'
           lore:
-          - '&b ☀ &lCreate a platform for coding'
           - ''
-          - '&7 This will create a new platform in the'
-          - '&7 developers'' world where you can'
-          - '&7 place coding blocks.'
+          - '&7 Luo uuden tason jonka päälle voi'
+          - '&7 rakentaa koodipalikoilla.'
           - ''
-          - '&7 Platforms created: %amount%/%limit%'
+          - '&7 Koodialustoja: %amount%/%limit%'
           - ''
-          - '&e Click to create.'
+          - '&e Paina luodaksesi.'
           - ''
         debug:
-          name: ' '
+          name: '&e⛏ Debugaustila'
           choices:
-            disabled: Disabled
-            all: Show ALL code data
-            variable: Show variable changes
-            conditions-results: Show condition results
-            executors: Show events and executors
-            actions: Show actions and conditions
+            disabled: Ei päällä
+            all: Näytä KAIKKI koodi info
+            variable: Näytä muuttuja muutokset VITTU KUN NÄÄ EI NÄY
+            conditions-results: Näytä ehtolauseiden tulokset
+            executors: Näytä tapahtumat ja käskyt Show events and executors
+            actions: Näytä ehtolauseet ja actions
           lore:
-          - '&e ⛏ Debug Mode'
-          - '&7 Displays code data in the chat.'
-          - ''
-          - '&7 Sometimes you need to know if'
-          - '&7 a condition is met, a variable changes,'
-          - '&7 or the code limit is reached.'
+          - '&7 Näyttää koodi infoa'
+          - '&7 keskustelukentässä.'
           - ' '
-          - '&f  Options:'
+          - '&f  Vaihtoehdot:'
           - '%1%'
           - '%2%'
           - ' '
-          - '&e Click to toggle mode.'
+          - '&e Paina muuttaaksesi.'
           - ''
         time:
-          name: ' '
+          name: '&e ⛈ Koodimaailman päivänaika'
           choices:
-            morning: Morning
-            day: Day
-            evening: Evening
-            night: Night
+            morning: Aamu
+            day: Päivä
+            evening: Ilta
+            night: Yö
           lore:
-          - '&e ⛈ Coding World Time'
-          - '&7 Programmers work at night.'
-          - ''
-          - '&7 Maybe the developer''s world'
-          - '&7 will look better for you if you'
-          - '&7 change the time.'
+          - '&7 Ohjelmoijat ovat yön olentoja...'
           - ' '
-          - '&f  Options:'
+          - '&f  Vaihtoehdot:'
           - '%1%'
           - '%2%'
           - '%3%'
           - '%4%'
           - ' '
-          - '&e Click to change.'
+          - '&e Paina muuttaaksesi.'
           - ''
         clear-variables:
-          name: ' '
+          name: '&cNollaa muuttujat'
           lore:
-          - '&c Clear Variables'
-          - '&7 This will &4&ndelete all variables&7 in the world!'
-          - ''
-          - '&7 If you want to delete absolutely'
-          - '&7 all variables, including'
-          - '&7 saved ones, this is for you.'
-          - ''
-          - '&c Local&7 variables are automatically'
-          - '&7 deleted at the end of a code line,'
-          - '&7 while &eglobal&7 variables are deleted after the world unloads.'
+          - '&7 Poistaa kaikki maailman muuttujat!'
           - ' '
-          - '&4 Click to delete variables.'
+          - '&4 Paina poistaaksesi muuttujat.'
           - ''
         variables-list:
-          name: ' '
+          name: '&6Näytä muuttujat'
           lore:
-          - '&6 Show Variable List'
-          - '&7 Displays variables and their values in the chat.'
-          - ''
-          - '&7 Sometimes you need to check the values'
-          - '&7 of certain variables and compare them'
-          - '&7 with the expected result.'
+          - '&7 Näyttää listan muuttujia.'
           - ' '
-          - '&e Click to show the list.'
+          - '&e Paina näyttääksesi.'
           - ''
         variables-size:
-          name: ' '
+          name: '&eNäytä muuttujien määrä'
           lore:
-          - '&e Show Variable Count'
-          - '&7 Displays the number of variables in the chat.'
+          - '&7 Näyttää muuttujien lukumäärän.'
           - ''
-          - '&7 This will show the total number'
-          - '&7 of variables, including the'
-          - '&7 contents of lists and dictionaries.'
-          - ' '
-          - '&e Click to show the count.'
+          - '&e Paina näyttääksesi.'
           - ''
         containers:
-          name: ' '
+          name: '&6Koodiympäristön säiliöt'
           choices:
-            chest: Chests
-            barrel: Barrels
+            chest: Arkut
+            barrel: Tynnyrit
           lore:
-          - '&6 Change Containers'
-          - '&7 Replaces chests and barrels.'
-          - ''
-          - '&7 Barrels can reduce load'
-          - '&7 on the computer and make the'
-          - '&7 code more aesthetically pleasing.'
+          - '&7 Muuttaa säiliöiden ulkoasua.'
           - ' '
-          - '&f  Options:'
+          - '&f  Vaihtoehdot:'
           - '%1%'
           - '%2%'
           - ' '
-          - '&e Click to change.'
+          - '&e Paina muuttaaksesi.'
           - ''
         event-material:
-          name: ' '
+          name: '&fAseta tapahtuma väri'
           lore:
-          - '&3 〒 Choose Color for Events'
-          - '&7 Change event cells.'
+          - '&7 Muuttaa tapahtumaruudun värin.'
           - ''
-          - '&e Click to choose.'
+          - '&e Paina valitaksesi.'
           - ''
         action-material:
-          name: ' '
+          name: '&fAseta toiminto väri'
           lore:
-          - '&7 Choose Color for Actions'
-          - '&7 Change action cells.'
+          - '&7 Muuttaa toimintoruudun värin.'
           - ''
-          - '&e Click to choose.'
+          - '&e Paina valitaksesi.'
           - ''
         floor-material:
-          name: ' '
+          name: '&fAseta lattian väri'
           lore:
-          - '&f Choose Coding Floor Color'
-          - '&7 Change the floor in the developer world.'
+          - '&7 Muuttaa koodiympäristön lattian värin.'
           - ''
-          - '&e Click to choose.'
+          - '&e Paina valitaksesi.'
           - ''
         info:
-          name: ' '
+          name: '&5Kooditiedot'
           lore:
-          - '&5 Coding Information'
-          - '&7 Technical information.'
+          - '&7 Teknistä tietoa...'
           - ''
           - '&7 Executors: &f%executors%'
           - ''
@@ -17601,6 +17559,7 @@ menus:
         - '&8  ID: %moduleID%'
         - ' '
   player-profile:
+    #experimental feature. dont translate right now
     title: '&8☻ Profile %player%'
     items:
       player:
@@ -17656,6 +17615,7 @@ menus:
         - '&c ✉ &fYouTube: &c%youtube%'
         - ''
   profile-settings:
+    #experimental feature. dont translate right now
     title: '&8⌘ Your profile settings'
     turned-on: '&a  ⏺ &n'
     turned-off: '&7  ○ '
@@ -18109,7 +18069,7 @@ menus:
         - '&7 create fun by themselves,'
         - '&7 like building something.'
         - ' '
-        - '&e Click to choose.'
+        - '&e Paina valitaksesi.'
         - ''
       adventure:
         name: ' '
@@ -18121,7 +18081,7 @@ menus:
         - '&7 that needs to be finished'
         - '&7 while playing the game.'
         - ' '
-        - '&e Click to choose.'
+        - '&e Paina valitaksesi.'
         - ''
       strategy:
         name: ' '
@@ -18133,7 +18093,7 @@ menus:
         - '&7 happening more often, and you'
         - '&7 have to come up with strategy.'
         - ' '
-        - '&e Click to choose.'
+        - '&e Paina valitaksesi.'
         - ''
       arcade:
         name: ' '
@@ -18145,7 +18105,7 @@ menus:
         - '&7 do easy tasks and have fun'
         - '&7 from these games.'
         - ' '
-        - '&e Click to choose.'
+        - '&e Paina valitaksesi.'
         - ''
       roleplay:
         name: ' '
@@ -18157,7 +18117,7 @@ menus:
         - '&7 create a story by themselves, '
         - '&7 because they play their roles.'
         - ' '
-        - '&e Click to choose.'
+        - '&e Paina valitaksesi.'
         - ''
       story:
         name: ' '
@@ -18186,7 +18146,7 @@ menus:
         - '&7 features, that should be'
         - '&7 tested with players.'
         - ' '
-        - '&e Click to choose.'
+        - '&e Paina valitaksesi.'
         - ''
       simulator:
         name: ' '
@@ -18205,8 +18165,8 @@ menus:
         lore:
         - ' &6← &eEdellinen'
         - ''
-        - '&7  Click to open'
-        - '&7  world settings.'
+        - '&7  Paina palataksesi'
+        - '&7  Maailman asetuksiin.'
         - ''
   world-settings-flags:
     turned-on: '&a ● '
@@ -18218,8 +18178,8 @@ menus:
         lore:
         - ' &6← &eEdellinen...'
         - ''
-        - '&7  Click to open'
-        - '&7  world settings.'
+        - '&7  Paina palataksesi'
+        - '&7  Maailman asetuksiin.'
         - ''
       world-borders:
         choices:
