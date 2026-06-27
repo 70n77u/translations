@@ -834,7 +834,7 @@ world:
       world''s mode to &6Build&f.'
   dev-mode:
     connecting:
-      title: '&eConnecting... ⌘'
+      title: '&eConnecting... '
       subtitle: '&fEntering developer mode...'
       error: "%prefix%&cFailed to connect to development world %id% :(\n \n&c Was\
         \ loaded before: %wasloaded%\n&c Currently loaded: %loaded%\n&c Phase: %phase%\n\
@@ -1237,8 +1237,9 @@ items:
       location:
         name: '&fLocation'
         lore:
-        - '&7Place an item here with'
-        - '&7paper containing a location.'
+        - '&7Place an item here'
+        - '&7with paper containing a location.'
+        - '&eDefault player location'
       var-parameter:
         lore:
         - '&7This variable should store'
@@ -2014,7 +2015,7 @@ items:
           - '&7member, stands on solid block.'
           - ' '
           - '&eValitse kategoria painamalla'
-    events:
+        events:
       cancellable: '&c⌀ Can be cancelled'
       function:
         name: '&9Function'
@@ -12049,31 +12050,6 @@ items:
             choices:
               'true': Yes, keep it waterlogged
               'false': No, remove the water
-      player-set-skin:
-        name: '&6Set Skin'
-        lore:
-        - '&7Changes player skin using'
-        - '&7a player head.'
-        - ''
-        - '&fIn the chest:'
-        - '&c Item &7- Player head'
-        - ''
-        - '&eClick to set action.'
-      player-set-cape:
-        name: '&6Set Cape'
-        lore:
-        - '&7Changes player cape using'
-        - '&7an official cape texture hash.'
-        - '&7Ie. the last part of a texture url'
-        - '&7''textures.minecraft.net/texture/&n&e[HASH]&r&f'''
-        - ''
-        - '&fIn the chest:'
-        - '&6 Text &7- Texture hash'
-        - ''
-        - '&7 The hash must correspond to a'
-        - '&7 texture that is on Mojangs servers.'
-        - ''
-        - '&eClick to set action.'
       entity-set-display-item:
         name: '&6Set Display Item'
         lore:
@@ -12094,6 +12070,31 @@ items:
         - '&6 Text &7- Block state'
         - ' '
         - '&eClick to set the action.'
+      player-set-skin:
+        name: '&6Set Skin'
+        lore:
+        - '&7Changes player skin using'
+        - '&7a player head or resets'
+        - '&fskin if no head is provided.'
+        - ''
+        - '&fIn the chest:'
+        - '&c Item &7- Player head'
+        - ''
+        - '&eClick to set action.'
+      player-set-cape:
+        name: '&6Set Cape'
+        lore:
+        - '&7Changes player cape using'
+        - '&7a cape texture hash'
+        - '&7i.e. the last part of a texture url'
+        - '&7''textures.minecraft.net/texture/&n&e[HASH]&r&f'''
+        - ''
+        - '&fIn the chest:'
+        - '&6 Text &7- Texture hash'
+        - ''
+        - '&7 Cape is removed when no text is given.'
+        - ''
+        - '&eClick to set action.'
     conditions:
       if-world-entity-exists:
         name: '&dEntity exists'
@@ -14684,166 +14685,105 @@ menus:
     title: '&1☻ Control: %name%'
     items:
       player:
-        name: ' '
+        name: '&7 Pelaaja &e%name%'
         lore:
-        - '&7 Player &e%name%'
         - ''
         - '&7 %status%'
         - ''
-        online: '&a☺ &nPlaying in this world&r&a!'
-        offline: '&c☹ &nCurrently not in the world&r&c.'
-        banned: '&4✘ &nBanned from the world&r&4.'
+        online: '&a☺ &nPaikalla&r&a!'
+        offline: '&c☹ &nEi paikalla&r&c.'
+        banned: '&4✘ &nEstetty&r&4.'
       dev:
-        name: ' '
+        name: '&d⌘ Ohjelmointi'
         choices:
-          none: Cannot code
-          guest: Can visit, but not modify
-          not-trusted: Can code if the owner is in the world
-          trusted: Can always code
+          none: Ei voi ohjelmoida
+          guest: Pääsee ohjelmointi maailmaan
+          not-trusted: Voi ohjelmoida
+          trusted: Voi ohjelmoida kun et ole paikalla
         lore:
-        - '&d ⌘ World Development'
-        - '&7 Access to developer mode /dev'
+        - '&7 Oikeudet ohjelmointitilassa.'
         - ' '
-        - '&7 Did you hire a cool coder'
-        - '&7 who can improve your world by'
-        - '&7 adding new features? Allow coding!'
-        - ''
-        - '&f Options:'
+        - '&f Vaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
         - '%4%'
         - ''
-        - '&e Click to change.'
+        - '&e Paina muuttaaksesi.'
         - ''
       build:
-        name: ' '
+        name: '&c⛏ Rakentaminen'
         choices:
-          none: Cannot build
-          not-trusted: Can build if the owner is in the world
-          trusted: Can always build
+          none: Ei voi rakentaa
+          not-trusted: Voi rakentaa kun olet paikalla
+          trusted: Voi aina rakentaa
         lore:
-        - '&c ⛏ Building'
-        - '&7 Access to build mode /build'
-        - ' '
-        - '&7 A player wants to help you build'
-        - '&7 your map? Then you can allow him'
-        - '&7 to build!'
+        - '&7 Oikeudet rakennustilassa.'
         - ''
-        - '&f Options:'
+        - '&f Vaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
         - ''
-        - '&e Click to change.'
+        - '&e Paina muuttaaksesi.'
         - ''
       flight:
-        name: ' '
+        name: '&f⚡ Lentäminen'
         choices:
-          'false': Flight disabled
-          'true': Can fly
+          'false': Ei voi lentää
+          'true': Voi lentää
         lore:
-        - '&f ⚡ Flight Mode'
-        - '&7 Ability to fly in the world'
-        - ' '
-        - '&7 Sometimes players need to fly'
-        - '&7 over your world, for example to'
-        - '&7 take nice screenshots.'
+        - '&7 Lentämisoikeudet.'
         - ''
-        - '&f Options:'
+        - '&f Vaihtoehdot:'
         - '%1%'
         - '%2%'
         - ''
-        - '&e Click to change.'
+        - '&e Paina muuttaaksesi.'
         - ''
       unban:
-        name: ' '
+        name: '&a☻ Peruuta esto'
         lore:
-        - '&a ☻ Unban player'
-        - '&7 Let him join the world'
-        - ' '
-        - '&7 If you forgave a player who was'
-        - '&7 recently banned, you can unban him.'
+        - '&7 Päästä pelaaja takaisin maailmaan.'
         - ''
-        - '&7 After unbanning, he'
-        - '&7 will be able to enter your world.'
-        - ''
-        - '&e Click to unban.'
+        - '&e Paina puruuttaksesi esto.'
         - ''
       kick:
-        name: ' '
+        name: '&3⌀ Potki'
         lore:
-        - '&3 ⌀ Kick player from the world'
-        - '&7 Stop him from disturbing gameplay'
-        - ' '
-        - '&7 Does this player disturb you?'
-        - '&7 Then it’s time to temporarily'
-        - '&7 disconnect him from the world.'
+        - '&7 Potkii pelaajan pois maailmasta.'
         - ''
-        - '&7 This will disconnect the player'
-        - '&7 but he can rejoin later.'
-        - ''
-        - '&e Click to kick.'
+        - '&e Paina potkiaksesi.'
         - ''
       ban:
-        name: ' '
+        name: '&c✘ Estä'
         lore:
-        - '&c ✘ Ban player'
-        - '&7 Deny player access to the world'
-        - ' '
-        - '&7 If a player breaks rules'
-        - '&7 or disturbs others,'
-        - '&7 you should ban him.'
+        - '&7 Estää pelaajan pääsyn maailmaan.'
         - ''
-        - '&7 Banned players will not'
-        - '&7 be able to join your world.'
-        - ''
-        - '&e Click to ban.'
+        - '&e Paina estääksesi.'
         - ''
       whitelist:
-        name: ' '
+        name: '&b🛡 Lisää pääsylistoille'
         lore:
-        - '&b 🛡 Add to whitelist'
-        - '&7 Allow entry to a closed world'
+        - '&7 Sallii pääsyn kun maailma on suljettu.'
         - ' '
-        - '&7 You can allow a player to join'
-        - '&7 even if the world is closed.'
-        - ''
-        - '&7 Useful when the world is private'
-        - '&7 but still under development.'
-        - ''
-        - '&e Click to add.'
+        - '&e Paina lisätäksesi.'
         - ''
       whitelist-remove:
-        name: ' '
+        name: '&c🛡 Poista pääsylistoilta'
         lore:
-        - '&c 🛡 Remove from whitelist'
-        - '&7 Deny entry to a closed world'
-        - ' '
-        - '&7 If you no longer trust a player,'
-        - '&7 it’s best to remove him'
-        - '&7 from the whitelist.'
+        - '&7 Sallii pääsyn kun maailma on suljettu.'
         - ''
-        - '&7 He won’t be able to join'
-        - '&7 if the world is closed.'
-        - ''
-        - '&e Click to remove.'
+        - '&e Paina poistaaksesi.'
         - ''
       transfer-ownership:
-        name: ' '
+        name: '&d🌊 Siirrä maailma pelaajalle'
         lore:
-        - '&d 🌊 Transfer world ownership'
-        - '&7 Give this world to the player'
-        - ' '
-        - '&7 If you want to completely give'
-        - '&7 the world to this player so he'
-        - '&7 becomes the owner, transfer rights.'
+        - '&7 Asettaa pelaajan maailman uudeksi omistajaksi.'
         - ''
-        - '&c This action is &nirreversible&c!'
-        - '&c Think twice before giving'
-        - '&c away your world.'
+        - '&c Et voi perua tätä!'
         - ''
-        - '&e Click to transfer ownership.'
+        - '&e Paina vaihtaaksesi omistajaa.'
         - ''
       back:
         name: ' '
@@ -14854,88 +14794,78 @@ menus:
         - '&7  the list of players.'
         - ''
   players-browser:
-    title: '&1☻ Player Management'
+    title: '&1☻ Pelaajien hallinta'
     items:
       player:
         online:
-          name: ' '
+          name: '&7 Player &f%name%'
           lore:
-          - '&7 Player &f%name%'
-          - '&a ☺ Playing in this world!'
+          - '&a ☺ Pelaaja on maailmassasi!'
           - ''
           - '&d ⌘&7 %dev%'
           - '&c ⛏&7 %build%'
           - '&b 🛡&7 %white-list%'
           - '&f ⚡&7 %flight%'
           - ''
-          - '&e Left click &7- Change settings'
+          - '&e Vasenklikkaa &7- Muuttaaaksesi asetuksia'
           - ''
-          - '&3 Right click &7- Teleport to player'
-          - '&3 SHIFT+Right click &7- Teleport to yourself'
+          - '&3 Oikeaklikkaa &7- Teleporttaa pelaajan luokse'
+          - '&3 OIkeaklikkaa + SHIFT &7- Teleporttaa luoksesi'
           - ''
         offline:
-          name: ' '
+          name: '&7 Pelaaja &f%name%'
           lore:
-          - '&7 Player &f%name%'
-          - '&c ☹ &nCurrently not in the world&r&c.'
+          - '&c ☹ &nEi paikalla&r&c.'
           - ''
           - '&d ⌘&7 %dev%'
           - '&c ⛏&7 %build%'
           - '&b 🛡&7 %white-list%'
           - ''
-          - '&e Left click &7- Change settings'
+          - '&e Vasenklikkaa &7- Muuttaaaksesi asetuksia'
           - ''
         banned:
-          name: ' '
+          name: '&7 Pelaaja &f%name%'
           lore:
-          - '&7 Player &c%name%'
-          - '&4 ✘ &nBanned from the world&r&4.'
+          - '&4 ✘ &nEstetty&r&4.'
           - ''
-          - '&e Left click &7- Unban player'
+          - '&e Vasenklikkaa &7- Peruuttaaksesi eston'
           - ''
         dev:
-          none: '&7Cannot &ccode'
-          guest: '&7Can visit &fcode'
-          not-trusted: '&7Can code &ewith owner'
-          trusted: '&7Can code &aalways'
+          none: '&7Ei voi ohjelmoida'
+          guest: '&7Pääsee ohjelmointimaailmaan'
+          not-trusted: '&7Voi ohjelmoida kun olet paikalla'
+          trusted: '&7Voi ohjelmoida'
         build:
-          none: '&7Cannot &cbuild'
-          not-trusted: '&7Can build &ewith owner'
-          trusted: '&7Can build &aalways'
+          none: '&7Ei voi rakentaa'
+          not-trusted: '&7Voi rakentaa kun olet paikalla'
+          trusted: '&7Voi rakentaa'
         white-list:
-          'false': '&7Not in whitelist'
-          'true': '&7Can join &fanytime'
+          'false': '&7Ei pääsylistoilla'
+          'true': '&7Pääsylistoilla'
         flight:
-          offline: '&cCannot fly'
-          'false': '&cCannot fly'
-          'true': '&aCan fly'
+          offline: '&cEi voi lentää'
+          'false': '&cEi voi lentää'
+          'true': '&aVoi lentää'
       kick-all:
-        name: ' '
+        name: ' &3⌀ Potki kaikki pelaajat'
         lore:
-        - ' &3⌀ Kick all players'
         - ''
-        - '&7  Disconnects all players from'
-        - '&7  this world and teleports them'
-        - '&7  to the lobby. Perfect for'
-        - '&7  closing the world!'
-        - ''
-        - '&e  Click to kick all.'
+        - '&e  Paina potkiaksesi.'
         - ''
       type:
-        name: ' '
+        name: '&3☻ Pelaaja suodattimet'
         choices:
-          all: All players
-          online: Only online
-          builders: Builders
-          developers: Developers
-          whitelisted: Whitelisted
-          banned: Banned
-          offline: Offline
+          all: Kaikki
+          online: Paikalla olevat
+          builders: Rakentajat
+          developers: Ohjelmoijat
+          whitelisted: Pääsyoikeutetut
+          banned: Estetyt
+          offline: Poissa olevat
         lore:
-        - '&3 ☻ Player type'
         - ''
-        - '&e  Click to change'
-        - '&e  current player type.'
+        - '&e  Paina vaihtaaksesi'
+        - '&e  näkyvät pelaajat.'
         - ''
         - '&f  Vaihtoehdot:'
         - '%1%'
@@ -14971,20 +14901,17 @@ menus:
         - '&7  next players.'
         - ''
       no-players:
-        name: '&c&oNo players!'
+        name: '&c&oEi pelaajia!'
         lore:
-        - '&7You are alone in this world...'
-        - '&7Maybe you should advertise it?'
+        - '&7Heiman yksinäistä...'
   entities-browser:
     title: '&4🍖 Olentojen hallinta'
     removed: '%prefix%&f%player% poisti olennon &6%name%&f (%x%,%y%,%z%)'
     removed-all: '%prefix%&f%player% poisti &6%count%&f olentoa'
     items:
       entity:
-        name: ' '
+        name: '&7 Nimi: &e%name%'
         lore:
-        - '&7 Nimi: &e%name%'
-        - ''
         - '&7 Tyyppi: &f%type%'
         - '&7 Sijainti: &f%x% %y% %z%'
         - ''
@@ -17803,7 +17730,7 @@ menus:
         - '&7 so players can contact'
         - '&7 you on Discord.'
         - ' '
-        - '&e Click to change.'
+        - '&e Paina muuttaaksesi.'
         - ''
       change-social-telegram:
         name: ' '
@@ -17815,7 +17742,7 @@ menus:
         - '&7 so players can contact'
         - '&7 you on Telegram.'
         - ' '
-        - '&e Click to change.'
+        - '&e Paina muuttaaksesi.'
         - ''
       change-social-twitter:
         name: ' '
@@ -17827,7 +17754,7 @@ menus:
         - '&7 so players can contact'
         - '&7 you on X (Twitter).'
         - ' '
-        - '&e Click to change.'
+        - '&e Paina muuttaaksesi.'
         - ''
       change-social-youtube:
         name: ' '
@@ -17839,7 +17766,7 @@ menus:
         - '&7 so players can find'
         - '&7 your YouTube channel.'
         - ' '
-        - '&e Click to change.'
+        - '&e Paina muuttaaksesi.'
         - ''
       gender:
         name: ' '
@@ -17854,7 +17781,7 @@ menus:
         - '&e  Click to change'
         - '&e  your profile gender.'
         - ''
-        - '&f Options:'
+        - '&f Vaihtoehdot:'
         - '%1%'
         - '%2%'
         - '%3%'
@@ -17874,7 +17801,7 @@ menus:
       next-page:
         name: ' '
         lore:
-        - '&e Next... #%page% &6→'
+        - '&e Seuraava #%page% &6→'
         - ''
         - '&7  Click to see'
         - '&7  next modules.'
@@ -17886,14 +17813,12 @@ menus:
       tutorial:
         name: ' '
         lore:
-        - '&a 🌊 How to create a module'
+        - '&a 🌊 Näin luot moduulin!'
         - ''
-        - '&7  Enter the developer mode (/dev) and'
-        - '&7  take &6Manipulator&7 item from your inventory.'
-        - ''
-        - '&7  Left click the event blocks in the begin'
-        - '&7  of coding lines, and then press &eF&7 and'
-        - '&7  click the &aSave module&7 button.'
+        - '&7  Ohjelmointi tilassa(/dev) valitse koodirivit jotka'
+        - '&7  haluat pakata moduuliin manipulator työkalulla.'
+        - '&7  Paina "vaihda toiseen käteen" näppäintä(F) ja'
+        - '&7  valitse luo moduuli.'
         - ''
       all-modules:
         name: '&c  Kaikki moduulit'
@@ -17935,16 +17860,13 @@ menus:
         - '&7  Paina nähdäksesi seuraavat maailmat'
         - ''
       no-worlds:
-        name: '&c&oNo Worlds!'
+        name: '&c&oEi maailmoja!'
         lore:
-        - '&7It looks like you haven''t &ccreated&7 your own world yet!'
-        - '&7What are you waiting for? Create your&d first&7 world!'
+        - '&7Luo ensimmäinen maailmasi!'
       limit:
-        name: '&c&oWorld Limit Reached!'
+        name: '&c&oMaailmojen raja saavutettu!'
         lore:
-        - '&7You have created &f&n%planets% worlds&7 out of'
-        - '&7the allowed &n%limit%&7. To create a new'
-        - '&7world, &cdelete&7 an unwanted one.'
+        - '&7Maksimi maailmojen määrä on %limit%.'
       create-world:
         name: '&lLuo maailma'
         lore:
@@ -17964,7 +17886,7 @@ menus:
         - ' '
         - '&a &7Pelaajia: &a%planetOnline%'
         - '&3 &7Kategoria: &f%planetCategory%'
-        - '&e &7Arvosana: &a%planetReputation%'
+        - '&e &7Maine: &a%planetReputation%'
         - '&6 &7Vierailut: &a%planetUniques%'
         - ' '
         - '&2 &7Viimeksi pelattu: &a%planetLastTime%'
@@ -17981,52 +17903,37 @@ menus:
       world:
         name: '&f%planetName%'
         lore:
-        - '&8World created by &7%planetOwner%'
+        - '&8Luonut &7%planetOwner%'
         - ''
         - '&7 %planetDescription%'
         - ''
         - '&a &7Pelaajia: &a%planetOnline%'
-        - '&e &7 Arvosana: &f%planetReputation%'
+        - '&e &7 Maine: &f%planetReputation%'
         - '&3 &7 Kategoria: &f%planetCategory%'
         - ''
-        - '&aVedä tavara, jonka maailmasi haluat ikoniksi'
+        - '&aVedä tavara, jonka haluat maailmasi ikoniksi'
         - '&8ID: %planetCustomID%'
         - ''
       change-name:
-        name: ' '
+        name: '&eMaailman nimi'
         lore:
-        - '&e  World Name'
-        - '&7 A brief essence of your world.'
-        - ''
-        - '&7 The world name reflects the character of the game,'
-        - '&7 and what kind of players you want to attract.'
-        - '&7 Displayed in the world list and advertisements.'
+        - '&7 Mikä sinun maailmasi nimesi on?'
         - ' '
-        - '&e Click to rename the world.'
+        - '&e Paina nimetäksesi maailma.'
         - ''
       change-description:
-        name: ' '
+        name: '&6✂ Maailman kuvaus'
         lore:
-        - '&6 ✂ World Description'
-        - '&7 Describe your world in more detail.'
-        - ''
-        - '&7 The description talks about the features'
-        - '&7 of your world and should attract'
-        - '&7 players if everything is clear from the start.'
+        - '&7 Kuvaa maailmasi ihmeitä!'
         - ' '
-        - '&e Click to change the description.'
+        - '&e Paina muuttaaksesi kuvausta.'
         - ''
       entities-control:
-        name: ' '
+        name: '&c🍖 Olentojen hallinta'
         lore:
-        - '&c  Entities Control'
-        - '&7 Teleport or remove mobs from map.'
+        - '&7 Näe ja karsi maailman olentoja.'
         - ' '
-        - '&7 Sometimes world has a lot of'
-        - '&7 entities, so it''s hard to keep'
-        - '&7 eye on them.'
-        - ' '
-        - '&e Click to open.'
+        - '&e Paina avataksesi.'
         - ''
       change-category:
         name: '&e🗡 Maailman kategoria'
@@ -18040,50 +17947,35 @@ menus:
       planet-flags:
         name: '&6 ⇄ Maailman asetukset'
         lore:
-        - '&7 Additional game rules.'
+        - '&7 Säädä maailmaa ja aseta sääntöjä.'
         - ' '
-        - '&7 Options allow you to change'
-        - '&7 the behavior of the world under certain'
-        - '&7 circumstances.'
-        - ' '
-        - '&e Click to configure.'
+        - '&e Paina hallitaksesi.'
         - ''
       planet-players:
         name: '&6 Pelaajien hallinta'
         lore:
-        - '&7 Allow a friend to help you!'
+        - '&7 Aseta pelaajien oikeuksia.'
         - ' '
-        - '&7 Manage players'' rights to'
-        - '&7 fly, code, and build,'
-        - '&7 or block violators.'
-        - ' '
-        - '&e Click to configure.'
+        - '&e Paina hallitaksesi.'
         - ''
       change-id:
         name: '&c Maailman ID'
         lore:
-        - '&7 Quick access to visit the world'
+        - '&7 Lyhyt uniikki tunniste.'
         - ' '
-        - '&7 With a short and memorable ID,'
-        - '&7 players will be able to remember it and visit'
-        - '&7 your world more often through &c/join&7.'
-        - ' '
-        - '&e Click to change the ID.'
+        - '&7 ID:tä käytetään liittymiskomennossa:'
+        - '&7 &c/join ID'
+        - ''
+        - '&e Paina muuttaaksesi ID:tä.'
         - ''
       change-spawn:
         name: '&3 ⭘ Spawn sijainti'
         lore:
-        - '&7 Also the respawn point for players!'
-        - ''
-        - '&7 Upon entering the world, or upon'
-        - '&7 death, the player will be moved'
-        - '&7 exactly to this place.'
+        - '&7 Liittyvien pelaajien sijainti ja'
+        - '&7 uudelleensyntymis-sijainti.'
         - ' '
-        - '&c ☠ For an unsafe spawn location,'
-        - '&c the owner will face penalties.'
-        - ' '
-        - '&e Left click &7- set the spawn point.'
-        - '&e Right click &7- teleport.'
+        - '&e Vasenklikkaa &7- Aseta Spawn sijainti'
+        - '&e Oikeaklikkaa &7- Teleportaa Spawnille'
         - ''
       change-sharing:
         name: '&a Pääsy'
@@ -18091,13 +17983,13 @@ menus:
           public: Pelaajat voivat liittyä
           private: Estää pelaajien liittymisen
         lore:
-        - '&7 Can players enter the world?'
+        - '&7 Onko maailma valmis pelaamista varten?'
         - ' '
-        - '&7 For technical work: coding'
-        - '&7 or building, it''s best to restrict'
-        - '&7 access to visiting the world.'
+        - '&7 Sulje maailma muille.'
+        - '&7 Pelaajien hallinnassa voit antaa'
+        - '&7 pääsyn tietyille pelaajille.' 
         - ' '
-        - '&f Options:'
+        - '&f Vaihtoehdot:'
         - '%1%'
         - '%2%'
         - ' '
@@ -18116,59 +18008,36 @@ menus:
       play-mode:
         name: '&bPelailutila'
         lore:
-        - '&7 Start the code of your world.'
-        - ' '
-        - '&7 This mode will execute'
-        - '&7 your actions that you made'
-        - '&7 in developer mode.'
-        - ' '
-        - '&f Features:'
-        - '&7 &e By default: adventure mode'
-        - '&7 &6 &fWorld parameters will be applied'
-        - '&7 &a &fYour code will run'
+        - '&7 Pistää koodin pyörimään ja'
+        - '&7 pistää pelaajat pelitilaan.'
         - ' '
         - '&e Paina vaihtaaksesi tilaa.'
         - ''
       build-mode:
         name: '&c⛏ Rakennustila'
         lore:
-        - '&7 Build a map for your world!'
+        - '&7 Pysäytää maailman ja'
+        - '&7 pistää rakentajat luovaan.'
         - ' '
-        - '&7 Creative mode allows you to'
-        - '&7 use all blocks; you will'
-        - '&7 create the map with them.'
-        - ' '
-        - '&f Ideas for builds:'
-        - '&7 &e ★ &fHouse, school, shop'
-        - '&7 &b 🌊 &fIsland, beach, pool'
-        - '&7 &c  &fJungle, ruins, basement'
+        - '&7 Muut pääsevät katsomaan kun rakennat!'
         - ' '
         - '&e Paina vaihtaaksesi tilaa.'
         - ''
       dev-mode:
         name: '&eOhjelmointitila'
         lore:
-        - '&7 Create code for your world!'
-        - ' '
-        - '&7 Turn your world into a game with'
-        - '&7 coding. It''s very'
-        - '&7 simple, give it a try!'
-        - ' '
-        - '&f With code:'
-        - '&7 &e  &fIncrease the number of players'
-        - '&7 &6  &fCreate interesting mechanics'
-        - '&7 &a  &fLearn the basics of programming'
+        - '&7 Vie ohjelmointimaailmaan jossa'
+        - '&7 kaikki taika tapahtuu! '
+        - ''
+        - '&7 Ohjelmointi on jätetty Englanniksi!'
         - ' '
         - '&e Paina vaihtaaksesi tilaa.'
         - ''
       environment:
         name: '&dKoodiympäristö'
         lore:
-        - '&7 Useful functions for coders.'
-        - ' '
-        - '&7 Discover limits, the number'
-        - '&7 of variables, change time'
-        - '&7 and coding formatting.'
+        - '&7 Muokkaa ohjelmointimaailmaa ja'
+        - '&7 tarkkaile teknistätietoa.'
         - ' '
         - '&e Paina hallitaksesi.'
         - ''
@@ -18199,7 +18068,7 @@ menus:
         lore:
         - '&7 Määrittää pysyykö muutokset maailmassa'
         - ''
-        - '&f Options:'
+        - '&f Vaihtoehdot:'
         - '%1%'
         - '%2%'
         - ''
