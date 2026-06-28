@@ -679,8 +679,8 @@ creating-world:
     \ can fight)&f.\n &f"
 settings:
   world-name:
-    title: '&fEnter the'
-    subtitle: '&fnew &6name&f for the world.'
+    title: '&fNimi'
+    subtitle: '&fSyötä nimi chattiin'
     usage: |-
       %prefix%Enter a new &6name&f for the world, for example &7Parkour by %player%&f.
       &f - The name must comply with the server rules.
@@ -689,8 +689,8 @@ settings:
       &f- The name must be at least %min% characters long and no more than %max%.
     changed: '%prefix%You have set a new &6name&f for the world: %name%'
   world-id:
-    title: '&fEnter the'
-    subtitle: '&fnew &6ID&f for the world.'
+    title: '&fID'
+    subtitle: '&fSyötä ID chattiin'
     usage: |-
       %prefix%Enter a new &6ID&f for the world, for example &6parkour&f.
       &f - The world ID must not contain forbidden characters.
@@ -702,8 +702,8 @@ settings:
       now join the world using the command &6/join %id%'
     taken: '%prefix%&cThis ID is already taken by another world.'
   world-description:
-    title: '&fEnter the'
-    subtitle: '&fnew &6description&f for the world.'
+    title: '&fKuvaus'
+    subtitle: '&fSyötä kuvaus chattiin'
     usage: |-
       %prefix%Enter a new &6description&f for the world, for example &dCool, detailed parkour&f.
       &f - The description must comply with the server rules.
@@ -712,26 +712,23 @@ settings:
       &f- The description must be at least 5 characters long and no more than 30.
     changed: '%prefix%You have set a new &6description&f for the world: %description%'
   world-spawn:
-    title: '&bSpawn point'
-    subtitle: '&fsuccessfully &6changed&f.'
+    title: '&bSpawni sijainti'
+    subtitle: '&fSpawni sijainti asetettu.'
   world-icon:
-    changed: '%prefix%Icon changed.'
-    error: '%prefix%&cNot an item.'
+    changed: '%prefix%Kuvake muutettiin.'
+    error: '%prefix%&cEi pätevä tavara.'
   world-sharing:
-    enabled: '%prefix%Players &6can&f now visit your world.'
-    disabled: '%prefix%You have &6disabled&f players from visiting your world.'
+    enabled: '%prefix%Maailma avattiin muille pelaajille.'
+    disabled: '%prefix%Maailma pistettiin suljettuun tilaan.'
   world-category:
-    changed: '%prefix%You have set the world category to &6%category%&f.'
+    changed: '%prefix%Maailman kategoriaksi asetettiin &6%category%&f.'
   autosave:
-    enabled: '%prefix%Auto-saving is &6enabled&f, now you can build safely and your
-      buildings will be saved.'
-    disabled: '%prefix%&cAuto-saving is disabled by world owner, &nnew buildings will
-      be not saved&c!'
-    warning: '%prefix%&cNew buildings will be not saved in world, because auto-saving
-      is disabled by world owner.'
+    enabled: '%prefix%&fAutomaattinen tallentaminen päällä.'
+    disabled: '%prefix%&cAutomaattinen tallentaminen sammutettu.'
+    warning: '%prefix%&cMaailaman muutokset eivät tallennu. Muuta pistämässä Automaattiseset tallennukset päälle.'
   module-name:
-    title: '&fEnter the'
-    subtitle: '&fnew &6name&f for the module.'
+    title: '&fNimi'
+    subtitle: '&fSyötä nimi chattiin'
     usage: |-
       %prefix%Enter a new &6name&f for the module, for example &7WorldEditor by %player%&f.
       &f - The name must comply with the server rules.
@@ -740,8 +737,8 @@ settings:
       &f- The name must be at least %min% characters long and no more than %max%.
     changed: '%prefix%You have set a new &6name&f for the module: %name%'
   module-description:
-    title: '&fEnter the'
-    subtitle: '&fnew &6description&f for the module.'
+    title: '&fKuvaus'
+    subtitle: '&fSyötä kuvaus chattiin'
     usage: |-
       %prefix%Enter a new &6description&f for the module, for example &eUseful utils for world owners&f.
       &f - The description must comply with the server rules.
@@ -750,11 +747,11 @@ settings:
       &f- The description must be at least 5 characters long and no more than 30.
     changed: '%prefix%You have set a new &6description&f for the module: %description%'
   module-icon:
-    changed: '%prefix%Icon changed.'
-    error: '%prefix%&cNot an item.'
+    changed: '%prefix%Kuvake muutettiin.'
+    error: '%prefix%&cEi pätevä tavara.'
   module-sharing:
-    enabled: '%prefix%Players &6can&f now download your module.'
-    disabled: '%prefix%You have &6disabled&f players from downloading your module.'
+    enabled: '%prefix%Muut voivat käyttää moduuliasi.'
+    disabled: '%prefix%Moduuli on vain sinun käytössäsi.'
   profile-description:
     title: '&fEnter in chat'
     subtitle: '&fnew &6profile description&f.'
@@ -794,20 +791,18 @@ settings:
       and longer than %max%! '
     changed: '%prefix%You have set a new &bTelegram username&f: %social%'
 deleting-world:
-  title: '&cDeleting ◌'
-  subtitle: '&fPlease wait a few seconds...'
+  title: '&cPoistetaan ◌'
+  subtitle: '&fOdota hetki...'
   message: '%prefix%World &6successfully&f deleted.'
 world:
   joined: '%prefix%%player% has joined the world.'
   left: '%prefix%%player% has left the world.'
   connecting:
-    title: '&aConnecting... '
+    title: '&aYhdistetään... '
     subtitle: '&fOdota hetki...'
-    owner-help: '%prefix%Welcome back to &6your world&f! Use the compass to manage
-      your world, or use the command &6/world&f.'
-    busy: '%prefix%&cYou''re already connecting to the world, please wait...'
-    unloading: '%prefix%&cThis world is being unloaded, please try again later...
-      :('
+    owner-help: "%prefix%Tervetuloa maailmaasi!\n Muokkaa maailmaa kompassilla tai &6/world&f komennolla."
+    busy: '%prefix%&cOlet jo liittymässä maailmaan...'
+    unloading: '%prefix%&cMaailmaa ladataan. Yritä uudelleen...'
     error: "%prefix%&cFailed to connect to world %id% :(\n \n&c Was loaded before:\
       \ %wasloaded%\n&c Currently loaded: %loaded%\n&c Phase: %phase%\n \n&c Error:\
       \ %error%"
@@ -834,7 +829,7 @@ world:
       world''s mode to &6Build&f.'
   dev-mode:
     connecting:
-      title: '&eConnecting... '
+      title: '&Yhdistetään... '
       subtitle: '&fEntering developer mode...'
       error: "%prefix%&cFailed to connect to development world %id% :(\n \n&c Was\
         \ loaded before: %wasloaded%\n&c Currently loaded: %loaded%\n&c Phase: %phase%\n\
@@ -872,14 +867,12 @@ world:
     changed-fly-speed: '%prefix%&fYour flight speed is now set to &f%speed%'
     disabled: '%prefix%&cCoding is disabled, the only available mode is Build! '
     already-saving-code: '%prefix%&cThe code is already being processed...'
-  cant-block-interact: '%prefix%&cBlock interaction is disabled for visitors in this
-    world.'
-  cant-mob-interact: '%prefix%&cEntity interaction is disabled for visitors in this
-    world.'
+  cant-block-interact: '%prefix%&cSinulla ei ole oikeutta tehdä tuota maailmassa.'
+  cant-mob-interact: '%prefix%&cSinulla ei ole oikeutta tehdä tuota maailmassa.'
   delete-mobs:
-    items: '%prefix%&fDeleted &6%count% items&f in the world.'
-    entities: '%prefix%&fDeleted &6%count% entities&f in the world.'
-    mobs: '%prefix%&fDeleted &6%count% mobs&f in the world.'
+    items: '%prefix%&6%count%&f esinettä poistettu.'
+    entities: '%prefix%&6%count%&f olentoa poistettu.'
+    mobs: '%prefix%&6%count%&f olentoa poistettu.'
   info: |-
     %prefix%&fMaailman tiedot: &6%name%
      &f Kuvaus: &6%description%&r
@@ -902,12 +895,10 @@ world:
     &f Players data size: &6%data%
   not-in-play-mode: '%prefix%The world is not currently in &6play mode&f.'
   not-in-build-mode: '%prefix%The world is not currently in &6build mode&f.'
-  chat-cooldown: '%prefix%Please wait &6%cooldown% seconds&f before sending another
-    message.'
-  entity-limit: '%prefix%The world has reached the limit of &6%count% mobs&f. &3[Remove
-    mobs]'
-  entity-limit-hover: '&fClick to remove all entities.'
-  redstone-limit: '%prefix%The world has reached the limit of &6%count% redstone operations&f.'
+  chat-cooldown: '%prefix%Odota &6%cooldown% sekunttia&f ennen kuin voit pistää uuden viestin.'
+  entity-limit: '%prefix%Maailman olentoraja saavutettu! &6(%count%)&f &3[Poista olennot]'
+  entity-limit-hover: '&fPaina poistaaksesi KAIKKI olennot.'
+  redstone-limit: '%prefix%Maailman punakivioperaatioraja saavutettu! &6(%count%)'
   favorites:
     added: '%prefix%You marked this world &7%id% &fas &6favorite&f '
     removed: '%prefix%You removed world &7%id%&f from favorites..'
@@ -916,14 +907,14 @@ world:
     limit: '%prefix%&cYou reached maximum amount of favorite worlds (%limit%)! To
       add new favorite worlds remove old ones.'
   categories:
-    sandbox: '&e&lSANDBOX'
-    adventure: '&9&lADVENTURE'
-    strategy: '&a&lSTRATEGY'
-    arcade: '&b&lARCADE'
-    roleplay: '&d&lROLE-PLAY'
-    story: '&6&lSTORY GAMES'
-    experiment: '&c&lEXPERIMENT'
-    simulator: '&c&lSIMULATOR'
+    sandbox: '&e&lHIEKKALAATIKKO' #MITKÄ NÄÄ OLIKAAN
+    adventure: '&9&lSEIKKAILU'
+    strategy: '&a&lSTRATEGIA'
+    arcade: '&b&lPELILUOLA'
+    roleplay: '&d&lROOLIPELI'
+    story: '&6&lTARINAPELI'
+    experiment: '&c&lKOKEELLINEN'
+    simulator: '&c&lSIMULAATTORI'
   sharing:
     public: '&a&lPUBLIC'
     private: '&c&lPRIVATE'
@@ -936,59 +927,42 @@ world:
     Maybe you can help world owner?'
   players:
     kick:
-      kicked: '%prefix%You kicked &6%player%&f from the world, but they can rejoin
-        later.'
-      player: '%prefix%You were kicked from the world you were playing in.'
-      all: '%prefix%You &6kicked all players&f from world, but they can rejoin later.'
-      cannot: '%prefix%&cThis player cannot be kicked from world '
-      owner: '%prefix%Something tried to &6kick you from the world&f, but you are
-        the world owner! '
+      kicked: '%prefix%Potkittiin pelaaja &6%player%&f pois maailmasta.'
+      player: '%prefix%Sinut potkittiin maailmasta.'
+      all: '%prefix%Potkittiin &6kaikki&f pelaajat pois maailmasta.'
+      cannot: '%prefix%&cPotkiminen epäonnistui! Tätä pelaajaa ei voi potkia. '
+      owner: '%prefix%Sinut yritettiin potkia pois maailmasta! '
     builders:
       added: |-
-        %prefix%You made &6%player%&f a builder, and they can now build in the world &6while you are online.
-         &fIf you trust this player, you can make them a permanent builder in the player management settings.
-      trusted: '%prefix%&6%player%&f can now build even when you are offline.'
-      removed: '%prefix%&6%player%&f is no longer a builder.'
+        %prefix%&6%player%&f on nyt rakentaja.
+      trusted: '%prefix%&6%player%&f voi rakentaa kun et ole paikalla.'
+      removed: '%prefix%&6%player%&f ei ole enään rakentaja.'
       player: |-
-        %prefix%You have been given permission to build in this world!
-         &fTo do so, type the command &6/build
-      limit: '%prefix%You reached limit of &6%limit% builders&f, to add new builder
-        remove old one in world settings.'
+        %prefix%Sinusta tehtiin rakentaja! Voit nyt mennä rakennustilaan (/build)
+      limit: '%prefix%Rakentajia voi olla enintään &6%limit%&f!'
     developers:
-      guest: '%prefix%&6%player%&f can now visit the coding world but cannot make
-        changes.'
+      guest: '%prefix%&6%player%&f voi vierailla ohjelmointimaailmassa.'
       added: |-
-        %prefix%You made &6%player%&f a coder, and they can now code in the world &6while you are online.
-         &fIf you trust this player, you can make them a permanent coder in the player management settings.
-      trusted: '%prefix%&6%player%&f can now code even when you are offline.'
+        %prefix%&6%player%&f on nyt ohjelmoija.
+      trusted: '%prefix%&6%player%&f voi ohjelmoida kun et ole paikalla.'
       removed: '%prefix%&6%player%&f is no longer a coder.'
       player: |-
-        %prefix%You can now code in this world!
-         &fTo do so, type the command &6/dev
+        %prefix%Sinusta tehtiin ohjelmoija! Voit nyt mennä ohjelmointitilaan (/dev)
       player-guest: |-
-        %prefix%You have been given access to view the code in this world!
-         &fTo do so, type the command &6/dev
-      limit: '%prefix%You reached limit of &6%limit% developers&f, to add new developer
-        remove old one in world settings.'
+        %prefix%Voit nyt mennä ohjelmointitilaan (/dev)
+      limit: '%prefix%Ohjelmoijia voi olla enintään &6%limit%&f!'
     black-list:
-      added: '%prefix%You have added &6%player%&f to the &7blacklist&f. They can no
-        longer enter your world.'
-      removed: '%prefix%You have removed &6%player%&f from the blacklist. They can
-        now enter your world.'
-      player: '%prefix%You have been blocked from the world you were playing in..
+      added: '%prefix%Pelaaja &6%player%&f sai porttikiellon maailmaan.'
+      removed: '%prefix%Pelaajan &6%player%&f porttikielto maailmaan peruttiin.'
+      player: '%prefix%Sait porttikiellot maailmaan.
         '
-      cannot: '%prefix%&cThis player cannot be blocked from world '
-      limit: '%prefix%You reached limit of &6%limit% banned players&f, to block player
-        unban old one in world settings.'
+      cannot: '%prefix%&cEt voi estää kyseistä pelaajaa.'
+      limit: '%prefix%Porttikieltoraja saavutettu &6%limit%&f.'
     white-list:
-      added: '%prefix%You have added &6%player%&f to the &lwhitelist&f. Now he can
-        enter your world, even if its closed.'
-      removed: '%prefix%You have removed &6%player%&f from the &lwhitelist&f. Now
-        he''s not able to join world, if its closed.'
-      player: '%prefix%You have been added to the &lwhitelist&f of this world! This
-        means you can enter the world even if it''s closed.'
-      limit: '%prefix%You reached limit of &6%limit% whitelisted players&f, to whitelist
-        player remove old one in world settings.'
+      added: '%prefix%Myönnettiin pääsy pelaajalle &6%player%&f.'
+      removed: '%prefix%Peruttiin pääsy pelaajalle &6%player%&f.'
+      player: '%prefix%Pääset nyt maailmaan kun se on suljettu.'
+      limit: '%prefix%Pääsylistanraja saavutettu &6%limit%&f.'
     transfer-ownership:
       confirm-new: '%prefix%The world owner &6wants to transfer ownership of the world&f
         to you, which means you will have full control over it. If you want to accept,
@@ -1012,6 +986,7 @@ world:
         their response...'
       cancelled: '%prefix%&fThe player &6canceled the transfer request&f for your
         world.'
+  #admin commands?
   loaded: '%prefix%World &6%id% &fhas been successfully &aloaded&f...'
   already-loaded: '%prefix%&cThe world %id% is already loaded!'
   unloaded: '%prefix%World &6%id% &fhas been successfully &7unloaded&f...'
