@@ -283,64 +283,6 @@ environment:
   platform:
     claimed: 'Koodialusta lisätty'
     limit: '&cKoodialustojen raja (%amount%) saavutettu '
-  hints:
-    # Dev mode locales. low priority
-    cycle: '&aNumber &f- Time in ticks, &6Text&f - Name'
-    function: '&fClick with &6Text&f in hand to rename'
-    method: '&fClick with &6Text&f in hand to rename'
-    launch-function: '&7RMB &f- Select a function, &7Shift+RMB &f- Set target'
-    launch-method: '&7RMB &f- Select a method, &7Shift+RMB &f- Set target'
-    event: '&7RMB &f- Select an event'
-    action: '&7RMB &f- Select an action, &7Shift+RMB &f- Set target'
-    condition: '&7RMB &f- Select a condition, &7Shift+RMB &f- Set target'
-    variable: '&7Chat &f- Rename, &7RMB &f- Change type'
-    event-value: '&7RMB &f- Select a type, &7Shift+RMB &f- Set target'
-    number: '&7Chat &f- Set the number, &7RMB &f- Copy in chat'
-    text: '&7Chat &f- Set the text, &7RMB &f- Copy in chat'
-    potion: '&7Chat &f- Set duration and strength'
-    boolean: '&7RMB &f- Change type'
-    location:
-      build: '&7RMB &f- Set location, &7LMB &f- Return to coding'
-      dev: '&7LMB &f- Teleport to world, &7F &f- Teleport to location'
-    vector: '&7Chat &f- Set coordinates of vector'
-    particle: '&7RMB &f- Select a type, &7Shift+RMB &f- Show particle'
-    color: '&7Chat &f- Set color'
-    lines-controller: '&7LMB/RMB &f- Move action or condition'
-    arrow-not: '&7LMB &f- Add/remove NOT in condition'
-    fly-speed-changer: '&7RMB &f- Change flight speed'
-    debug-torch: '&7RMB &f- Mark event for debugging'
-    holding-event: '&fPlace the block at the &bbeginning of the line'
-    holding-action: '&fPlace the block &7after the event'
-  prompter:
-    # AI coding. translate never
-    help: |-
-      You can try to generate a simple code by your words:
-       &6/env make [Your wishes]
-    thinking: 'Thinking, please wait...'
-    disabled: '&cPrompt generation is disabled '
-    limited: '&cSeems like the prompt handler reached limit of requests, try
-      again later '
-    bad-prompt: '&cTry to explain your wishes more clear, for example: When
-      player clicks on magma block, it will give random item to player.'
-    timeout: '&cSeems like the prompt handler was thinking for too long..
-      Well, you have to make your wishes smaller '
-    unauthorized: '&cSeems like token of prompt handler is expired, contact
-      the admins '
-    unavailable: '&cSeems like the prompt handler is down, try again later '
-    unknown-host: '&cSeems like server is not connected to the Internet, or
-      site of prompt handler doesn''t exist '
-    few-space: '&cSeems like the code you requested requires a lot of space!
-      Try to split your wishes, or free space in coding world.'
-    success: "Successfully&a generated&f a code from your wish in %time% seconds\
-      \ \n &6%idea%\n&fTo apply changes type &6/play&f."
-    broadcast:
-      request: '&6%player%&f requested prompt handler to create code by their
-        wish, a new code can appear soon... &3[Details]'
-      success: '&fPrompt handler &6successfully&f installed code by &6%player%&f. '
-      failed: '&cPrompt handler failed to create code by %player%''s wish.. '
-      hover: '&6%idea%'
-    few-args: '&cYou need to describe your ideas in more detail, this is too
-      few words.. '
   duplication:
     success: '&fKoodirivit kopioitiin eri riveille '
     fail: '&cKoodirivien kopiointi epäonnistui '
@@ -1257,10 +1199,10 @@ items:
       - '&7and much more!'
 menus:
   player-control:
-    title: '&1☻ Control: %name%'
+    title: '&1Control: %name%'
     items:
       player:
-        name: '&7 Pelaaja &e%name%'
+        name: '&7Pelaaja &e%name%'
         lore:
         - ''
         - '&7 %status%'
@@ -1276,7 +1218,7 @@ menus:
           not-trusted: Voi ohjelmoida
           trusted: Voi ohjelmoida kun et ole paikalla
         lore:
-        - '&7 Oikeudet ohjelmointitilassa.'
+        - '&7Oikeudet ohjelmointitilassa.'
         - ' '
         - '%1%'
         - '%2%'
@@ -1297,7 +1239,7 @@ menus:
         - '%2%'
         - '%3%'
         - ''
-        - '&e Muuta painamalla'
+        - '&eMuuta painamalla'
       flight:
         name: '&fLentäminen'
         choices:
@@ -4334,7 +4276,7 @@ menus:
         lore:
         - '&7Kuvaile maailmasi ihmeitä!'
         - ' '
-        - '&eMuuta painamalla kuvausta'
+        - '&eMuuta kuvausta painamalla'
       entities-control:
         name: '&cOlentojen hallinta'
         lore:
@@ -4368,7 +4310,7 @@ menus:
         - '&7Käytetään liittymiskomennossa:'
         - '&7 &c/join ID'
         - ''
-        - '&eMuuta painamalla ID:tä'
+        - '&eMuuta painamalla'
       change-spawn:
         name: '&3Spawn sijainti'
         lore:
@@ -4445,7 +4387,7 @@ menus:
         - '%3%'
         - '%4%'
         - ''
-        - '&eVaihda aikaa painamalla'
+        - '&eVaihda painamalla'
       autosave:
         choices:
           'true': Tallenna pelitilan muutokset
