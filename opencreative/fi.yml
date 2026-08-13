@@ -4467,6 +4467,30 @@ menus:
         name: '&6← &eEdellinen...'
         lore:
         - ''
+      vehicle-interact:
+        choices:
+          1: "Salli kaikki"
+          2: "Estä ajoneuvojen vahingoittuminen"
+          3: "Estä kaikki"
+        name: "&3Ajoneuvojen vuorovaikutukset"
+        lore:
+          - '&eMuuta painamalla'
+          - ''
+          - ' '
+          - "%1%"
+          - "%2%"
+          - "%3%"
+      block-update:
+        choices:
+          1: "Palikat päivittyy normaalisti"
+          2: "Estä päivitykset rakentamisessa"
+        name: "&dPalikoiden päivittyminen"
+        lore:
+          - '&eMuuta painamalla'
+          - ''
+          - ' '
+          - '%1%'
+          - '%2%'
       world-borders:
         choices:
           '1': Näytä sininen raja
@@ -4779,3 +4803,26 @@ time:
   minutes: min
   seconds: sec
   less-second: less than a second
+dialog:
+  module:
+    title: "Moduuli"
+    inputs:
+      name: "Nimi"
+      description: "Kuvaus"
+      confirm: "Tallenna"
+      # hint uses only minimessage to avoid crappy legacy escape charecters
+    hint: "Maksimi pituus: %max%<br>Tukee legacy &0 - &f ja minimessage \\<red><br>tekstin asettelua."
+  planet:
+    title: "Maailma"
+    inputs:
+      name: "Nimi"
+      description: "Kuvaus"
+      confirm: "Tallenna"
+      # hint uses only minimessage to avoid crappy legacy escape charecters
+    hint: "Maksimi pituus: %max%<br>Tukee legacy &0 - &f ja minimessage \\<red><br>tekstin asettelua."
+  world-id:
+    title: "Maailman ID"
+    inputs:
+      id: "ID"
+      confirm: "Tallenna"
+    hint: "Maksimi pituus: %max%<br>Sallitut merkit: A-Z, a-z, 0-9"
