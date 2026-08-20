@@ -42,10 +42,10 @@ locales:
   edit_home_menu_world_server: <gradient:#3b76ff:#477fff><hover:show_text:'<#3B76FF>World:\n<dark_gray>The world where the home is set</dark_gray></#3B76FF>'>⭘ %1%</hover></gradient>   <gradient:#477fff:#5286ff><hover:show_text:'<#3B76FF>Server:\n<dark_gray>The server where the home is set</dark_gray></#3B76FF>'>☁ %2%</hover></gradient>
   edit_home_menu_coordinates: '<gradient:#ffc43b:#f5c962><hover:show_text:''<#FFC43B>Coordinates:\n<dark_gray>Location of the home in the world\n</dark_gray><dark_gray>yaw: %4%, pitch: %5%</dark_gray></#FFC43B>''>⚐ x: %1%, y: %2%, z: %3%</hover></gradient><br/>'
   edit_home_menu_use_buttons: <gray>Use:</gray> <#00FB9A><click:run_command:'/huskhomes:home %1%'><hover:show_text:'<gray>Click to teleport to this home</gray>'>[Teleport…]</hover></click></#00FB9A>
-  edit_home_menu_manage_buttons: <gray>Manage:</gray> <#FF3300><click:suggest_command:'/huskhomes:delhome %1%'><hover:show_text:'<gray>Click to delete this home\n<#FF3300>This cannot be undone!</#FF3300></gray>'>[❌ Delete…]</hover></click></#FF3300>   <gradient:#ffc43b:#f5c962><click:run_command:'/huskhomes:edithome %1% relocate'><hover:show_text:'<gray>Click to relocate this home to your position</gray>'>[⚐ Relocate…]</hover></click></gradient>   %2%
-  edit_home_menu_privacy_button_public: <#6FFF00><click:run_command:'/huskhomes:edithome %1% privacy'><hover:show_text:'<gray>Click to open this home to the public</gray>'>[Make Public…]</hover></click></#6FFF00>
-  edit_home_menu_privacy_button_private: <#FF9F0F><click:run_command:'/huskhomes:edithome %1% privacy'><hover:show_text:'<gray>Click to make this home private</gray>'>[Make Private…]</hover></click></#FF9F0F>
-  edit_home_menu_meta_edit_buttons: <gray>Edit:</gray> <gradient:#c160ff:#bb50ff><click:suggest_command:'/huskhomes:edithome %1% rename '><hover:show_text:'<gray>Click to suggest the rename command</gray>'>[✎ Rename…]</hover></click></gradient>   <gradient:#bb50ff:#b43fff><click:suggest_command:'/huskhomes:edithome %1% description '><hover:show_text:'<gray>Click to suggest the edit description command</gray>'>[ℹ Description…]</hover></click></gradient>
+  edit_home_menu_manage_buttons: <#ef4444><click:suggest_command:'/huskhomes:delhome %1%'><hover:show_text:'<white>Poista koti painamalla \nPoistoa ei voi peruuttaa!'>[Poista]</hover></click>   <#a78bfa><click:run_command:'/huskhomes:edithome %1% relocate'><hover:show_text:'Siirrä koti sijaintiisi painamalla'>[Siirrä]</hover></click>   %2%
+  edit_home_menu_privacy_button_public: <#a78bfa><click:run_command:'/huskhomes:edithome %1% privacy'><hover:show_text:'<white>Tee kodistasi julkinen painamalla'>[Tee julkiseksi]</hover></click>
+  edit_home_menu_privacy_button_private: <#a78bfa><click:run_command:'/huskhomes:edithome %1% privacy'><hover:show_text:'<white>Tee kodistasi yksityinen painamalla'>[Tee yksityiseksi]</hover></click>
+  edit_home_menu_meta_edit_buttons: <#a78bfa><click:suggest_command:'/huskhomes:edithome %1% rename'><hover:show_text:'Paina nimetäksesi uudelleen'>[Nimeä uudelleen]</hover></click> <#a78bfa><click:suggest_command:'/huskhomes:edithome %1% description'><hover:show_text:'Paina muokataksesi kuvausta'>[Kuvaus]</hover></click>
   edit_home_privacy_public_success: Tehtiin kodista julkinen
   edit_home_privacy_public_success_other: Tehtiin pelaajan <#a78bfa>%1%</#a78bfa> kodista julkinen
   edit_home_privacy_private_success: Tehtiin kodista yksityinen
@@ -131,58 +131,58 @@ locales:
   bulk_delete_warps_success: <#00FB9A>Successfully deleted</#00FB9A> <bold><#00FB9A>%1%</#00FB9A></bold> <#00FB9A>warps.</#00FB9A>
   bulk_delete_homes_confirm: <#FF3300>Warning:</#FF3300> <#FF7E5E>Are you sure you want to delete all homes in the world "%1%"?</#FF7E5E><br><gray>This action is irreversible.</gray><br><gray>→</gray> <#FF3300><click:run_command:'/huskhomes:huskhomes delete homes %1% %2% confirm'><hover:show_text:'<#FF3300>Click to confirm deletion. This cannot be undone.</#FF3300>'>[Confirm]</hover></click></#FF3300>
   bulk_delete_homes_success: <#00FB9A>Successfully deleted</#00FB9A> <bold><#00FB9A>%1%</#00FB9A></bold> <#00FB9A>homes.</#00FB9A>
-  error_invalid_importer: <#FF7E5E>Invalid importer. Please check the</#FF7E5E> <italic><#FF7E5E><click:open_url:'https://william278.net/docs/huskhomes/importing-data'><hover:show_text:'<#FF7E5E>Click to open link</#FF7E5E>'>plugin docs</hover></click></#FF7E5E></italic> <#FF7E5E>for more details.</#FF7E5E>
-  error_home_name_taken: <#FF7E5E>You already have a home set with that name.</#FF7E5E>
-  error_home_name_length: <#FF7E5E>Home names can only contain up to 16 characters!</#FF7E5E>
-  error_home_name_characters: <#FF7E5E>Home names must be alphanumeric (A-Z, 0-9, -_)</#FF7E5E>
-  error_warp_name_taken: <#FF7E5E>There is already a warp set with that name.</#FF7E5E>
-  error_warp_name_length: <#FF7E5E>Warp names can only contain up to 16 characters!</#FF7E5E>
-  error_warp_name_characters: <#FF7E5E>Warp names must be alphanumeric (A-Z,0-9, -_)</#FF7E5E>
-  error_home_description_length: <#FF7E5E>Home descriptions must be less than 255 characters in length.</#FF7E5E>
-  error_home_description_characters: <#FF7E5E>Home descriptions may only contain alphanumeric (A-Z, 0-9) characters, spaces, hyphens (-) and underscores (_)</#FF7E5E>
-  error_warp_description_length: <#FF7E5E>Warp descriptions must be less than 255 characters in length.</#FF7E5E>
-  error_warp_description_characters: <#FF7E5E>Warp descriptions may only contain alphanumeric (A-Z, 0-9) characters, spaces, hyphens (-) and underscores (_)</#FF7E5E>
-  error_no_permission: <#FF7E5E>You do not have permission to execute that command.</#FF7E5E>
-  error_invalid_syntax: <#FF7E5E>Invalid syntax. Usage:</#FF7E5E> <italic><#FF7E5E><click:suggest_command:'%1%'><hover:show_text:'<#FF7E5E>Click to suggest</#FF7E5E>'>%1%</hover></click></#FF7E5E></italic>
-  error_already_teleporting: <#FF7E5E>Please wait for the current teleport to finish!</#FF7E5E>
-  error_no_last_position: <#FF7E5E>You have no last position to return to!</#FF7E5E>
-  error_in_game_only: 'Error: That command can only be run in-game.'
+  error_invalid_importer: <#ef4444>Invalid importer. Please check the</#FF7E5E> <italic><#FF7E5E><click:open_url:'https://william278.net/docs/huskhomes/importing-data'><hover:show_text:'<#FF7E5E>Click to open link</#FF7E5E>'>plugin docs</hover></click></#FF7E5E></italic> <#FF7E5E>for more details.</#FF7E5E>
+  error_home_name_taken: <#ef4444>Sinulla on jo tämän niminen koti olemassa
+  error_home_name_length: <#ef4444>Kodin nimi voi olla enintään <#facc15>16</#facc15> merkkiä pitkä
+  error_home_name_characters: <#ef4444>Kodin nimi voi sisältää vain <#facc15>(A-Z, 0-9, -_)
+  error_warp_name_taken: <#ef4444>Tämän niminen warp on jo olemassa
+  error_warp_name_length: <#ef4444>Warpin nimi voi olla enintään <#facc15>16</#facc15> merkkiä pitkä
+  error_warp_name_characters: <#ef4444>Warpin nimi voi sisältää vain <#facc15>(A-Z, 0-9, -_)
+  error_home_description_length: <#ef4444>Kodin kuvauksen tulee olla alle <#facc15>255</#facc15> merkkiä pitkä
+  error_home_description_characters: <#ef4444>Kodin kuvaus voi sisältää vain kirjaimia, numeroita, merkkejä, välilyöntejä, tavuviivoja (-) ja alaviivoja (_)
+  error_warp_description_length: <#ef4444>Warpin kuvauksen tulee olla alle <#facc15>255</#facc15> merkkiä pitkä
+  error_warp_description_characters: <#ef4444>Warpin kuvaus voi sisältää vain kirjaimia, numeroita, merkkejä, välilyöntejä, tavuviivoja (-) ja alaviivoja (_)
+  error_no_permission: <#ef4444>Sinulla ei ole oikeutta suorittaa kyseistä komentoa
+  error_invalid_syntax: <#ef4444>Virheellinen syntaksi. Käyttö:</#ef4444> <#FF7E5E><click:suggest_command:'%1%'><hover:show_text:'<#FF7E5E>Click to suggest</#FF7E5E>'>%1%</hover></click></#FF7E5E></italic>
+  error_already_teleporting: <#ef4444>Odota, kunnes nykyinen teleporttaus on valmis
+  error_no_last_position: <#ef4444>Sinulla ei ole viimeistä sijaintia, johon palata
+  error_in_game_only: <#ef4444>That command can only be run in-game
   error_invalid_server: <#FF7E5E>Failed to finish teleportation as the target server could not be found or was offline.</#FF7E5E>
-  error_home_invalid: <#FF7E5E>You have not set a home with the name "%1%"</#FF7E5E>
-  error_warp_invalid: <#FF7E5E>There is no warp set with the name "%1%"</#FF7E5E>
-  error_insufficient_funds: ' <#FF7E5E>You do not have enough money. (Cost: %1%)</#FF7E5E>'
-  error_edit_home_privacy_already_public: <#FF7E5E>This home is already set as public.</#FF7E5E>
-  error_edit_home_privacy_already_private: <#FF7E5E>This home is already set as private.</#FF7E5E>
-  error_no_homes_set: <#FF7E5E>You have not set any homes!</#FF7E5E>
-  error_no_public_homes_set: <#FF7E5E>There are no public homes set!</#FF7E5E>
-  error_no_warps_set: <#FF7E5E>There are no warps set!</#FF7E5E>
-  error_unknown_public_home: <#FF7E5E>Could not find a public home with the name "%1%".</#FF7E5E>
-  error_public_home_invalid: <#FF7E5E>Could not find a public home owned by %1% called %2%.</#FF7E5E>
-  error_set_home_maximum_homes: <#FF7E5E>You can only set a maximum of %1% homes!</#FF7E5E>
-  error_set_home_not_enough_slots: <#FF7E5E>You have used all %1% of your free home slots!</#FF7E5E>
-  error_spawn_not_set: <#FF7E5E>The spawn position has not been set.</#FF7E5E>
-  error_no_teleport_requests: <#FF7E5E>You do not have a pending teleport request.</#FF7E5E>
-  error_teleport_warmup_stand_still: <#FF7E5E>You must be standing still before starting a teleport!</#FF7E5E>
-  error_teleport_request_expired: <#FF7E5E>Your pending teleport request has expired.</#FF7E5E>
-  error_teleport_request_sender_not_online: <#FF7E5E>The sender of your pending teleport request is no longer online.</#FF7E5E>
-  error_ignoring_teleport_requests: <#FF7E5E>You are currently ignoring teleport requests.</#FF7E5E> <#FF7E5E><click:run_command:'/huskhomes:tpignore'><hover:show_text:'<#FF7E5E>Click to listen for incoming teleport requests</#FF7E5E>'>[Stop Ignoring…]</hover></click></#FF7E5E>
-  error_invalid_teleport_request: <#FF7E5E>You do not have a pending teleport request from %1%.</#FF7E5E>
-  error_teleport_request_self: <#FF7E5E>You cannot send a teleport request to yourself.</#FF7E5E>
-  error_target_not_found: <#FF7E5E>Could not find the target player.</#FF7E5E>
-  error_player_not_found: <#FF7E5E>Could not find the player %1%.</#FF7E5E>
-  error_player_not_teleportable: <#FF7E5E>The target player, %1%, cannot be teleported right now.</#FF7E5E>
-  error_rtp_restricted_world: <#FF7E5E>You cannot randomly teleport in this world.</#FF7E5E>
-  error_on_cooldown: <#FF7E5E>You must wait %1% before doing that again.</#FF7E5E>
-  error_console_command_only: <#FF7E5E>That command can only be run from the server console.</#FF7E5E>
-  error_rtp_randomization_timeout: <#FF7E5E>Failed to find a safe random location to teleport you.</#FF7E5E>
-  error_invalid_world: <#FF7E5E>Failed to finish teleportation as the target world could not be found.</#FF7E5E>
-  error_no_offline_position: <#FF7E5E>Could not find where %1% last logged out.</#FF7E5E>
-  error_no_homes_set_other: <#FF7E5E>%1% has not set any homes!</#FF7E5E>
-  error_home_invalid_other: <#FF7E5E>%1% does not have a home set named "%2%"</#FF7E5E>
-  error_edit_home_maximum_public_homes: <#FF7E5E>You can only make a maximum of %1% homes public.</#FF7E5E>
-  error_illegal_target_coordinates: <#FF7E5E>Cancelled teleport as it exceeds the possible game world limits.</#FF7E5E>
-  error_no_players_online: <#FF7E5E>There are no players online who could teleport to you.</#FF7E5E>
-  error_no_importers_available: <#FF7E5E>No importers are currently available. Please check the</#FF7E5E> <italic><#FF7E5E><click:open_url:'https://william278.net/docs/huskhomes/importing-data'><hover:show_text:'<#FF7E5E>Click to open link</#FF7E5E>'>plugin docs</hover></click></#FF7E5E></italic> <#FF7E5E>for more details.</#FF7E5E>
+  error_home_invalid: <#ef4444>Tuota kotia ei ole olemassa
+  error_warp_invalid: <#ef4444>Tuota warppia ei ole olemassa
+  error_insufficient_funds: '<#ef4444>SInulla ei ole tarpeeksi rahaa (Hinta: %1%)'
+  error_edit_home_privacy_already_public: <#ef4444>Tämä koti on jo asetettu julkiseksi
+  error_edit_home_privacy_already_private: <#ef4444>Tämä koti on jo asetettu yksityiseksi
+  error_no_homes_set: <#ef4444>Et ole asettanut kotia
+  error_no_public_homes_set: <#ef4444>Julkisia koteja ei ole asetettu
+  error_no_warps_set: <#ef4444>Warppeja ei ole asetettu
+  error_unknown_public_home: <#ef4444>Nimellä <#facc15>%1%</#facc15> ei löytynyt julkista kotia
+  error_public_home_invalid: <#ef4444>Nimellä <#facc15>%2%</#facc15> ei löytynyt pelaajan <#facc15>%1%</#facc15> julkista kotia
+  error_set_home_maximum_homes: <#ef4444>Voit asettaa vain yhden kodin
+  error_set_home_not_enough_slots: <#ef4444>Olet jo asettanut kodin
+  error_spawn_not_set: <#ef4444>Spawnia ei ole asetettu
+  error_no_teleport_requests: <#ef4444>Sinulla ei ole odottavia teleporttauspyyntöjä
+  error_teleport_warmup_stand_still: <#ef4444>Sinun täytyy olla paikallaan aloittaaksesi teleporttauksen
+  error_teleport_request_expired: <#ef4444>Lähettämäsi teleporttauspyyntö on vanhentunut
+  error_teleport_request_sender_not_online: <#ef4444>Teleporttauspyynnön lähettäjä ei ole enää paikalla
+  error_ignoring_teleport_requests: <#ef4444>Sinulla on teleporttauspyynnöt pois käytöstä <#facc15><click:run_command:'/huskhomes:tpignore'><hover:show_text:'<#facc15>Laita teleporttauspyynnöt päälle painamalla</#facc15>'>[Ota käyttöön...]</hover></click></#facc15>
+  error_invalid_teleport_request: <#ef4444>Sinulla ei ole odottavia teleporttauspyyntöjä pelaajalta %1%
+  error_teleport_request_self: <#ef4444>Et voi lähettää teleporttauspyyntöä itsellesi.
+  error_target_not_found: <#ef4444>Pelaajaa ei löytynyt
+  error_player_not_found: <#ef4444>Pelaajaa %1% ei löytynyt
+  error_player_not_teleportable: <#ef4444>Pelaaja <#facc15>%1%</#facc15> ei voi teleportata juuri nyt
+  error_rtp_restricted_world: <#ef4444>Et voi satunnaisteleportata tässä maailmassa
+  error_on_cooldown: <#ef4444>Sinun on odotettava <#facc15>%1%</#facc15> ennen kuin voit yrittää uudelleen
+  error_console_command_only: <#ef4444>Tämä komento voidaan suorittaa vain konsolista
+  error_rtp_randomization_timeout: <#ef4444>Turvallista paikkaa teleportata ei löytynyt
+  error_invalid_world: <#ef4444>Maailmaa ei ole olemassa
+  error_no_offline_position: <#ef4444>Ei löytynyt sijaintia, missä pelaaja <#facc15>%1%</#facc15> viimeksi kirjautui ulos
+  error_no_homes_set_other: <#ef4444><#facc15>%1%</#facc15> ei ole asettanut yhtään kotia
+  error_home_invalid_other: <#ef4444><#facc15>%1%</#facc15> ei ole asettanut kotia nimeltä <#facc15>%2%
+  error_edit_home_maximum_public_homes: <#ef4444>Voit tehdä enintään <#facc15>%1%</#facc15> kodin julkiseksi
+  error_illegal_target_coordinates: <#ef4444>Teleporttaus peruutettu, koska se ylittää maailman mahdolliset rajat
+  error_no_players_online: <#ef4444>Palvelimella ei ole pelaajia, jotka voisivat teleportata luoksesi
+  error_no_importers_available: <#ef4444>No importers are currently available. Please check the <#FF7E5E><click:open_url:'https://william278.net/docs/huskhomes/importing-data'><hover:show_text:'<#FF7E5E>Click to open link</#FF7E5E>'>plugin docs</hover></click></#FF7E5E></italic> <#FF7E5E>for more details.
   home_command_description: Teleporttaa kotiin
   sethome_command_description: Asettaa uuden kodin
   delhome_command_description: Poistaa aiemmin asettaman kodin
