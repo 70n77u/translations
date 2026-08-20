@@ -143,7 +143,7 @@ locales:
   error_warp_description_length: <#ef4444>Warpin kuvauksen tulee olla alle <#facc15>255</#facc15> merkkiä pitkä
   error_warp_description_characters: <#ef4444>Warpin kuvaus voi sisältää vain kirjaimia, numeroita, merkkejä, välilyöntejä, tavuviivoja (-) ja alaviivoja (_)
   error_no_permission: <#ef4444>Sinulla ei ole oikeutta suorittaa kyseistä komentoa
-  error_invalid_syntax: <#ef4444>Virheellinen syntaksi. Käyttö:</#ef4444> <#FF7E5E><click:suggest_command:'%1%'><hover:show_text:'<#FF7E5E>Click to suggest</#FF7E5E>'>%1%</hover></click></#FF7E5E></italic>
+  error_invalid_syntax: <#ef4444>Virheellinen syntaksi. Käyttö:</#ef4444> <#facc15><click:suggest_command:'%1%'><hover:show_text:'<white>Lisää chattiin painamalla</white>'>%1%</hover></click>
   error_already_teleporting: <#ef4444>Odota, kunnes nykyinen teleporttaus on valmis
   error_no_last_position: <#ef4444>Sinulla ei ole viimeistä sijaintia, johon palata
   error_in_game_only: <#ef4444>That command can only be run in-game
@@ -167,7 +167,7 @@ locales:
   error_teleport_request_sender_not_online: <#ef4444>Teleporttauspyynnön lähettäjä ei ole enää paikalla
   error_ignoring_teleport_requests: <#ef4444>Sinulla on teleporttauspyynnöt pois käytöstä <#facc15><click:run_command:'/huskhomes:tpignore'><hover:show_text:'<#facc15>Laita teleporttauspyynnöt päälle painamalla</#facc15>'>[Ota käyttöön...]</hover></click></#facc15>
   error_invalid_teleport_request: <#ef4444>Sinulla ei ole odottavia teleporttauspyyntöjä pelaajalta %1%
-  error_teleport_request_self: <#ef4444>Et voi lähettää teleporttauspyyntöä itsellesi.
+  error_teleport_request_self: <#ef4444>Et voi lähettää teleporttauspyyntöä itsellesi
   error_target_not_found: <#ef4444>Pelaajaa ei löytynyt
   error_player_not_found: <#ef4444>Pelaajaa %1% ei löytynyt
   error_player_not_teleportable: <#ef4444>Pelaaja <#facc15>%1%</#facc15> ei voi teleportata juuri nyt
