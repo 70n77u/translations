@@ -4718,6 +4718,16 @@ menus:
         - ''
         - '%1%'
         - '%2%'
+      voice-chat:
+        choices:
+          1: "Salli voice chat"
+          2: "Estä voice chat"
+        name: "<gray>Voice chat"
+        lore:
+          - <yellow>Muuta painamalla
+          - ''
+          - '%1%'
+          - '%2%'
   world-creation:
     title: <dark_green>Muokkaa uutta maailmaasi..
     turned-on: <green>  ⏺ <underlined>
