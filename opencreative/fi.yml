@@ -4662,17 +4662,29 @@ menus:
         choices:
           '1': Palikat voivat muuttaa tilaansa
           '2': Palikat eivät muutu itsestään
+          '3': Palikat eivät muutu
         name: <aqua>Palikoiden muuttuminen
         lore:
         - <yellow>Muuta painamalla
         - ''
         - '%1%'
         - '%2%'
+        - '%3%'
       like-messages:
         choices:
           '1': Näytä /like ilmoitukset
           '2': Piilota /like ilmoitukset
         name: <green>Ilmoita maailman tykkäyksistä
+        lore:
+        - <yellow>Muuta painamalla
+        - ''
+        - '%1%'
+        - '%2%'
+      spawn-protection:
+        choices:
+          1: "Suojaa"
+          2: "Salli vahinko"
+        name: "<aqua>Spawn suojaus"
         lore:
         - <yellow>Muuta painamalla
         - ''
